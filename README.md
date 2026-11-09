@@ -1,72 +1,116 @@
-# Satori
+<p align="center">
+  <img src="docs/screenshots/satori-logo.png" width="420" alt="satori. wordmark in Doto dot-matrix font with recording red dot" />
+</p>
 
-**Fully offline voice recorder, live transcriber, note & to-do synthesizer, and personal mind map for Android — powered entirely by on-device AI.**
+<h3 align="center">
+  Fully offline voice recorder, live transcriber, journal & meeting synthesizer, and personal mind map for Android — powered 100% by on-device AI.
+</h3>
 
-![Offline](https://img.shields.io/badge/100%25_Offline-On--Device_AI-0A0A0A?style=flat&logoColor=white)
-![Android](https://img.shields.io/badge/Android-10%2B%20(API%2029--35)-3DDC84?logo=android&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-7F52FF?logo=kotlin&logoColor=white)
-![Architecture](https://img.shields.io/badge/ABI-arm64--v8a-0091BD)
-![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
-
-Satori (`com.satori`) captures voice notes and meetings with zero startup lag, transcribes speech live as you talk, synthesizes clean first-person notes, extracts grounded to-dos (with exact-alarm reminders) and ideas, translates spoken English and German in real time, and connects recurring topics across your recordings into an interactive mind map.
-
-**Everything runs locally on your phone.** Voice activity detection (`Silero VAD`), streaming and post-stop speech recognition (`NVIDIA Parakeet v3/v2`, `Cohere Transcribe`, `AI4Bharat IndicConformer`), the Malayalam-to-English neural reading bridge (`IndicTrans2 200M`), and the instruction-tuned language models (`Gemma 3 1B`, `Gemma 4 E2B`, `Qwen 3.5 0.8B`) execute on-device via `sherpa-onnx`, ONNX Runtime `1.28.2`, and custom-patched `llama.cpp` ARM64 kernels. There are no accounts, no cloud servers, and no telemetry; the network is touched only when downloading model weights from Hugging Face.
-
-Built around the **Grille** typographic design system, Satori is engineered for both standard Android displays (`1080×2640`) and the **Motorola razr 70 plus** external cover screen (`1080×1272`, `480×410 dp`), including hardware power-key double-press capture over the lock screen and automatic layout clearance around the `232 px` physical camera band.
+<p align="center">
+  <img src="https://img.shields.io/badge/100%25_Offline-On--Device_AI-0A0A0A?style=flat&logoColor=white" alt="100% Offline On-Device AI" />
+  <img src="https://img.shields.io/badge/Android-10%2B%20(API%2029--35)-3DDC84?logo=android&logoColor=white" alt="Android 10+" />
+  <img src="https://img.shields.io/badge/Kotlin-2.1.0-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin 2.1.0" />
+  <img src="https://img.shields.io/badge/ABI-arm64--v8a-0091BD" alt="arm64-v8a" />
+  <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License Apache 2.0" />
+</p>
 
 ---
 
-## Screenshots
+## Why I Built Satori
 
-### External Cover Screen (`1080×1272` · Motorola razr 70 plus)
+I wanted a way to capture thoughts on the go with a quick double-press of a physical hardware key—without unlocking my phone or getting pulled into a screen—and have those notes accumulate over time into a living mind map.
 
-Satori adapts natively to the `4.0"` external cover display (`displayId = 1`), keeping all interactive controls clear of the `232 px` hardware camera and flash band in both standard (`ROTATION_0`) and tent/flipped (`ROTATION_180`) postures.
+I use Satori every day for **journaling**, **quick thoughts**, **ideas**, **self-development**, **local AI and engineering notes**, and **transcribing meetings**. I didn't have the time to audition a dozen different note-taking apps, and I refused to pay recurring subscriptions just to hand my private voice recordings and personal reflections over to someone else's cloud servers. Instead, I built this.
+
+Every stage of Satori runs **100% offline on the phone**:
+- **Live speech recognition** while you walk or sit in a meeting (`NVIDIA Parakeet v3/v2`, `Cohere Transcribe`, `AI4Bharat IndicConformer`, and `Silero VAD` via `sherpa-onnx` and ONNX Runtime `1.28.2`).
+- **First-person note synthesis, session naming, to-do extraction, and mind-map linking** via local instruction-tuned language models (`Gemma 3 1B`, `Gemma 4 E2B`, `Qwen 3.5 0.8B`) running on custom-patched `llama.cpp` ARM64 kernels.
+- **Neural reading & translation bridges** for live **English ↔ German** conversation translation and an internal **Malayalam → English** reading pass (`AI4Bharat IndicTrans2 200M`) so Malayalam voice notes receive the same structured English notes, reminders, and mind-map connections.
+- **Zero accounts, zero cloud servers, zero telemetry.** The network is touched only when downloading model weights directly from Hugging Face.
+
+I am sharing Satori as open source hoping it will be useful to anyone who wants to clone, customize, and build a private voice companion for themselves or for the people they love.
+
+---
+
+## Screenshots & Everyday Use Cases
+
+Built around the **Grille** typographic design system (`Space Grotesk` + `Doto` dot-matrix tabular counters + `#D71921` recording red on `#000000` OLED black), Satori is engineered for both standard Android displays (`1080×2640`) and the **Motorola razr 70 plus** external cover screen (`1080×1272`, `480×410 dp`), including hardware power-key double-press capture over the lock screen and automatic layout clearance around the `232 px` physical camera band.
+
+### 1. External Cover Screen (`1080×1272` · Eyes-Free Capture on the Go)
+
+Double-pressing the physical power key wakes the folded phone straight into recording (`QuickKeyActivity`), keeping all interactive controls clear of the `232 px` hardware camera and flash band in both standard (`ROTATION_0`) and tent/flipped (`ROTATION_180`) postures.
 
 <p align="center">
-  <img src="docs/screenshots/cover-recording.png" width="48%" alt="Cover Screen Live Recording" />
-  <img src="docs/screenshots/cover-home.png" width="48%" alt="Cover Screen Home and Recordings" />
+  <img src="docs/screenshots/cover-recording.png" width="48%" alt="Cover Screen Live Recording via Power Key" />
+  <img src="docs/screenshots/cover-home.png" width="48%" alt="Cover Screen Home Across Journal, Idea, and Meeting Categories" />
 </p>
 <p align="center">
   <img src="docs/screenshots/cover-translate.png" width="48%" alt="Cover Screen Live German to English Translation" />
-  <img src="docs/screenshots/cover-mindmap.png" width="48%" alt="Cover Screen Mind Map" />
+  <img src="docs/screenshots/cover-mindmap.png" width="48%" alt="Cover Screen Personal Mind Map" />
 </p>
 
-| Cover View | What It Shows |
+| Cover View | Use Case & What It Shows |
 | :--- | :--- |
-| **Live Recording** (`cover-recording.png`) | `Doto` dot-matrix timer, `Voice note` category selector, `EN` language key, streaming `Parakeet v3` transcript, and the tactile **Grille** `Stop` button positioned above the camera band. |
-| **Cover Home** (`cover-home.png`) | Compact session list with tabular `Doto` durations, category tags, search/mind-map/settings actions, and one-tap **Grille** recording. |
-| **Live Translation** (`cover-translate.png`) | Real-time **German → English** translation (`Record as → Translate`), pairing the spoken German transcript with live English translations. |
-| **Cover Mind Map** (`cover-mindmap.png`) | Interactive radial theme graph centered on `You` (`10` recordings), adapted for the square cover viewport. |
+| **Quick Power-Key Capture** (`cover-recording.png`) | Capturing an evening walk reflection without unfolding the phone: `Doto` dot-matrix timer, `Voice note` category selector, `EN` language key, streaming `Parakeet v3` transcript, and the tactile **Grille** `Stop` button positioned above the camera band. |
+| **Cover Home** (`cover-home.png`) | Browsing recent **Journal**, **Voice note**, and **Meeting** sessions on the folded display with tabular `Doto` durations, search/mind-map/settings actions, and one-tap **Grille** recording. |
+| **Live Translation** (`cover-translate.png`) | Real-time **German → English** translation (`Record as → Translate`), pairing the spoken German transcript with live English translations on the cover display. |
+| **Cover Mind Map** (`cover-mindmap.png`) | Interactive radial knowledge graph centered on `You` (`10` recordings across `Journaling`, `Local LLMs & AI`, `Self-dev`, `Quick Ideas`, `Meetings`, `Deep Work`, and `Habits`), adapted for the square cover viewport. |
 
 ---
 
-### Inner Display (`1080×2640` · Full Screen)
+### 2. Journaling, Categories, Meetings & Grounded To-Dos (`1080×2640` · Inner Display)
+
+Each recording belongs to a category—**Voice note**, **Meeting**, **Idea**, **To-do**, or custom categories like **Journal**—that governs how the on-device LLM structures your notes and whether spoken action items become scheduled reminders or ideas.
 
 <p align="center">
-  <img src="docs/screenshots/inner-home.png" width="32%" alt="Inner Screen Home" />
-  <img src="docs/screenshots/inner-recording.png" width="32%" alt="Inner Screen Active Recording" />
-  <img src="docs/screenshots/inner-details.png" width="32%" alt="Inner Screen Synthesized Notes" />
+  <img src="docs/screenshots/inner-home.png" width="24%" alt="Inner Screen Home" />
+  <img src="docs/screenshots/inner-recording.png" width="24%" alt="Inner Screen Active Recording" />
+  <img src="docs/screenshots/inner-record-as.png" width="24%" alt="Record As Category and Language Sheet" />
+  <img src="docs/screenshots/inner-categories.png" width="24%" alt="Categories Management Screen" />
 </p>
 <p align="center">
-  <img src="docs/screenshots/inner-transcript.png" width="32%" alt="Inner Screen Transcript and Audio Player" />
-  <img src="docs/screenshots/inner-mindmap.png" width="32%" alt="Inner Screen Mind Map" />
-  <img src="docs/screenshots/inner-models.png" width="32%" alt="Inner Screen On-Device Model Manager" />
+  <img src="docs/screenshots/inner-journal.png" width="24%" alt="Journaling and Self-Development Notes" />
+  <img src="docs/screenshots/inner-details.png" width="24%" alt="Technical and Local LLM Notes" />
+  <img src="docs/screenshots/inner-transcript.png" width="24%" alt="Meeting Transcript and Seek-to-Line Audio Player" />
+  <img src="docs/screenshots/inner-todos-suggested.png" width="24%" alt="Grounded To-Dos and Suggested Inbox Sheet" />
 </p>
 
-| Inner View | What It Shows |
+| Inner View | Use Case & What It Shows |
 | :--- | :--- |
-| **Home** (`inner-home.png`) | Open **To do** list, `1 suggested` inbox link, `1 idea` link, chronological **Recordings** with `Doto` durations, and the docked **Grille** record bar. |
+| **Home** (`inner-home.png`) | Open **To do** list (`Block 2 hours for deep work before 10 AM`), `1 suggested` inbox link, `1 idea` link, chronological **Recordings** across `Journal`, `Idea`, `Meeting`, and `Voice note`, and the docked **Grille** record bar. |
 | **Active Recording** (`inner-recording.png`) | Real-time streaming transcription (`Parakeet v3`) with live partial utterance tracking and instant `Record as` / language switching. |
-| **Recording Notes** (`inner-details.png`) | First-person notes synthesized on-device from the transcript (`On-device LLM latency and KV cache`), with expandable segment provenance (`Show what was said`). |
-| **Transcript & Player** (`inner-transcript.png`) | Timestamped segment view with the built-in audio player (`Play from here` on any line) and file size readout. |
-| **Mind Map** (`inner-mindmap.png`) | Ego-centric knowledge graph (`Core`, `Recent`, `All` filters, theme search, pinned themes, and recording counts). |
-| **On-Device Models** (`inner-models.png`) | Local model manager (`Parakeet v3`, `Parakeet v2`, `Cohere Transcribe`, `Malayalam (AI4Bharat)`, *Better transcript after Stop*, and custom recognition vocabulary). |
+| **`Record as` Sheet** (`inner-record-as.png`) | Switching category (`Voice note`, `Meeting`, `Idea`, `To-do`, `Translate`) or spoken language (`English or German`, `Malayalam`) before or during a recording. |
+| **Categories Manager** (`inner-categories.png`) | Built-in categories plus custom user categories (`Journal — Daily reflections, habits and self-dev notes`), each mapped to a note-synthesis style (`Short notes and to-dos`, `Decisions, facts and to-dos`, or `Sections for a long meeting`). |
+| **Journaling & Self-Dev** (`inner-journal.png`) | First-person journal synthesis (`Evening journal: deep work and focus`) distilled from an evening walk reflection, with expandable transcript provenance (`Show what was said`). |
+| **Technical & LLM Notes** (`inner-details.png`) | Structured engineering notes (`On-device LLM latency and KV cache`) capturing concrete numbers and trade-offs in first-person voice without generic AI filler. |
+| **Meeting Transcript & Player** (`inner-transcript.png`) | Timestamped meeting transcript (`Architecture sync: local LLM latency`) with the built-in audio player (`Play from here` on any line) and file size readout. |
+| **To-Dos & Suggested Inbox** (`inner-todos-suggested.png`) | Calendar-grounded open **To do** reminders alongside the **Suggested to-dos** review sheet (`Keep`, `Dismiss`, `Move to ideas`, `Keep all`) for tasks inferred from meetings and journal reflections. |
 
 ---
 
-## Why Satori?
+### 3. Personal Mind Map, Theme Nodes, Ideas & Local Models (`1080×2640` · Inner Display)
 
-- **100% Offline & Private**: Every byte of audio, every transcript segment, every synthesized note, and your entire mind map live in a local Room SQLite database on your phone. Nothing is ever uploaded to a server.
+Over days and weeks, Satori connects your recordings into a two-level knowledge graph (**Themes** and per-recording **Topics**) and gathers spoken wishes into a dedicated **Ideas** collection.
+
+<p align="center">
+  <img src="docs/screenshots/inner-mindmap.png" width="24%" alt="Mind Map Overview" />
+  <img src="docs/screenshots/inner-mindmap-node.png" width="24%" alt="Mind Map Theme Node Drill-Down for Journaling" />
+  <img src="docs/screenshots/inner-ideas.png" width="24%" alt="Ideas Collection Grouped by Recording" />
+  <img src="docs/screenshots/inner-models.png" width="24%" alt="On-Device Speech and LLM Model Manager" />
+</p>
+
+| Inner View | Use Case & What It Shows |
+| :--- | :--- |
+| **Mind Map Overview** (`inner-mindmap.png`) | Ego-centric knowledge graph centered on `You` (`Core`, `Recent`, `All` filters, theme search, and recording counts across `Journaling`, `Local LLMs & AI`, `Self-dev`, `Quick Ideas`, `Meetings`, `Deep Work`, `Streaming STT`, and `Habits`). |
+| **Theme Node Drill-Down** (`inner-mindmap-node.png`) | Inside the `Journaling` theme node (`4 recordings · Pinned in Core`): radial sub-graph of child topics (`Deep work`, `Morning walk`, `Evening review`, `Attention`, `Sleep & energy`, `Weekly reset`, `Reading habit`, `Stoic notes`), AI-written **Summary across recordings**, and linked **Topics in this theme**. |
+| **Ideas Collection** (`inner-ideas.png`) | Every spoken wish or idea extracted across your `Journal` and `Meeting` recordings, grouped by source session and convertible into a scheduled to-do in one tap. |
+| **On-Device Model Manager** (`inner-models.png`) | Local model manager (`Parakeet v3`, `Parakeet v2`, `Cohere Transcribe`, `Malayalam (AI4Bharat)`, *Better transcript after Stop*, and custom recognition vocabulary). |
+
+---
+
+## Core Engineering Highlights
+
+- **100% Offline & Private**: Every byte of audio, every transcript segment, every synthesized note, and your entire mind map live in a local Room SQLite database (`AppDatabase` v13) on your phone. Nothing is ever uploaded to a server.
 - **"The Recorder Wins" Preemption**: Starting a recording—from the Home screen, the cover screen, or a double-press of the physical power key over the lock screen—opens the microphone immediately and preempts any running background AI task within milliseconds.
 - **First-Person Notes, Zero AI Slop**: Generic meeting bots write third-person filler (*"The speaker discusses..."*). Satori's prompts and GBNF grammar schemas force the local LLM to write direct, first-person notes (*"Pre-faulting GGUF weights at 120 MB/s prevents audio underruns"*), verified by `PromptEcho` filters.
 - **Calendar-Accurate To-Dos without LLM Math**: Small language models hallucinate calendar arithmetic. Satori spots relative dates and times deterministically (`TodoTimeResolver` for English/German and `MalayalamTodoCues` for Malayalam) relative to the recording's start timestamp, passing verified `T1`/`T2` tokens to the model and grounding every extracted item against the cited segment (`TodoGrounding`).
@@ -74,12 +118,12 @@ Satori adapts natively to the `4.0"` external cover display (`displayId = 1`), k
 
 ---
 
-## Core Capabilities
+## Deep Dive: How Satori Works
 
 ### 1. Instant Capture, Categories & Hardware Power Key
 - **Zero-wait microphone capture**: `RecordingService` opens `AudioRecord` (16 kHz mono PCM) the instant you tap **Record**, buffering audio while the speech recognizer loads in the background so the first words you speak are never lost.
 - **Categories & `Record as`**:
-  - Ships with four starter categories—**Voice note**, **Meeting**, **Idea**, and **To-do**—plus custom user-defined categories (`Settings → Categories`). Each category maps to a recording style (`SIMPLE_LISTENING`, `SHORT_MEETING`, or `LONG_MEETING`) that governs how its notes and action items are structured.
+  - Ships with four starter categories—**Voice note**, **Meeting**, **Idea**, and **To-do**—plus custom user-defined categories (`Settings → Categories`, such as **Journal**). Each category maps to a recording style (`SIMPLE_LISTENING`, `SHORT_MEETING`, or `LONG_MEETING`) that governs how its notes and action items are structured.
   - Switch categories before recording, mid-recording via the top `Record as` chip, or retroactively on any finished recording via **Change type** (which rewrites the notes in the new category's style while preserving your title and to-dos).
 - **Spoken languages & mid-recording switching**:
   - **English and German** out of the box via `NVIDIA Parakeet TDT 0.6B v3` (`~670 MB`).
@@ -127,7 +171,7 @@ Compact 1B language models (`Gemma 3 1B`) struggle to parse Malayalam script dir
 
 ### 5. Cross-Recording Mind Map (`MindMapScreen`)
 - **Two-level knowledge graph centered on `You`**:
-  - **Themes (`MindNodeKind.THEME`)**: Recurring subjects across your recordings (e.g., *Local LLMs*, *Quantization*, *KV Cache*). When multiple recordings link to a theme, `RefreshThemeSummariesUseCase` writes a 2–4 sentence cross-recording summary of what is known and decided (newest recording wins when facts change).
+  - **Themes (`MindNodeKind.THEME`)**: Recurring subjects across your recordings (e.g., *Journaling*, *Local LLMs & AI*, *Deep Work*). When multiple recordings link to a theme, `RefreshThemeSummariesUseCase` writes a 2–4 sentence cross-recording summary of what is known and decided (newest recording wins when facts change).
   - **Topics (`MindNodeKind.TOPIC`)**: What an individual recording said about a theme (1–4 grounded words + up to 3 bullet points), linking directly back to the recording.
 - **Interactive Canvas & Accessible List**: Toggle between the 2D radial graph (**Show as map**) and a structured list (**Show as list**), filter by **Core** (pinned + top themes), **Recent** (last 7 days), or **All**, and batch-index older recordings via **Map N older recordings**.
 
