@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grille strings for onboarding (g_onb_) and search (g_search_). English source; German in
+     values-de/strings_grille_onboarding.xml. Names, units and licence titles are not translated. -->
+<resources>
+    <!-- Onboarding: frame -->
+    <string name="g_onb_step">Step %1$d of %2$d</string>
+    <string name="g_onb_continue">Continue</string>
+
+    <!-- Onboarding: what a download needs. %1$s is the size, e.g. "670 MB" (g_settings_size_). -->
+    <string name="g_onb_download_note">About %1$s. It downloads once and needs an internet connection now; after that everything works offline.</string>
+
+    <!-- Onboarding: AI model -->
+    <string name="g_onb_llm_title">AI notes</string>
+    <!-- That it is optional is said once, by g_onb_llm_later under it -->
+    <string name="g_onb_llm_body">A small AI model writes notes and to-dos from recordings, right on this phone.</string>
+    <string name="g_onb_llm_later">Transcription works without it. The model can be downloaded later in Settings.</string>
+    <string name="g_onb_llm_downloading">Downloading the AI model</string>
+    <string name="g_onb_llm_ready_title">AI model ready</string>
+    <string name="g_onb_llm_ready_body">Notes and to-dos are now written on this phone.</string>
+
+    <!-- Onboarding: actions -->
+    <string name="g_onb_download">Download</string>
+    <string name="g_onb_not_now">Not now</string>
+    <string name="g_onb_retry">Try again</string>
+
+    <!-- Onboarding: download progress and failure -->
+    <string name="g_onb_percent">%1$d%%</string>
+    <string name="g_onb_megabytes" translatable="false">%1$d / %2$d\u00A0MB</string>
+    <string name="g_onb_megabytes_so_far" translatable="false">%1$d\u00A0MB</string>
+    <string name="g_onb_resuming">Resuming from %1$d\u00A0MB</string>
+    <!-- A failed download names its cause. %1$s in the storage text is the size. -->
+    <string name="g_onb_failed_title">Download failed</string>
+    <string name="g_onb_failed_body">The download stopped before it finished. Try again.</string>
+    <string name="g_onb_failed_connection_title">No internet connection</string>
+    <string name="g_onb_failed_connection_body">The model downloads once. Connect to Wi-Fi or mobile data and try again.</string>
+    <string name="g_onb_failed_storage_title">Not enough storage</string>
+    <string name="g_onb_failed_storage_body">It needs about %1$s. Free up some space on this phone and try again.</string>
+    <string name="g_onb_failed_server_title">The download server is not answering</string>
+    <string name="g_onb_failed_server_body">The problem is on the server\'s side. Try again in a few minutes.</string>
+
+    <!-- Search -->
+    <string name="g_search_hint">Search recordings</string>
+    <string name="g_search_clear">Clear search</string>
+    <string name="g_search_prompt">Search what was said, notes, names and places.</string>
+    <string name="g_search_none">No recording matches this search.</string>
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen: the to-do list, Record as and the starter categories. English source; German in
+     values-de/strings_grille_home.xml. The older search texts (g_search_hint, _clear, _prompt and
+     _none) stay in strings_grille_onboarding.xml, where they were written. -->
+<resources>
+    <!-- Home -->
+    <string name="g_home_empty">Tap Record and start talking.</string>
+    <string name="g_home_recordings">Recordings</string>
+    <!-- %1$s is a length such as 3:32, which TalkBack reads instead of the dotted digits -->
+    <string name="g_home_length_cd">Length %1$s</string>
+    <!-- Two facts on one line, such as "Today, 09:07 · Meeting" or "Today, 09:07 · 3 matches" -->
+    <string name="g_home_meta" translatable="false">%1$s · %2$s</string>
+    <string name="g_home_error_load">The recordings couldn\'t be loaded. Restart the app and try again.</string>
+    <string name="g_home_error_create">The recording couldn\'t be started. Tap Record to try again.</string>
+    <!-- Shown once on home after the recorder deleted its recording because no word was recognized in it -->
+    <string name="g_home_nothing_said">Nothing was said, so the recording wasn\'t kept.</string>
+    <!-- After the date of a recording being finished, in place of its step, once too little was
+         said in it for notes: "Today, 09:07 · Too short for notes: about 20 words are needed".
+         %1$d is the words notes need, 20. -->
+    <plurals name="g_home_notes_too_short">
+        <item quantity="one">Too short for notes: about %1$d word is needed</item>
+        <item quantity="other">Too short for notes: about %1$d words are needed</item>
+    </plurals>
+
+    <!-- Record as -->
+    <string name="g_record_as_title">Record as</string>
+    <!-- The chip under the grille, for TalkBack; %1$s is the category it records as -->
+    <string name="g_record_as_chip_cd">Record as %1$s, change</string>
+    <!-- Under Translate; %1$s is the language it translates into ("English", "Deutsch") -->
+    <string name="g_record_as_translate_into">Into %1$s</string>
+    <string name="g_record_as_edit">Edit categories</string>
+    <!-- Under Translate while Malayalam is chosen in the sheet: the live translation reads only the
+         categories' languages, so the row is off. -->
+    <string name="g_record_as_translate_en_de">English or German only</string>
+    <!-- Under the chip under the grille while the one-tap Record records in Malayalam (since
+         0.6.0): the chip names the category only, as on the cover screen it has no room for both. -->
+    <string name="g_record_as_in_ml">In Malayalam</string>
+
+    <!-- Names of the starter categories, as they are first created -->
+    <string name="g_category_voice_note">Voice note</string>
+    <string name="g_category_meeting">Meeting</string>
+    <string name="g_category_idea">Idea</string>
+    <string name="g_category_todo">To-do</string>
+
+    <!-- To do -->
+    <string name="g_todo_heading">To do</string>
+    <string name="g_todo_show_all">Show all %1$d</string>
+    <plurals name="g_todo_suggested">
+        <item quantity="one">%d suggested</item>
+        <item quantity="other">%d suggested</item>
+    </plurals>
+    <string name="g_todo_mark_done">Mark as done</string>
+    <string name="g_todo_mark_undone">Mark as not done</string>
+    <string name="g_todo_edit">Edit</string>
+    <string name="g_todo_done">Done</string>
+    <string name="g_todo_undo">Undo</string>
+    <string name="g_todo_error">The change to the to-do wasn\'t saved. Try again.</string>
+
+    <!-- Due line under a to-do: "Today 9:00", "Tomorrow", "Fri 9:00", "Oct 16". %1$s is the day,
+         %2$s the time. -->
+    <string name="g_todo_today">Today</string>
+    <string name="g_todo_tomorrow">Tomorrow</string>
+    <string name="g_todo_day_time" translatable="false">%1$s %2$s</string>
+    <!-- %1$s is the due line, such as "Oct 8" or "Today 9:00" -->
+    <string name="g_todo_overdue">Overdue · %1$s</string>
+    <!-- What TalkBack adds after the text of a to-do; %1$s is the due line -->
+    <string name="g_todo_due_cd">due %1$s</string>
+    <string name="g_todo_overdue_cd">overdue, %1$s</string>
+
+    <!-- To-do sheet -->
+    <string name="g_todo_sheet_title">To-do</string>
+    <string name="g_todo_text_hint">What needs doing?</string>
+    <!-- %1$s is the title of the recording the to-do came from -->
+    <string name="g_todo_from">From %1$s</string>
+    <string name="g_todo_field_due">Due</string>
+    <string name="g_todo_due_none">No date</string>
+    <string name="g_todo_due_pick">Pick date</string>
+    <string name="g_todo_field_time">Time</string>
+    <string name="g_todo_time_none">No time</string>
+    <string name="g_todo_time_pick">Pick time</string>
+    <string name="g_todo_date_title">Due date</string>
+    <string name="g_todo_time_title">Due time</string>
+    <string name="g_todo_reminder_at">Reminder at %1$s</string>
+    <string name="g_todo_save">Save</string>
+    <string name="g_todo_delete">Delete</string>
+    <string name="g_todo_delete_title">Delete this to-do?</string>
+    <string name="g_todo_delete_body">It is removed from your list. This can\'t be undone.</string>
+
+    <!-- Suggested to-dos -->
+    <string name="g_todo_suggestions_title">Suggested to-dos</string>
+    <string name="g_todo_keep">Keep</string>
+    <string name="g_todo_dismiss">Dismiss</string>
+    <string name="g_todo_keep_all">Keep all</string>
+    <!-- In place of Keep and Dismiss once dismissed, next to Undo (g_todo_undo) -->
+    <string name="g_todo_dismissed">Dismissed</string>
+    <!-- For TalkBack; %1$s is the text of the to-do -->
+    <string name="g_todo_keep_cd">Keep: %1$s</string>
+    <string name="g_todo_dismiss_cd">Dismiss: %1$s</string>
+    <string name="g_todo_undo_cd">Undo: %1$s</string>
+
+    <!-- Notifications, which reminders need -->
+    <string name="g_todo_notify_title">Get reminders?</string>
+    <string name="g_todo_notify_body">Satori needs permission to show notifications, so it can remind you of your to-dos on time.</string>
+    <string name="g_todo_notify_allow">Allow</string>
+    <string name="g_todo_notify_later">Not now</string>
+    <string name="g_todo_reminders_off">Reminders are off</string>
+    <string name="g_todo_reminders_turn_on">Turn on</string>
+
+    <!-- Search -->
+    <plurals name="g_search_matches">
+        <item quantity="one">%d match</item>
+        <item quantity="other">%d matches</item>
+    </plurals>
+</resources>

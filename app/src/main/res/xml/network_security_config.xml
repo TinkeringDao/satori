@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Network Security Config for Satori.
+    targetSdk 28 and later already disable cleartext by default, but this file makes the
+    policy explicit and keeps it if that default or the targetSdk ever changes.
+
+    The app only communicates over HTTPS (model downloads from HuggingFace CDN).
+    No cleartext traffic is permitted in any build variant.
+
+    Certificate pinning is intentionally omitted: HuggingFace is a third-party public
+    CDN whose certificates rotate annually and whose CDN infrastructure is outside our
+    control. Pinning a third-party CDN creates availability risk (broken downloads on
+    cert rotation or model URL changes) that outweighs the security benefit.
+    Protection is provided by HTTPS with system CAs only (no user-installed certs).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust system CAs only — no user-installed certificates -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

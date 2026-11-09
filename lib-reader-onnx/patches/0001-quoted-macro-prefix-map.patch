@@ -1,0 +1,25 @@
+Satori's patch to the pinned SentencePiece (v0.2.1, third_party/sentencepiece), applied by
+lib-reader-onnx/src/main/cpp/CMakeLists.txt.
+
+For clang and gcc, SentencePiece adds -fmacro-prefix-map=<the top-level source folder>/='' to
+CMAKE_CXX_FLAGS without quotes, and CMake puts CMAKE_CXX_FLAGS into each compile command as it is.
+The NDK's clang takes that branch, and the top-level source folder is lib-reader-onnx/src/main/cpp
+in the checkout that builds. In a checkout whose path has a space or a parenthesis, the shell splits
+the flag or stops at the "(" with a syntax error, and none of SentencePiece's sources compiles.
+Quoted, the flag reaches the compiler as the one argument it is in a path without them, so a build
+in such a path (a checkout in /tmp) gets the same arguments and the same library as without the
+patch. The map changes no path anyway: SentencePiece's sources are not under that folder, and the
+CMakeLists.txt's own prefix maps make theirs relative. Mac host builds (src/test/cpp) use Apple's
+clang, which this branch leaves out.
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -57,7 +57,7 @@ if((CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND
+      CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 10.0) OR
+    (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND
+      CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 8.0))
+-  string(APPEND CMAKE_CXX_FLAGS " -fmacro-prefix-map=${CMAKE_SOURCE_DIR}/=''")
++  string(APPEND CMAKE_CXX_FLAGS " '-fmacro-prefix-map=${CMAKE_SOURCE_DIR}/='")
+ endif()
+ 
+ if (NOT DEFINED CMAKE_INSTALL_BINDIR)

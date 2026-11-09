@@ -1,0 +1,116 @@
+Satori's patch to the pinned llama.cpp (b9574), applied by lib-llama-android/src/main/cpp/CMakeLists.txt
+after 0002.
+
+A load with mmap copies the weights it repacks (CPU_KLEIDIAI, CPU_REPACK) out of the GGUF's mapping,
+and the mapping then holds those pages, mapped and cached, for as long as the model is loaded: 707 MB of
+Gemma 3 1B's 1,019 MB, 999 MB of Gemma 4 E2B's 3,194 MB. This hands each mapping, with the byte ranges
+of the tensors copied and of those used in place, to a hook ai_chat.cpp sets, once the last tensor is
+loaded and before the loader unmaps the head and tail it doesn't use, so all of the mapping is still
+mapped and the file still open. ai_chat.cpp gives the copied tensors' whole pages back there
+(MADV_PAGEOUT, then MADV_DONTNEED). No hook is called until ai_chat.cpp sets one, so llama.cpp behaves
+as it does without the patch. No line of it is within 3 lines of a hunk of 0001 or 0002, so each of the
+three still passes git apply --reverse --check once all are in, as the CMake loop needs.
+
+--- a/include/llama.h
++++ b/include/llama.h
+@@ -507,6 +507,18 @@ extern "C" {
+                                  size_t    n_paths,
+               struct llama_model_params    params);
+ 
++    // Satori (lib-llama-android/patches): called once by each model load with mmap, after its last
++    // tensor is loaded and before the loader unmaps the parts of the mapping it doesn't use, for
++    // each file of the model: its mapping (all of it still mapped), its open descriptor, and the
++    // byte ranges in the file of the tensors the load copied into other buffers and of those it
++    // uses in place, each as pairs of first and end offsets. No hook until one is set; null takes
++    // it away. A load calls it on its own thread, and loads here come one at a time.
++    typedef void (*llama_satori_mapped_hook)(void * addr, size_t size, int fd,
++                                             const size_t * copied, size_t n_copied,
++                                             const size_t * in_place, size_t n_in_place,
++                                             void * user_data);
++    LLAMA_API void llama_satori_set_mapped_hook(llama_satori_mapped_hook hook, void * user_data);
++
+     LLAMA_API void llama_model_save_to_file(
+             const struct llama_model * model,
+                         const char * path_model);
+--- a/src/llama-model-loader.cpp
++++ b/src/llama-model-loader.cpp
+@@ -1341,6 +1341,34 @@ void llama_model_loader::done_getting_tensors(bool partial) const {
+     }
+ }
+ 
++#include <mutex>
++
++// Satori (lib-llama-android/patches/0003-mapped-hook.patch): the byte ranges, per file, of the
++// tensors the load under way copied out of its mapping (repacked into another buffer type) and of
++// those it uses in place, as first and end offsets, for the hook ai_chat.cpp sets: once the copy is
++// done it gives the copied ones' pages back, while all of the mapping is still mapped.
++static std::mutex                       g_satori_mapped_mutex;
++static llama_satori_mapped_hook         g_satori_mapped_hook = nullptr;
++static void *                           g_satori_mapped_user = nullptr;
++static std::vector<std::vector<size_t>> g_satori_copied;
++static std::vector<std::vector<size_t>> g_satori_in_place;
++
++void llama_satori_set_mapped_hook(llama_satori_mapped_hook hook, void * user_data) {
++    std::lock_guard<std::mutex> lock(g_satori_mapped_mutex);
++    g_satori_mapped_hook = hook;
++    g_satori_mapped_user = user_data;
++}
++
++static void satori_note_tensor(uint16_t idx, size_t offs, size_t n_size, bool in_place) {
++    std::lock_guard<std::mutex> lock(g_satori_mapped_mutex);
++    auto & ranges = in_place ? g_satori_in_place : g_satori_copied;
++    if (idx >= ranges.size()) {
++        ranges.resize(idx + 1);
++    }
++    ranges[idx].push_back(offs);
++    ranges[idx].push_back(offs + n_size);
++}
++
+ void llama_model_loader::init_mappings(bool prefetch, llama_mlocks * mlock_mmaps) {
+     if (use_mmap) {
+         mappings.reserve(files.size());
+@@ -1372,6 +1400,11 @@ void llama_model_loader::init_mappings(bool prefetch, llama_mlocks * mlock_mmaps
+     for (const auto & it : weights_map) {
+         size_data += ggml_nbytes(it.second.tensor);
+     }
++
++    // Satori: this load notes its own tensors (0003-mapped-hook.patch)
++    std::lock_guard<std::mutex> lock(g_satori_mapped_mutex);
++    g_satori_copied.assign(files.size(), {});
++    g_satori_in_place.assign(files.size(), {});
+ }
+ 
+ void llama_model_loader::get_mapping_range(size_t * first, size_t * last, void ** addr, int idx, ggml_context * ctx) const {
+@@ -1570,8 +1603,10 @@ bool llama_model_loader::load_all_data(
+                 auto & mmap_used = mmaps_used[weight->idx];
+                 mmap_used.first  = std::min(mmap_used.first,  weight->offs);
+                 mmap_used.second = std::max(mmap_used.second, weight->offs + n_size);
++                satori_note_tensor(weight->idx, weight->offs, n_size, true);
+             } else {
+                 ggml_backend_tensor_set(cur, data, 0, n_size);
++                satori_note_tensor(weight->idx, weight->offs, n_size, false);
+             }
+         } else {
+             const auto & file = files.at(weight->idx);
+@@ -1678,6 +1713,21 @@ bool llama_model_loader::load_all_data(
+ 
+     // check if this is the last call and do final cleanup
+     if (size_done >= size_data) {
++        // Satori: the hook gets each mapping while all of it is still mapped (0003-mapped-hook.patch)
++        if (use_mmap) {
++            std::lock_guard<std::mutex> lock(g_satori_mapped_mutex);
++            if (g_satori_mapped_hook != nullptr) {
++                static const std::vector<size_t> none;
++                for (uint32_t idx = 0; idx < mappings.size(); idx++) {
++                    const auto & copied   = idx < g_satori_copied.size()   ? g_satori_copied[idx]   : none;
++                    const auto & in_place = idx < g_satori_in_place.size() ? g_satori_in_place[idx] : none;
++                    g_satori_mapped_hook(mappings.at(idx)->addr(), mappings.at(idx)->size(), files.at(idx)->file_id(),
++                                         copied.data(), copied.size() / 2, in_place.data(), in_place.size() / 2,
++                                         g_satori_mapped_user);
++                }
++            }
++        }
++
+         // unmap offloaded tensors and metadata
+         if (use_mmap) {
+             for (uint32_t idx = 0; idx < mappings.size(); idx++) {

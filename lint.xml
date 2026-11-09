@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lint settings for every module: lint reads the nearest lint.xml up the directory tree.
+     Severities stay at their defaults and there is no baseline, so new problems stay visible;
+     each exception below says why it is safe. -->
+<lint>
+    <!-- arm64-v8a only on purpose: libai-chat.so is built for arm64 alone (see the abiFilters
+         comment in app/build.gradle.kts), and the app runs on one arm64 phone. -->
+    <issue id="ChromeOsAbiSupport" severity="ignore" />
+
+    <!-- Vendored sherpa-onnx Kotlin, replaced from upstream on every sherpa-onnx update. -->
+    <issue id="WrongCommentType">
+        <ignore path="**/com/k2fsa/**" />
+    </issue>
+</lint>

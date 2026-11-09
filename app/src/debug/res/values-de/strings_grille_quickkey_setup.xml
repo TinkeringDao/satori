@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nur im Debug-Build: die Einrichtung der Ein-/Aus-Taste am Computer, mit ihren adb-Befehlen.
+     Release-Builds haben keinen dieser Texte. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_quickkey_setup_open">Am Computer einrichten</string>
+    <string name="g_quickkey_setup_title">Einmalige Einrichtung am Computer</string>
+    <string name="g_quickkey_setup_desc">Satori kann die Ein-/Aus-Taste nicht selbst belegen. Das Telefon mit einem Computer verbinden und diese Befehle dort mit adb ausführen.</string>
+    <string name="g_quickkey_copy">Befehle kopieren</string>
+    <string name="g_quickkey_share">Befehle teilen</string>
+</resources>

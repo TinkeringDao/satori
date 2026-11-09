@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug builds only: the power key's setup from a computer, with its adb commands, at the foot of
+     the power key's sheet (QuickKeySetup in src/debug). Release builds have none of these strings
+     (the owner's decision of 2026-10-15). German in values-de/strings_grille_quickkey_setup.xml. -->
+<resources>
+    <!-- The quiet row that opens the setup -->
+    <string name="g_quickkey_setup_open">Set up on a computer</string>
+    <string name="g_quickkey_setup_title">One-time setup from a computer</string>
+    <string name="g_quickkey_setup_desc">Satori can\'t bind the power key itself. Connect the phone to a computer and run these commands there with adb.</string>
+    <string name="g_quickkey_copy">Copy commands</string>
+    <string name="g_quickkey_share">Share commands</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The place of a recording: the setting, the line under the date on the details page and its
+     sheet, the Markdown file and copies, search. German in values-de/strings_grille_place.xml. -->
+<resources>
+    <!-- Settings, Recording section -->
+    <string name="g_place_save">Save the place</string>
+    <string name="g_place_save_desc">Stores where each recording starts, read by GPS; nothing leaves the phone. Uses a little battery at each start.</string>
+    <!-- Instead of g_place_save_desc. After Android's question was answered "Don't allow"; the
+         switch stays off, and the pill g_place_open_android_settings under it opens the app's page. -->
+    <string name="g_place_denied">Location isn\'t allowed, so no place is saved. Allow it in Android settings to turn this on.</string>
+    <!-- Instead of g_place_save_desc while only "Approximate" is allowed -->
+    <string name="g_place_approximate">Only the approximate location is allowed, so the place can be a few kilometres off. Allow the precise location in Android settings.</string>
+    <!-- Instead of g_place_save_desc while the phone's location is switched off -->
+    <string name="g_place_location_off">On, but location is off on this phone, so no place is saved. Turn it on in Android settings.</string>
+    <!-- The pill under the three lines above: it opens Android's page, not Satori's Settings -->
+    <string name="g_place_open_android_settings">Open Android settings</string>
+    <!-- Recording notification once the microphone is off, while the place of the recording is
+         still read (half a minute at most) -->
+    <string name="g_place_notif_saving">Saving the place</string>
+
+    <!-- Details page: the place under the date. More than 3 km from the place's centre, e.g. "Near Köln". -->
+    <string name="g_place_near">Near %1$s</string>
+    <!-- TalkBack action of the place under the date, which opens its sheet -->
+    <string name="g_place_show">Show the place</string>
+
+    <!-- The place's sheet -->
+    <string name="g_place_coordinates">Coordinates</string>
+    <string name="g_place_accuracy">Accuracy</string>
+    <!-- How far off the position may be, e.g. "About 12 m", "About 2.5 km" -->
+    <string name="g_place_accuracy_m">About %1$d\u00A0m</string>
+    <string name="g_place_accuracy_km">About %1$s\u00A0km</string>
+    <!-- Under the coordinates of a place with a name; the licence is on the Licences screen -->
+    <string name="g_place_names_credit">Place names from GeoNames</string>
+    <string name="g_place_open_maps">Open in maps</string>
+    <string name="g_place_remove">Remove the place</string>
+    <string name="g_place_remove_title">Remove the place?</string>
+    <string name="g_place_remove_body">The recording no longer says where it was made. This can\'t be undone.</string>
+    <string name="g_place_remove_confirm">Remove</string>
+    <string name="g_place_error_remove">The place wasn\'t removed. Try again.</string>
+    <string name="g_place_error_maps">No app on this phone shows places on a map. Install one, then try again.</string>
+
+    <!-- The Markdown file ("- Place: Near Köln"), a copy ("Place: Near Köln") and a search result
+         found by the place ("Place: Köln") -->
+    <string name="g_place_label">Place</string>
+</resources>

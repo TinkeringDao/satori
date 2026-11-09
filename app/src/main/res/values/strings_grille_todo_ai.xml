@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The prompt that finds the to-dos and the ideas in a recording (ExtractTodosUseCase in the
+     domain module), and the header shown above the segments it reads. English source; German in
+     values-de/strings_grille_todo_ai.xml.
+
+     AndroidResourceProvider (data module) loads them by name with getIdentifier, so they carry
+     tools:ignore="UnusedResources" like the prompts in strings_grille_ai.xml. A missing or
+     renamed string still builds, but the app then falls back to a short English copy.
+
+     The system prompt holds no placeholder: it is the same for every call, so the model's state
+     after reading it can be kept. What changes from call to call is in the header, which goes
+     above the segments: the app fills in {date}, {weekday} and {time} (when the recording started)
+     and {noted} (to-dos and ideas already known). The JSON keys and values stay English in every
+     language: the app reads them back, and llama.cpp limits the answer to them. Keep the
+     example's key order (segment, type, text, when, capture), which is the order the grammar asks
+     for. The example line under "A line such as" shows the exact format the app writes the times
+     in. Use \n for line breaks: aapt2 turns literal ones into spaces.
+
+     The example sentences show the kinds of item only: they are marked as made up and in no
+     recording, and the JSON example's texts are "...", because a 1B model copied them as items
+     ("Make the clock bigger", 2026-10-14). ExtractTodosUseCase drops any item whose words aren't
+     in the segment it cites (TodoGrounding). -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="prompt_todo_extraction" tools:ignore="UnusedResources,TypographyEllipsis">You find the to-dos and the ideas in a voice recording.\nEach line \"S3 words\" is segment S3. A line such as \"T2 = \'Friday at 9\' -&gt; Fri 16 Oct 09:00 (Friday)\" under a segment is a time said in it.\nA to-do is something the speaker has to do or is asked to do. An idea is a suggestion or wish for how something could be, that nobody has said they will do.\nThese made-up sentences only show the kinds and are in no recording: never give them or their words as items. To-dos: \"I\'ll send the report\", \"remind me to call the bank\", \"one of the to-dos is to book a room\". Ideas: \"there should be an option to ...\", \"it would be nice if ...\".\nNeither: things already done, other people\'s plans, feelings, descriptions, small talk, greetings, headings of a list such as \"Second, the budget\", questions.\nEach item must come from the words of the segment it gives.\nFor each one give:\nsegment: the segment it is said in.\ntype: \"task\" for a to-do, \"appointment\" for a meeting or visit at a set time, \"idea\" for an idea.\ntext: in English, at most 10 words, without the time. A to-do starts with a verb; an idea names the change.\nwhen (to-dos only): the T of its due time, or \"none\" if no time is said for it. Never make up a time. If both a day and a clock time are listed for it, give the T with the clock time.\ncapture (to-dos only): \"explicit\" if the speaker notes it as a to-do or asks to be reminded, \"commitment\" if the speaker promises it, \"asked\" if someone asks the speaker to do it, \"inferred\" if it is only implied.\nAnswer with JSON only, in this form:\n{\"items\": [{\"segment\": \"S2\", \"type\": \"task\", \"text\": \"...\", \"when\": \"T1\", \"capture\": \"commitment\"}, {\"segment\": \"S4\", \"type\": \"idea\", \"text\": \"...\"}]}\nWith nothing to note, answer {\"items\": []}</string>
+    <string name="prompt_todo_header" tools:ignore="UnusedResources">The recording started on {date} ({weekday}) at {time}.\nAlready noted, do not repeat unless a new time is said for it: {noted}\n\n</string>
+    <!-- Added to the header's instruction on the segments' language (prompt_instruction_lead in
+         strings_grille_ai.xml), on the same line, when the to-dos are written in another language
+         than the segments: the answer's "said" field, which the app finds in the segment. An order,
+         like the line it ends: on 2026-10-16 the 1B wrote the old wording ("copied as they are
+         written there, at most 8 words") into a to-do's text, which the app now drops
+         (PromptEcho). -->
+    <string name="prompt_todo_said" tools:ignore="UnusedResources">For said, copy up to 8 words of the item\'s segment that say it.</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Das Audio der Aufnahmen: die Einstellung, das Abspielen auf der Detailseite, Audio teilen und
+     Neu transkribieren. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Einstellungen -->
+    <string name="g_audio_keep">Audio der Aufnahmen behalten</string>
+    <string name="g_audio_keep_desc">Zum Abspielen und neu Transkribieren. Etwa 2\u00A0MB pro Minute; ausgeschaltet bleibt nur der Text.</string>
+
+    <!-- Abspielen auf der Detailseite -->
+    <string name="g_audio_play">Abspielen</string>
+    <string name="g_audio_pause">Pausieren</string>
+    <!-- TalkBack für die Abspielposition, z. B. „0:42 von 3:32“ -->
+    <string name="g_audio_position_cd">%1$s von %2$s</string>
+    <string name="g_audio_seek">Abspielposition</string>
+    <!-- TalkBack-Aktion einer Transkriptzeile, und was ein Tippen darauf tut -->
+    <string name="g_audio_play_line">Ab hier abspielen</string>
+    <!-- Unter dem Player, nach der Größe (z. B. „4,2 MB · Komprimiert“), für als AAC gespeichertes Audio -->
+    <string name="g_audio_compressed">Komprimiert</string>
+
+    <!-- Menü -->
+    <string name="g_audio_share">Audio teilen</string>
+    <string name="g_audio_share_hint">Die Aufnahme als WAV-Datei</string>
+    <string name="g_audio_share_hint_compressed">Die Aufnahme als M4A-Datei</string>
+    <string name="g_audio_share_title">Audio teilen</string>
+    <string name="g_audio_transcribe">Neu transkribieren</string>
+    <string name="g_audio_transcribe_hint">Aus dem Audio, mit einem Spracherkennungsmodell auf diesem Telefon</string>
+    <!-- Behaltenes Audio lassen die Einstellungen zum Komprimieren und Löschen älteren Audios unberührt -->
+    <string name="g_audio_keep_this">Dieses Audio behalten</string>
+    <string name="g_audio_keep_this_desc">Wird nicht mit älterem Audio komprimiert oder gelöscht</string>
+    <string name="g_audio_keep_stop">Dieses Audio nicht mehr behalten</string>
+    <string name="g_audio_kept">Dieses Audio wird behalten</string>
+    <string name="g_audio_unkept">Dieses Audio wird nicht mehr behalten</string>
+    <string name="g_audio_delete_this">Audio löschen</string>
+    <string name="g_audio_delete_this_body">Audio dieser Aufnahme löschen? Transkript, Notizen und Aufgaben bleiben.</string>
+    <string name="g_audio_deleted">Das Audio wurde gelöscht</string>
+
+    <!-- Neu transkribieren; die Wahl des Modells steht in strings_grille_speech.xml. Der Text nennt
+         keine Dauer: die Zeile jedes Modells darunter sagt, wie lange es etwa braucht. -->
+    <string name="g_audio_transcribe_body">Aus dem Audio entsteht ein neues Transkript, das dieses ersetzt, auch von Hand korrigierte Zeilen. Notizen, Name und Aufgaben bleiben.</string>
+    <string name="g_audio_transcribe_body_text_again">Aus dem Audio entsteht ein neues Transkript, das dieses ersetzt, auch von Hand korrigierte Zeilen. Notizen, Name und Aufgaben bleiben, außer wenn der Text unter einem Modell sagt, dass sie neu entstehen.</string>
+    <string name="g_audio_transcribe_running">Wird neu transkribiert</string>
+    <!-- Wie viel des Audios gelesen ist, z. B. „42 %“ -->
+    <string name="g_audio_transcribe_percent">%1$d %%</string>
+    <string name="g_audio_transcribe_stopping">Wird beendet</string>
+    <string name="g_audio_transcribed">Transkript ersetzt</string>
+    <string name="g_audio_transcribe_stopped_recording">Neu transkribieren wegen der neuen Aufnahme beendet</string>
+    <string name="g_audio_stop_title">Neu transkribieren beenden?</string>
+    <string name="g_audio_stop_body">Das Transkript bleibt unverändert.</string>
+    <string name="g_audio_stop_confirm">Beenden</string>
+    <string name="g_audio_stop_keep">Weiter transkribieren</string>
+
+    <!-- Probleme -->
+    <string name="g_audio_error_play">Das Audio ließ sich nicht abspielen. Erneut versuchen.</string>
+    <string name="g_audio_error_transcribe">Das Audio ließ sich nicht transkribieren. Das Transkript ist unverändert. Erneut versuchen.</string>
+    <string name="g_audio_error_no_speech">Im Audio wurde keine Sprache gefunden. Das Transkript ist unverändert.</string>
+    <string name="g_audio_error_keep">Die Wahl, das Audio zu behalten, wurde nicht gespeichert. Erneut versuchen.</string>
+    <string name="g_audio_error_delete">Das Audio ließ sich nicht löschen. Erneut versuchen.</string>
+</resources>

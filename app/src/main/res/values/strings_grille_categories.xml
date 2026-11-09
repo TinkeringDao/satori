@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strings for the Categories screen (g_cat_). German in values-de/strings_grille_categories.xml. -->
+<resources>
+    <string name="g_cat_title">Categories</string>
+    <string name="g_cat_add">Add category</string>
+    <string name="g_cat_new_title">New category</string>
+    <string name="g_cat_edit_title">Edit category</string>
+    <string name="g_cat_name">Name</string>
+    <!-- The types themselves are the recording modes, named by g_mode_* in strings_grille.xml. -->
+    <string name="g_cat_type">Type</string>
+    <string name="g_cat_create">Add</string>
+    <string name="g_cat_save">Save</string>
+
+    <!-- Why a name cannot be used. %d is the longest name. -->
+    <string name="g_cat_name_empty">Give the category a name.</string>
+    <plurals name="g_cat_name_long">
+        <item quantity="one">Use up to %d character.</item>
+        <item quantity="other">Use up to %d characters.</item>
+    </plurals>
+    <string name="g_cat_name_taken">Another category has this name.</string>
+
+    <string name="g_cat_delete">Delete category</string>
+    <string name="g_cat_delete_title">Delete this category?</string>
+    <string name="g_cat_delete_body">Recordings in it keep their notes and to-dos.</string>
+    <string name="g_cat_delete_confirm">Delete</string>
+    <string name="g_cat_last">This is your only category, so it stays.</string>
+</resources>

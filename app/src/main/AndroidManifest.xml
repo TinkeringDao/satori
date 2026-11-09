@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Restrict distribution to phone form factors only; tablets (large/xlarge screens) are excluded -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="false"
+        android:xlargeScreens="false" />
+
+    <!-- No library may add the advertising ID permission. The app has no analytics or ads. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Only the model downloads use the network. Drop it once offline model import replaces them. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Whether there is a network, validated or metered, for the downloads' Wi-Fi rule and their
+         retries (data/firstrun/NetworkMonitor.kt). Granted on install; it reads nothing else. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE"
+        android:minSdkVersion="34" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"
+        android:minSdkVersion="34" />
+    <!-- "Save the place" (off by default): where a recording starts, read by GPS while it starts,
+         asked for when the setting is turned on. No background location: the recording service
+         holds the location type only while that fix is read (service/RecordingService.kt). -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"
+        android:minSdkVersion="34" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- One buzz when a recording starts and two when it stops (service/RecordingHaptics.kt),
+         unless "Vibrate on start and stop" is switched off in Settings. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Reminders (service/reminders) ring at the minute set, through one exact alarm.
+         USE_EXACT_ALARM is granted on install from Android 13 and can't be revoked; Android 12
+         needs SCHEDULE_EXACT_ALARM instead. Alarms are lost on a reboot, so it re-arms after one. -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name="com.satori.SatoriApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Satori"
+        tools:targetApi="33">
+
+        <!--
+        required by qnn
+
+        If you don't add it, you would get an error from the deviceCreate() API
+        and the error code is 14001
+
+        It is located at /vendor/lib64/libcdsprpc.so on your Phone
+        -->
+        <uses-native-library
+            android:name="libcdsprpc.so"
+            android:required="false"/>
+
+        <!-- uiMode: the app's theme is handed to Android (UiModeManager.setApplicationNightMode);
+             Compose follows the change itself, so the activity isn't recreated for it.
+             Size, layout, orientation and density: folding the razr moves the activity between the
+             inner and the cover screen. Recreating it then would restore a navigation state saved
+             before the last change, which loses a recorder a quick key press opened while the
+             phone was locked; Compose lays itself out again for the new screen instead.
+             moto_cli_default_display_mode: on the razr's cover Motorola keeps an app above the
+             cameras unless it asks for the whole screen (read by the system's ActivityRecord;
+             `cmd climanager cli-display-mode com.satori default|full|reset` overrides
+             it). Satori lays itself out around the cameras (ui/design/GrilleCameraBand.kt). -->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="uiMode|screenSize|smallestScreenSize|screenLayout|orientation|density|keyboard|keyboardHidden|navigation"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="moto_cli_default_display_mode"
+                android:value="fullscreen" />
+        </activity>
+
+        <!-- Quick key (docs/QUICK_KEY.md). Motorola My Key starts this on a power-key
+             double-press. It draws nothing: it reads the quick key settings, starts MainActivity
+             and finishes in onCreate. Exported without a permission because My Key is another
+             app; it ignores what the caller sends. The empty task affinity keeps it out of
+             Satori's task, so MainActivity stays the root that Recents and the launcher find. -->
+        <activity
+            android:name="com.satori.quickkey.QuickKeyActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/g_quickkey_activity_label"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.satori.action.QUICK_KEY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.satori.service.RecordingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone|location" />
+
+        <!-- Foreground service for model downloads (STT + LLM).
+             Uses dataSync type so the download survives the app being backgrounded.
+             Play Store requirement: declared here and FOREGROUND_SERVICE_DATA_SYNC
+             permission declared above (API 34+). -->
+        <service
+            android:name="com.satori.service.ModelDownloadService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Foreground service for on-device LLM inference (batch / history insights).
+             Keeps the CPU-bound inference alive when the user backgrounds the app. -->
+        <service
+            android:name="com.satori.service.LlmProcessingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- JobScheduler jobs (service/JobIds.kt); only the system binds them. FinishingWakeJob
+             keeps the finishing of recordings going when Android refuses the service above, and
+             after a reboot: it is persisted, which RECEIVE_BOOT_COMPLETED allows. AudioRetentionJob
+             compresses and deletes older audio as the settings say. -->
+        <service
+            android:name="com.satori.service.FinishingWakeJob"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name="com.satori.service.AudioRetentionJob"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- Hands Markdown exports and the audio of recordings to the app the user shares them
+             with, read-only and one file at a time. Only the cache's exports/ folder and the
+             recordings' audio are reachable (res/xml/export_paths.xml). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.exports"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/export_paths" />
+        </provider>
+
+        <!-- Reminders: the alarm for the next reminder, and Done / Snooze on a reminder. Only the
+             app's own PendingIntents reach it. -->
+        <receiver
+            android:name="com.satori.service.reminders.ReminderReceiver"
+            android:exported="false" />
+
+        <!-- Re-arms the reminder alarm after a reboot, an app update, a clock or time zone change
+             and when the exact-alarm permission is granted. The system reaches it unexported. -->
+        <receiver
+            android:name="com.satori.service.reminders.ReminderRescheduleReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

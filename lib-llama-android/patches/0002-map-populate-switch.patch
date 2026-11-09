@@ -1,0 +1,57 @@
+Satori's patch to the pinned llama.cpp (b9574), applied by lib-llama-android/src/main/cpp/CMakeLists.txt
+after 0001.
+
+load_tensors maps the model's GGUF with MAP_POPULATE (init_mappings(true)), which reads the whole
+file into the page cache before any weight is used: 3.2 GB in 2.0-2.6 s for Gemma 4 E2B on the
+phone, where two thirds of its kills came. Upstream PR #28055 drops it. This makes it a switch
+(llama_satori_set_map_populate), true as upstream until ai_chat.cpp sets it for a load; a debug
+build's memtest turns it off with debug.satori.llm.populate=off.
+
+--- a/include/llama.h
++++ b/include/llama.h
+@@ -448,6 +448,11 @@
+     LLAMA_API struct llama_sampler_chain_params  llama_sampler_chain_default_params(void);
+     LLAMA_API struct llama_model_quantize_params llama_model_quantize_default_params(void);
+ 
++    // Satori (lib-llama-android/patches): whether the next model loads map their file with
++    // MAP_POPULATE, which reads the whole file into the page cache before any weight is used.
++    // True, upstream's behaviour, until set otherwise.
++    LLAMA_API void llama_satori_set_map_populate(bool populate);
++
+     // Initialize the llama + ggml backend
+     // If numa is true, use NUMA optimizations
+     // Call once at the start of the program
+--- a/src/llama-model.cpp
++++ b/src/llama-model.cpp
+@@ -21,6 +21,7 @@
+ #include "ggml-cpp.h"
+ 
+ #include <algorithm>
++#include <atomic>
+ #include <cassert>
+ #include <cfloat>
+ #include <cstdint>
+@@ -35,6 +36,14 @@
+ #include <string>
+ #include <vector>
+ 
++// Satori (lib-llama-android/patches/0002-map-populate-switch.patch): whether load_tensors maps the
++// model's file with MAP_POPULATE (init_mappings' prefetch), upstream's true until set otherwise.
++static std::atomic<bool> g_satori_map_populate{true};
++
++void llama_satori_set_map_populate(bool populate) {
++    g_satori_map_populate.store(populate);
++}
++
+ static llama_model * llama_model_mapping(llm_arch arch, const llama_model_params & params) {
+     switch (arch) {
+         case LLM_ARCH_LLAMA:
+@@ -1475,7 +1484,7 @@
+         }
+     }
+ 
+-    ml.init_mappings(true, use_mlock ? &pimpl->mlock_mmaps : nullptr);
++    ml.init_mappings(g_satori_map_populate.load(), use_mlock ? &pimpl->mlock_mmaps : nullptr);
+     pimpl->mappings.reserve(ml.mappings.size());
+ 
+     // create the backend buffers

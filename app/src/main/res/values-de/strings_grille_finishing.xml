@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Eine Aufnahme, die im Hintergrund abgeschlossen wird, wie Start, Aufnahmeseite und
+     Benachrichtigung es sagen; die Schritte selbst lesen die g_rec_*- und
+     g_speech_finishing_*-Texte. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- In der Warteschlange hinter der Aufnahme, die abgeschlossen wird -->
+    <string name="g_finish_waiting">Wartet auf den Abschluss</string>
+    <!-- Zurückgestellt, bis die laufende Aufnahme endet -->
+    <string name="g_finish_waits_recording">Wartet, bis die Aufnahme endet</string>
+    <!-- Zurückgestellt, bis das nötige KI-Modell auf dem Telefon ist -->
+    <string name="g_finish_waits_model">Wartet auf das KI-Modell</string>
+</resources>

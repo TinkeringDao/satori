@@ -1,0 +1,10 @@
+[submodule "third_party/llama.cpp"]
+	path = third_party/llama.cpp
+	url = https://github.com/ggml-org/llama.cpp.git
+	shallow = true
+	ignore = dirty
+[submodule "third_party/sentencepiece"]
+	path = third_party/sentencepiece
+	url = https://github.com/google/sentencepiece.git
+	shallow = true
+	ignore = dirty

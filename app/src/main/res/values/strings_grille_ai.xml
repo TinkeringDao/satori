@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Model prompts and the JSON keys the model writes. English source; German in
+     values-de/strings_grille_ai.xml.
+
+     AndroidResourceProvider (data module) loads every string here by name with getIdentifier, because
+     data cannot see the app's R class. Lint cannot follow those lookups, so each string carries
+     tools:ignore="UnusedResources". A missing or renamed string still builds, but the AI then silently
+     falls back to hard-coded English. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Notes prompts, one per kind of recording; the app's own and the only ones (there is no editor).
+         Each is used for a live note while recording, the last note after Stop, each part of a long
+         recording and the merge of those parts, so it says nothing about where the text comes from.
+         Rules for editing them:
+         - The instructions come before the JSON line, so the model does not echo them as values.
+         - The JSON line names the keys json_field_title, json_field_points and json_field_action_items
+           below. A JSON schema built from the same strings (InsightFormat, domain module) holds the
+           answer to them, so a key changed in one place only breaks the notes.
+         - The "..." placeholders keep the model from copying hints as literal output; leave that
+           typography alone.
+         - The last line leads in to the text, which follows as it is. session_text_lead_in below
+           gives it again under a recording's topic, so change the two together.
+         - No example notes: a 1B model copies them into notes of anything. -->
+    <string name="prompt_simple_listening" tools:ignore="UnusedResources,TypographyEllipsis">You turn a voice note into short notes.\nWrite down what was said as your own notes: as instructions, plain statements or in the first person, one idea per point.\nNever report on what was said: no \"the speaker\", \"the user\", \"the recording\" or \"this transcript\", and no \"discusses\", \"mentions\" or \"requests\".\nKeep names, numbers, dates and places. Leave out fillers and repeats. Add nothing that was not said.\nThe words come from speech recognition, so one can be misheard: keep it as it is unless the sentence leaves no doubt which word was meant.\nWrite the title and the points in English, at most 6 points of fewer than 20 words each. A short voice note needs only one or two.\nThe title names the subject of the points in 2 to 6 words, like the subject line of an email, not the title of a story. It does not start with \"The\" and does not use the words audio, recording, transcript, transcription, summary, analysis or request.\nAnswer with this JSON:\n{\"title\": \"...\", \"points\": [\"...\", \"...\"]}\nWhat was said:</string>
+    <string name="prompt_short_meeting" tools:ignore="UnusedResources,TypographyEllipsis">You turn what was said in a meeting into short notes.\nWrite the decisions, facts, numbers, plans and open questions as plain statements, one idea per point.\nNever report on what was said: no \"the speaker\", \"the participants\", \"the recording\" or \"this transcript\", and no \"discusses\", \"mentions\" or \"requests\".\nKeep names, numbers, dates and places. Leave out small talk, fillers and repeats. Add nothing that was not said.\nThe words come from speech recognition, so one can be misheard: keep it as it is unless the sentence leaves no doubt which word was meant.\nWrite the title, the points and the action items in English, at most 8 points of fewer than 20 words each.\nAction items are the tasks someone takes on or is given, each starting with a verb, with the person when a name is said. Leave the list empty when there are none.\nThe title names the subject of the points in 2 to 6 words, like the subject line of an email, not the title of a story. It does not start with \"The\" and does not use the words audio, recording, transcript, transcription, summary, analysis or request.\nAnswer with this JSON:\n{\"title\": \"...\", \"points\": [\"...\", \"...\"], \"action_items\": [\"...\", \"...\"]}\nWhat was said:</string>
+    <string name="prompt_long_meeting" tools:ignore="UnusedResources,TypographyEllipsis">You turn what was said in a long meeting into short notes.\nWrite the main topics, the decisions and what was agreed as plain statements, one idea per point. Leave out details that will not matter later.\nNever report on what was said: no \"the speaker\", \"the participants\", \"the recording\" or \"this transcript\", and no \"discusses\", \"mentions\" or \"requests\".\nKeep names, numbers, dates and places. Leave out small talk, fillers and repeats. Add nothing that was not said.\nThe words come from speech recognition, so one can be misheard: keep it as it is unless the sentence leaves no doubt which word was meant.\nWrite the title, the points and the action items in English, at most 8 points of fewer than 20 words each.\nAction items are the tasks someone takes on or is given, each starting with a verb, with the person when a name is said. Leave the list empty when there are none.\nThe title names the subject of the points in 2 to 6 words, like the subject line of an email, not the title of a story. It does not start with \"The\" and does not use the words audio, recording, transcript, transcription, summary, analysis or request.\nAnswer with this JSON:\n{\"title\": \"...\", \"points\": [\"...\", \"...\"], \"action_items\": [\"...\", \"...\"]}\nWhat was said:</string>
+    <!-- The app fills in {target_language}. -->
+    <string name="prompt_translation" tools:ignore="UnusedResources">You are a professional translator.\nTranslate the following text into {target_language}.\nOutput the translation only. No explanations, no labels, no prefixes.</string>
+
+    <!-- The keys the prompts ask for and the parser reads back. German uses German keys. The prompts
+         no longer ask for a summary; its key is kept to read an answer that writes one anyway. -->
+    <string name="json_field_title" tools:ignore="UnusedResources">title</string>
+    <string name="json_field_points" tools:ignore="UnusedResources">points</string>
+    <string name="json_field_summary" tools:ignore="UnusedResources">summary</string>
+    <string name="json_field_action_items" tools:ignore="UnusedResources">action_items</string>
+    <!-- Put above what was said, with a blank line and session_text_lead_in, in the user message
+         of a notes call when a recording has a topic (or its name, for Rewrite notes). Never in the
+         system prompt: the prompts above hold nothing of a recording, so the engine can keep their
+         encoded state on disk. %1$s = the topic. It names the subject only, in words the notes must
+         not copy ("recording", "analysis"). -->
+    <string name="session_topic_prefix" tools:ignore="UnusedResources">The topic is \"%1$s\".</string>
+    <!-- The notes prompts' last line, given again on its own line between session_topic_prefix and
+         what was said: the system prompt ends with it, so without it the topic's sentence would
+         read as something that was said. The same words as that last line. -->
+    <string name="session_text_lead_in" tools:ignore="UnusedResources">What was said:</string>
+    <!-- The instruction on the language of the text a call reads when the answer is to be in
+         another one: a Malayalam recording's notes, name, to-dos and topics are written in English,
+         a Translate recording's to-dos in its target language. The app puts it on a line of its own
+         in the user message, never in a system prompt (TextLanguageNote, domain module):
+         prompt_instruction_lead, then prompt_read_language with the text's language and the
+         answer's, prompt_malayalam_letters for Malayalam only, and for a Malayalam recording's name
+         prompt_title_topic. The first sentence after the lead starts in lower case.
+         Each sentence tells the model what to do and none says anything of the text: on 2026-10-16
+         the 1B gave the old note's "The text is in Malayalam." back as the first two points of a
+         Malayalam recording's notes ("Text is Malayalam.", "Malayalam language used."). What the
+         answer still repeats of this line is dropped (PromptEcho). %1$s and %2$s = names of
+         prompt_language_ml, prompt_language_en or prompt_language_de. -->
+    <string name="prompt_instruction_lead" tools:ignore="UnusedResources">Instruction, never to be repeated in your answer:</string>
+    <string name="prompt_read_language" tools:ignore="UnusedResources">Read the %1$s below and write in %2$s.</string>
+    <string name="prompt_malayalam_letters" tools:ignore="UnusedResources">Read English words written in Malayalam letters as English.</string>
+    <!-- A Malayalam recording's name: its topic, not the title of a story (on 2026-10-16 the 1B
+         named one with two words that missed its topic and "Text" on the end). %1$s = the
+         answer's language. -->
+    <string name="prompt_title_topic" tools:ignore="UnusedResources">Name the topic of the text below in 2 to 5 words, in %1$s.</string>
+    <!-- The order a notes call is asked again with when its first answer left no point (only
+         lines that repeat the instructions, name only the kind of text, or none at all), on the
+         same line of instructions, after the orders above if there are any. "This recording": a
+         recording about recordings, notes or speech has them for its subject. -->
+    <string name="prompt_notes_retry" tools:ignore="UnusedResources">Write what is said about the subject, never about this recording, its text or its language.</string>
+    <string name="prompt_language_ml" tools:ignore="UnusedResources">Malayalam</string>
+    <string name="prompt_language_en" tools:ignore="UnusedResources">English</string>
+    <string name="prompt_language_de" tools:ignore="UnusedResources">German</string>
+
+    <!-- Names a recording when it stops. The model reads the transcript, or the insights of a
+         long recording, and must answer with the title alone. -->
+    <string name="prompt_session_title" tools:ignore="UnusedResources">You name voice recordings.\nRead the text below and reply with one title of 2 to 5 words that names its subject, like the subject line of an email: what it is about, not the title of a story. Name the people, places and things that matter.\nDo not start the title with \"The\", and do not use the words audio, recording, transcript, transcription, summary, analysis or request.\nWrite the title in English, even if the text is in another language.\nReply with the title alone. Put nothing before it, such as \"Title:\" or \"Topic:\", and use no quotes and no full stop.</string>
+</resources>

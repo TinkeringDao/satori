@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Files the share sheet may read: Markdown exports in the app cache, and the kept audio of
+     recordings (files/audio, handed over where it is, so a long recording isn't copied).
+     Nothing else. -->
+<paths>
+    <cache-path name="exports" path="exports/" />
+    <files-path name="audio" path="audio/" />
+</paths>

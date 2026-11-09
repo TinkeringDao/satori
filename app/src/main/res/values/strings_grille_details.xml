@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recording details page (Grille UI). English source; German in values-de/strings_grille_details.xml. -->
+<resources>
+    <!-- Top bar and header -->
+    <string name="g_details_more">More options</string>
+    <string name="g_details_rename_action">Rename</string>
+    <string name="g_details_length_cd">Length %1$s</string>
+    <string name="g_details_loading">Loading</string>
+
+    <!-- Tabs. The first is g_tab_transcript, the second g_tab_insights; a Translate recording
+         calls its second one by what it holds. -->
+    <string name="g_details_tab_translation">Translation</string>
+
+    <!-- A recording with nothing in it. Also the transcript line of its Markdown file. -->
+    <string name="g_details_empty">Nothing was recorded.</string>
+
+    <!-- Rows have no edit button: a long press (or the TalkBack action) opens the edit sheet -->
+    <string name="g_details_edit">Edit</string>
+
+    <!-- Notes -->
+    <string name="g_details_overall">Summary</string>
+    <string name="g_details_action_items">Action items</string>
+    <string name="g_details_notes_empty">No notes yet.</string>
+    <!-- The Translation tab of a Translate recording that has none; it offers nothing to do -->
+    <string name="g_details_translation_empty">No translation yet.</string>
+    <string name="g_details_write_notes">Write notes</string>
+    <string name="g_details_notes_too_short">There isn\'t enough text to write notes from.</string>
+    <string name="g_details_notes_off">AI notes are turned off.</string>
+    <string name="g_details_open_settings">Open Settings</string>
+    <string name="g_details_notes_no_model">The AI model isn\'t on this phone yet.</string>
+    <string name="g_details_get_model">Get the AI model</string>
+
+    <!-- Overflow menu -->
+    <string name="g_details_share_md">Share as Markdown</string>
+    <string name="g_details_share_md_hint">Notes and transcript as a text file</string>
+    <string name="g_details_share_md_hint_translation">Translation and transcript as a text file</string>
+    <string name="g_details_save_md">Save to Downloads</string>
+    <!-- The copy row copies what the open tab shows: the transcript, the notes or the translation -->
+    <string name="g_details_copy_transcript">Copy transcript</string>
+    <string name="g_details_copy_notes">Copy notes</string>
+    <string name="g_details_copy_translation">Copy translation</string>
+    <string name="g_details_rewrite">Rewrite notes</string>
+    <string name="g_details_rewrite_hint">The AI writes them again on this phone</string>
+    <string name="g_details_find_again">Find to-dos and ideas again</string>
+    <!-- Records the recording as another category, in the sheet of the recorder's Record as, and
+         writes its notes anew in that category's mode. Under it, the category it has now. Also
+         the sheet's title. -->
+    <string name="g_details_change_type">Change type</string>
+    <!-- Under the sheet's title, when a type in the sheet writes another kind of notes (Meeting
+         for a voice note, say) and the AI can write them anew; a type with the same kind of notes
+         (Voice note, Idea, To-do) only files the recording under it -->
+    <string name="g_details_change_type_body">The notes are written again if the new type writes other notes. Name and to-dos stay.</string>
+    <!-- The notice once the type is stored; %1$s is the category's name, e.g. "Changed to Meeting".
+         Also once the language is stored, with the language's name: "Changed to Malayalam". -->
+    <string name="g_details_type_changed">Changed to %1$s</string>
+    <!-- Under the language row of the Change type sheet: a change of the language keeps the
+         transcript the speech model of the language it was recorded in made; Transcribe again
+         (g_audio_transcribe) makes it anew. -->
+    <string name="g_details_language_body">The transcript stays as it is. Transcribe again makes it anew in the language chosen.</string>
+    <!-- Under the rows of the AI's work while the AI finishes a recording in the background -->
+    <string name="g_details_ai_busy">Available once finishing is done</string>
+    <!-- Instead of g_details_ai_busy while other work holds the AI: the mind map's, say, or another recording's page -->
+    <string name="g_details_ai_in_use">Available once the AI is free</string>
+    <string name="g_details_delete">Delete</string>
+
+    <!-- The recording's own to-dos and ideas, the first rows of the notes tab. The to-dos' heading
+         and texts are home's (strings_grille_home.xml). -->
+    <string name="g_details_ideas">Ideas</string>
+    <!-- What a tap on an idea does, for TalkBack: it opens the Ideas page -->
+    <string name="g_details_idea_open">Show in Ideas</string>
+    <!-- While "Find to-dos and ideas again" runs -->
+    <string name="g_details_finding">Looking for to-dos and ideas</string>
+    <!-- The notice once it is done, e.g. "2 new to-dos and 1 new idea" -->
+    <plurals name="g_details_found_todos">
+        <item quantity="one">%d new to-do</item>
+        <item quantity="other">%d new to-dos</item>
+    </plurals>
+    <plurals name="g_details_found_ideas">
+        <item quantity="one">%d new idea</item>
+        <item quantity="other">%d new ideas</item>
+    </plurals>
+    <!-- %1$s is g_details_found_todos, %2$s g_details_found_ideas -->
+    <string name="g_details_found_both">%1$s and %2$s</string>
+    <string name="g_details_found_none">No new to-dos or ideas</string>
+    <!-- Leaving the page while it runs ends it, so it asks first. The confirm button is g_details_stop_confirm. -->
+    <string name="g_details_find_stop_title">Stop looking for to-dos and ideas?</string>
+    <string name="g_details_find_stop_body">Nothing new is kept. Those found before stay.</string>
+    <string name="g_details_find_stop_keep">Keep looking</string>
+    <!-- A recording that started (the quick key, say) stopped the search; those found before stay.
+         Shown on the recording's page, the next time it opens. -->
+    <string name="g_details_find_stopped_recording">Looking for to-dos and ideas stopped for the new recording</string>
+
+    <!-- Share sheet and notices -->
+    <string name="g_details_share_title">Share transcript</string>
+    <string name="g_details_saved">Saved to Downloads</string>
+    <string name="g_details_copied">Copied</string>
+
+    <!-- Rename -->
+    <string name="g_details_rename_title">Rename recording</string>
+
+    <!-- Editing -->
+    <string name="g_details_save">Save</string>
+    <string name="g_details_edit_segment_title">Edit text</string>
+    <string name="g_details_edit_insight_title">Edit note</string>
+    <string name="g_details_edit_translation_title">Edit translation</string>
+    <string name="g_details_field_title">Title</string>
+    <string name="g_details_field_summary">Text</string>
+    <string name="g_details_field_tasks">Action items, one per line</string>
+
+    <!-- Delete -->
+    <string name="g_details_delete_title">Delete this recording?</string>
+    <!-- A copy saved to Downloads stays there, so this says only what Satori deletes -->
+    <string name="g_details_delete_body">Its transcript and notes are deleted from Satori. This can\'t be undone.</string>
+    <string name="g_details_delete_body_translation">Its transcript and translation are deleted from Satori. This can\'t be undone.</string>
+    <plurals name="g_details_delete_todos">
+        <item quantity="one">Its to-do stays on your list.</item>
+        <item quantity="other">Its %d to-dos stay on your list.</item>
+    </plurals>
+
+    <!-- Rewriting the notes -->
+    <string name="g_details_rewrite_title">Rewrite the notes?</string>
+    <string name="g_details_rewrite_body">The current notes are replaced. It can take a few minutes.</string>
+    <string name="g_details_rewrite_confirm">Rewrite</string>
+    <string name="g_details_rewrite_running">Writing the notes</string>
+    <string name="g_details_rewrite_starting">Getting ready</string>
+    <string name="g_details_rewrite_stopping">Stopping</string>
+    <string name="g_details_stop_title">Stop writing the notes?</string>
+    <string name="g_details_stop_body">The current notes stay as they are.</string>
+    <!-- Instead of g_details_stop_body while the first notes are being written -->
+    <string name="g_details_stop_body_none">The recording stays without notes.</string>
+    <string name="g_details_stop_confirm">Stop</string>
+    <string name="g_details_stop_keep">Keep writing</string>
+    <!-- A recording that started (the quick key, say) stopped Write or Rewrite notes; the notes stay
+         as they were. Shown on the recording's page, the next time it opens. -->
+    <string name="g_details_rewrite_stopped_recording">Writing the notes stopped for the new recording</string>
+
+    <!-- Problems -->
+    <string name="g_details_back_to_list">Back to the list</string>
+    <string name="g_details_error_missing">This recording no longer exists.</string>
+    <string name="g_details_error_load">This recording couldn\'t be opened. Go back and open it again.</string>
+    <string name="g_details_error_rename">The new name wasn\'t saved. Try again.</string>
+    <string name="g_details_error_delete">The recording wasn\'t deleted. Try again.</string>
+    <string name="g_details_error_segment">The text change wasn\'t saved. Try again.</string>
+    <string name="g_details_error_insight">The change to the note wasn\'t saved. Try again.</string>
+    <string name="g_details_error_no_model">No AI model is installed. Install one in Settings, then try again.</string>
+    <string name="g_details_error_model">The AI model couldn\'t be loaded. Try again, or pick another model in Settings.</string>
+    <string name="g_details_error_rewrite">The notes couldn\'t be rewritten. The current notes are unchanged. Try again.</string>
+    <string name="g_details_error_write">The notes couldn\'t be written. Try again.</string>
+    <!-- The AI was taken (by the finishing of a recording, say) between the offer and the tap -->
+    <string name="g_details_error_ai_busy">The AI is busy. Try again in a moment.</string>
+    <string name="g_details_error_find">Looking for to-dos and ideas failed. Those found before stay. Try again.</string>
+    <string name="g_details_error_change_type">The type wasn\'t changed. Try again.</string>
+    <string name="g_details_error_change_language">The language wasn\'t changed. Try again.</string>
+    <string name="g_details_error_save">The file wasn\'t saved to Downloads. Try again.</string>
+    <string name="g_details_error_share">The file to share couldn\'t be made. Try again.</string>
+    <string name="g_details_error_clipboard">The text couldn\'t be copied. Try sharing it instead.</string>
+
+    <!-- Markdown export: labels inside the file. Section headings reuse the tab names. -->
+    <string name="g_export_recorded">Recorded</string>
+    <string name="g_export_length">Length</string>
+</resources>

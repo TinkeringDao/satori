@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reminder notifications for to-dos (service/reminders). English source; German in
+     values-de/strings_grille_reminders.xml. A reminder shows in full, to-do text included, on
+     the lock screen and the cover screen. -->
+<resources>
+    <!-- Notification channel, listed in the system's notification settings for Satori -->
+    <string name="g_reminders_channel_name">Reminders</string>
+    <string name="g_reminders_channel_description">Reminds of to-dos at the time set for them</string>
+
+    <!-- Title of a reminder for a to-do without a due date -->
+    <string name="g_reminder_title">Reminder</string>
+    <!-- Title of a reminder for a to-do with a due date. %1$s: a time ("3:00 PM") when due
+         today, else a date with or without a time ("Fri, Oct 10, 3:00 PM", "Fri, Oct 10"). -->
+    <string name="g_reminder_title_due">Due %1$s</string>
+    <!-- Title of a reminder for an appointment with a date; %1$s as in g_reminder_title_due -->
+    <string name="g_reminder_title_starts">Starts %1$s</string>
+
+    <!-- Actions on a reminder. %1$d: minutes until it reminds again -->
+    <string name="g_reminder_action_done">Done</string>
+    <string name="g_reminder_action_snooze">Snooze %1$d min</string>
+</resources>

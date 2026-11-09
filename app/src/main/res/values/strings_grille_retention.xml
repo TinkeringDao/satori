@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The rules for older audio in Settings, under "Keep audio of recordings": when it is
+     compressed, when it is deleted, and how much audio the phone keeps. German in
+     values-de/strings_grille_retention.xml. -->
+<resources>
+    <string name="g_audio_compress">Compress older audio</string>
+    <string name="g_audio_compress_desc">About 8 times smaller; it still plays and can be transcribed again</string>
+    <string name="g_audio_delete_older">Delete older audio</string>
+    <string name="g_audio_delete_older_desc">Transcripts, notes and to-dos stay</string>
+
+    <!-- The choices of both, and the value their rows show -->
+    <string name="g_audio_never">Never</string>
+    <plurals name="g_audio_after_days">
+        <item quantity="one">After %d day</item>
+        <item quantity="other">After %d days</item>
+    </plurals>
+
+    <!-- Under each choice of the sheets: what it means for the audio. A minute of audio is about
+         2 MB as recorded (WAV) and about 0.25 MB compressed (AAC). -->
+    <string name="g_audio_compress_never_desc">Audio keeps its full size, about 2\u00A0MB a minute</string>
+    <plurals name="g_audio_compress_after_desc">
+        <item quantity="one">Audio older than %d day shrinks to about 0.25\u00A0MB a minute</item>
+        <item quantity="other">Audio older than %d days shrinks to about 0.25\u00A0MB a minute</item>
+    </plurals>
+    <string name="g_audio_delete_never_desc">Audio stays until its recording is deleted</string>
+    <plurals name="g_audio_delete_after_desc">
+        <item quantity="one">Audio older than %d day goes and can\'t be played or transcribed again. The text stays</item>
+        <item quantity="other">Audio older than %d days goes and can\'t be played or transcribed again. The text stays</item>
+    </plurals>
+    <!-- Under the title of both sheets: what the rules never touch (g_audio_keep_this) -->
+    <string name="g_audio_rules_kept">Audio set to Keep this audio on a recording\'s page is left as it is.</string>
+
+    <!-- Asked when the delete age chosen applies to recordings already -->
+    <plurals name="g_audio_delete_now_title">
+        <item quantity="one">Delete the audio of %d recording?</item>
+        <item quantity="other">Delete the audio of %d recordings?</item>
+    </plurals>
+    <!-- Counted by the age, e.g. 30 -->
+    <plurals name="g_audio_delete_now_body">
+        <item quantity="one">Audio older than %1$d day is deleted. Transcripts, notes and to-dos stay, but the audio can\'t be played or transcribed again.</item>
+        <item quantity="other">Audio older than %1$d days is deleted. Transcripts, notes and to-dos stay, but the audio can\'t be played or transcribed again.</item>
+    </plurals>
+    <string name="g_audio_delete_now_confirm">Delete</string>
+
+    <!-- Under the two rules, e.g. "Audio on this phone: 1.2 GB in 40 recordings" -->
+    <plurals name="g_audio_storage">
+        <item quantity="one">Audio on this phone: %1$s in %2$d recording</item>
+        <item quantity="other">Audio on this phone: %1$s in %2$d recordings</item>
+    </plurals>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The ideas found in recordings: the Ideas page and the sheet of an idea, the row on home that
+     leads there, Move to ideas in a to-do's sheet and the notice of the one-time move. English
+     source; German in values-de/strings_grille_ideas.xml. -->
+<resources>
+    <!-- Ideas page -->
+    <string name="g_ideas_title">Ideas</string>
+    <string name="g_ideas_empty">No ideas yet. Ideas said in a recording show up here.</string>
+    <!-- Heading over the ideas whose recording was deleted; ideas outlast their recording -->
+    <string name="g_ideas_no_recording">Without a recording</string>
+    <string name="g_ideas_error_load">The ideas couldn\'t be loaded. Restart the app and try again.</string>
+    <string name="g_ideas_error_change">The change to the idea wasn\'t saved. Try again.</string>
+
+    <!-- The sheet of one idea -->
+    <string name="g_idea_make_todo">Make it a to-do</string>
+    <string name="g_idea_open_recording">Open the recording</string>
+    <string name="g_idea_delete">Delete</string>
+    <!-- Notice after Delete, next to Undo (g_todo_undo) -->
+    <string name="g_idea_deleted">Idea deleted</string>
+
+    <!-- Home: the row under the to-dos that opens the ideas, "4 ideas" or "4 ideas, 2 new" -->
+    <plurals name="g_ideas_row">
+        <item quantity="one">%d idea</item>
+        <item quantity="other">%d ideas</item>
+    </plurals>
+    <!-- How many of them were found since the owner last saw the row on home -->
+    <plurals name="g_ideas_new">
+        <item quantity="one">%d new</item>
+        <item quantity="other">%d new</item>
+    </plurals>
+    <!-- %1$s is g_ideas_row, %2$s is g_ideas_new -->
+    <string name="g_ideas_row_with_new" translatable="false">%1$s, %2$s</string>
+
+    <!-- In the sheet of a to-do that is an idea, not something to do -->
+    <string name="g_todo_move_to_ideas">Move to ideas</string>
+    <!-- What a screen reader says for Move to ideas beside a suggested to-do; %1$s is its text -->
+    <string name="g_todo_move_to_ideas_cd">Move to ideas: %1$s</string>
+
+    <!-- Home's notice, once, after the to-dos an earlier version found that are ideas went there -->
+    <plurals name="g_ideas_moved">
+        <item quantity="one">%d to-do moved to Ideas</item>
+        <item quantity="other">%d to-dos moved to Ideas</item>
+    </plurals>
+</resources>

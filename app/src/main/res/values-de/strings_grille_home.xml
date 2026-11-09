@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für Start, Aufgaben und "Aufnehmen als". Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Start -->
+    <string name="g_home_empty">Auf Aufnehmen tippen und losreden.</string>
+    <string name="g_home_recordings">Aufnahmen</string>
+    <string name="g_home_length_cd">Länge %1$s</string>
+    <string name="g_home_error_load">Die Aufnahmen ließen sich nicht laden. Die App neu starten und erneut versuchen.</string>
+    <string name="g_home_error_create">Die Aufnahme ließ sich nicht starten. Zum erneuten Versuch auf Aufnehmen tippen.</string>
+    <string name="g_home_nothing_said">Es wurde nichts gesagt, daher wurde die Aufnahme nicht behalten.</string>
+    <plurals name="g_home_notes_too_short">
+        <item quantity="one">Zu kurz für Notizen: etwa %1$d Wort wird gebraucht</item>
+        <item quantity="other">Zu kurz für Notizen: etwa %1$d Wörter werden gebraucht</item>
+    </plurals>
+
+    <!-- Aufnehmen als -->
+    <string name="g_record_as_title">Aufnehmen als</string>
+    <string name="g_record_as_chip_cd">Aufnehmen als %1$s, ändern</string>
+    <string name="g_record_as_translate_into">Zielsprache: %1$s</string>
+    <string name="g_record_as_edit">Kategorien bearbeiten</string>
+    <!-- Unter „Übersetzen“, solange Malayalam gewählt ist: die Live-Übersetzung liest nur Englisch und Deutsch. -->
+    <string name="g_record_as_translate_en_de">Nur Englisch oder Deutsch</string>
+    <!-- Unter dem Chip unter dem Raster, solange Aufnehmen auf Malayalam aufnimmt. -->
+    <string name="g_record_as_in_ml">Auf Malayalam</string>
+
+    <!-- Namen der Startkategorien, wie sie zuerst angelegt werden -->
+    <string name="g_category_voice_note">Sprachnotiz</string>
+    <string name="g_category_meeting">Besprechung</string>
+    <string name="g_category_idea">Idee</string>
+    <string name="g_category_todo">Aufgabe</string>
+
+    <!-- Aufgaben -->
+    <string name="g_todo_heading">Aufgaben</string>
+    <string name="g_todo_show_all">Alle %1$d anzeigen</string>
+    <plurals name="g_todo_suggested">
+        <item quantity="one">%d vorgeschlagen</item>
+        <item quantity="other">%d vorgeschlagen</item>
+    </plurals>
+    <string name="g_todo_mark_done">Als erledigt markieren</string>
+    <string name="g_todo_mark_undone">Als offen markieren</string>
+    <string name="g_todo_edit">Bearbeiten</string>
+    <string name="g_todo_done">Erledigt</string>
+    <string name="g_todo_undo">Rückgängig</string>
+    <string name="g_todo_error">Die Änderung an der Aufgabe wurde nicht gespeichert. Erneut versuchen.</string>
+
+    <!-- Fälligkeitszeile unter einer Aufgabe: "Heute 9:00", "Morgen", "Fr. 9:00", "16. Okt." -->
+    <string name="g_todo_today">Heute</string>
+    <string name="g_todo_tomorrow">Morgen</string>
+    <string name="g_todo_overdue">Überfällig · %1$s</string>
+    <string name="g_todo_due_cd">fällig %1$s</string>
+    <string name="g_todo_overdue_cd">überfällig, %1$s</string>
+
+    <!-- Blatt einer Aufgabe -->
+    <string name="g_todo_sheet_title">Aufgabe</string>
+    <string name="g_todo_text_hint">Was zu tun ist</string>
+    <string name="g_todo_from">Aus: %1$s</string>
+    <string name="g_todo_field_due">Fällig</string>
+    <string name="g_todo_due_none">Kein Datum</string>
+    <string name="g_todo_due_pick">Datum wählen</string>
+    <string name="g_todo_field_time">Uhrzeit</string>
+    <string name="g_todo_time_none">Keine Uhrzeit</string>
+    <string name="g_todo_time_pick">Uhrzeit wählen</string>
+    <string name="g_todo_date_title">Fälligkeitsdatum</string>
+    <string name="g_todo_time_title">Uhrzeit</string>
+    <string name="g_todo_reminder_at">Erinnerung um %1$s</string>
+    <string name="g_todo_save">Speichern</string>
+    <string name="g_todo_delete">Löschen</string>
+    <string name="g_todo_delete_title">Diese Aufgabe löschen?</string>
+    <string name="g_todo_delete_body">Die Aufgabe wird von der Liste entfernt. Das lässt sich nicht rückgängig machen.</string>
+
+    <!-- Vorgeschlagene Aufgaben -->
+    <string name="g_todo_suggestions_title">Vorgeschlagene Aufgaben</string>
+    <string name="g_todo_keep">Behalten</string>
+    <string name="g_todo_dismiss">Verwerfen</string>
+    <string name="g_todo_keep_all">Alle behalten</string>
+    <string name="g_todo_dismissed">Verworfen</string>
+    <string name="g_todo_keep_cd">Behalten: %1$s</string>
+    <string name="g_todo_dismiss_cd">Verwerfen: %1$s</string>
+    <string name="g_todo_undo_cd">Rückgängig: %1$s</string>
+
+    <!-- Benachrichtigungen, die Erinnerungen brauchen -->
+    <string name="g_todo_notify_title">Erinnerungen erhalten?</string>
+    <string name="g_todo_notify_body">Für Erinnerungen an Aufgaben braucht Satori die Erlaubnis, Benachrichtigungen anzuzeigen.</string>
+    <string name="g_todo_notify_allow">Erlauben</string>
+    <string name="g_todo_notify_later">Jetzt nicht</string>
+    <string name="g_todo_reminders_off">Erinnerungen sind aus</string>
+    <string name="g_todo_reminders_turn_on">Einschalten</string>
+
+    <!-- Suche -->
+    <plurals name="g_search_matches">
+        <item quantity="one">%d Treffer</item>
+        <item quantity="other">%d Treffer</item>
+    </plurals>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- In dark mode the app is true black, so the window and the Android 12+ splash screen,
+         which takes its colour from windowBackground, start black instead of flashing light. -->
+    <style name="Theme.Satori" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>

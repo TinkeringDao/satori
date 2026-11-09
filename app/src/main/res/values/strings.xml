@@ -1,0 +1,23 @@
+<resources>
+    <!-- Older strings the code still uses through R.string. The UI text is in
+         strings_grille*.xml and the model prompts are in strings_grille_ai.xml. -->
+
+    <!-- App Info -->
+    <string name="app_name">Satori</string>
+
+    <!-- Recording Notification -->
+    <string name="notification_channel_recording_name">Recording</string>
+    <string name="notification_channel_recording_description">Shows while the microphone is on</string>
+    <string name="notification_recording_title">Recording active</string>
+    <string name="notification_action_stop">Stop</string>
+
+    <!-- LLM Processing Notification -->
+    <string name="notification_channel_llm_processing_name">Finishing recordings</string>
+    <string name="notification_channel_llm_processing_description">Shows while notes, names and to-dos are written after Stop</string>
+    <string name="notification_llm_processing_title">Analyzing transcription</string>
+    <string name="notification_llm_processing_text">AI is processing your recording…</string>
+
+    <!-- Time Formats -->
+    <string name="time_today">Today, %s</string>
+    <string name="time_yesterday">Yesterday, %s</string>
+</resources>

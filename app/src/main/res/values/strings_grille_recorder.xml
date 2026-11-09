@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strings of the recorder. English source; German in values-de/strings_grille_recorder.xml. -->
+<resources>
+    <!-- The one status line under the timer. Getting ready: before the recording starts, and while
+         its speech model still loads; the microphone records meanwhile, and only the live text waits. -->
+    <string name="g_rec_preparing">Getting ready</string>
+    <string name="g_rec_live">Recording</string>
+    <!-- The status line of a recording in Malayalam (since 0.6.0), in place of g_rec_live: the
+         Record as chip names its category only, so the language is said here. -->
+    <string name="g_rec_live_ml">Recording in Malayalam</string>
+    <!-- The status line of a Translate recording (since 0.6.0): the language that goes in, once the
+         app is sure of it from what was said, and the one that comes out. %1$s and %2$s are
+         g_rec_language_en or g_rec_language_de, e.g. "German into English". -->
+    <string name="g_rec_translate_from_into">%1$s into %2$s</string>
+    <!-- Before the language that goes in is known, e.g. "Into English". -->
+    <string name="g_rec_translate_into">Into %1$s</string>
+    <!-- What is said is already in the language it is translated into, e.g. "Already English: nothing to translate". -->
+    <string name="g_rec_translate_same">Already %1$s: nothing to translate</string>
+    <string name="g_rec_language_en">English</string>
+    <string name="g_rec_language_de">German</string>
+    <!-- After Stop, for well under a second: the last words are saved before the recorder goes home. -->
+    <string name="g_rec_saving">Saving</string>
+    <!-- Over the lock screen a tap on the record button doesn't stop the recording; this says how. -->
+    <string name="g_rec_hold_to_stop">Hold to stop</string>
+    <!-- Over the lock screen a tap on the Record as chip doesn't open it; this says how. -->
+    <string name="g_rec_hold_to_change">Hold to change</string>
+
+    <!-- While recording, the label at the top is a chip that opens "Record as" (g_record_as_title,
+         with the categories but Translate). A notice once the recording is switched; %1$s is the
+         category's name as the owner named it, e.g. "Recording as Meeting". -->
+    <string name="g_rec_recording_as">Recording as %1$s</string>
+    <!-- The switch couldn't be stored (the category was deleted meanwhile, say); nothing changed. -->
+    <string name="g_rec_switch_failed">The recording couldn\'t be switched. It goes on as before.</string>
+    <!-- "Record as" switched the recording to Malayalam: the speech model changes between two
+         sentences, and the AI writes no notes while recording, as it reads Malayalam poorly. -->
+    <string name="g_rec_recording_in_ml">Recording in Malayalam. Notes come after Stop.</string>
+    <!-- "Record as" switched the recording back to the categories' languages. -->
+    <string name="g_rec_recording_in_en_de">Recording in English or German</string>
+    <!-- The speech model of the language switched to didn't load; the recording goes on with the
+         one it had. %1$s and %2$s are language names (g_language_ml, g_language_en_de). -->
+    <string name="g_rec_language_refused">The speech model for %1$s didn\'t load. The recording goes on in %2$s.</string>
+
+    <!-- The steps of finishing a recording in the background, as home, the recording's page and the
+         notification word them. -->
+    <string name="g_rec_finishing">Finishing up</string>
+    <string name="g_rec_naming">Writing a name</string>
+    <string name="g_rec_todos">Finding to-dos</string>
+    <!-- The AI links the recording's topics into the mind map and rewrites the themes it joined.
+         It names the map's topics, not the Ideas list. -->
+    <string name="g_rec_mapping">Linking topics</string>
+    <!-- What a screen reader says for the timer; %1$s is the length, such as 3:27. -->
+    <string name="g_rec_timer_cd">Length %1$s</string>
+
+    <!-- Transcript tab: the hint while recording, before there is anything to read. -->
+    <string name="g_transcript_listening">Listening</string>
+    <!-- The small pill over a transcript that was scrolled up: it goes back to the newest line and follows it again. -->
+    <string name="g_transcript_latest">Latest</string>
+    <!-- What a screen reader says for that pill. -->
+    <string name="g_transcript_latest_cd">Back to the latest line</string>
+
+    <!-- Notes tab: one sentence, and when the AI can't write them, one way to fix that -->
+    <string name="g_rec_notes_live">Notes appear here as you talk.</string>
+    <string name="g_rec_notes_after">Notes are written when you stop.</string>
+    <!-- A recording in Malayalam: the AI reads Malayalam poorly while recording, so its notes come
+         after Stop. The app doesn't say in which language (the owner, 2026-10-15). -->
+    <string name="g_rec_notes_after_ml">This recording is in Malayalam. Its notes are written when you stop.</string>
+    <string name="g_rec_notes_writing">Writing notes</string>
+    <!-- A Translate recording's second tab, in place of g_tab_insights, and what it says before
+         the first translation. -->
+    <string name="g_rec_tab_translation">Translation</string>
+    <string name="g_rec_translation_live">Finished sentences are translated here, a few at a time.</string>
+    <!-- While the AI finishes an older recording, no live note is written for this one. -->
+    <string name="g_rec_notes_waiting">Notes start once the last recording is finished.</string>
+    <string name="g_rec_notes_off">AI notes are off, so none are written for this recording.</string>
+    <string name="g_rec_notes_missing">No AI model is installed, so no notes are written.</string>
+    <string name="g_rec_notes_failed">The AI model couldn\'t be used, so no notes are written.</string>
+    <!-- While the first run downloads the AI model (after the first recording), in place of
+         g_rec_notes_missing: the recording waits for it and gets its notes once it is in. -->
+    <string name="g_rec_notes_downloading">The AI model is still downloading. Notes follow when it is in.</string>
+
+    <!-- Under the record button, only while the AI can't write notes -->
+    <string name="g_rec_ai_off">AI notes are off</string>
+    <string name="g_rec_ai_missing">No AI model installed</string>
+    <string name="g_rec_ai_failed">AI notes unavailable</string>
+    <!-- In place of g_rec_ai_missing while the first run downloads the AI model; no action beside it -->
+    <string name="g_rec_ai_downloading">AI model: downloading</string>
+    <string name="g_rec_action_turn_on">Turn on</string>
+    <!-- Worded as in Settings (g_settings_ai_get_model) -->
+    <string name="g_rec_action_get_model">Get the AI model</string>
+
+    <!-- Ways forward from an error -->
+    <string name="g_rec_action_settings">Open settings</string>
+    <string name="g_rec_action_retry">Try again</string>
+    <string name="g_rec_error_no_model">The speech model is missing. Download it again in settings.</string>
+    <string name="g_rec_error_damaged">The speech model is damaged or incomplete. Download it again in settings.</string>
+    <string name="g_rec_error_model">The speech model couldn\'t be loaded.</string>
+    <!-- The record button is the way to try again; the sentence names it. -->
+    <string name="g_rec_error_service">Android didn\'t allow the recording to start. Tap Record to try again.</string>
+    <string name="g_rec_error_stopped">The recording stopped because of an error. What was said so far is saved.</string>
+
+    <!-- Dialogs -->
+    <string name="g_stop_title">Stop recording?</string>
+    <string name="g_stop_body">Everything said so far is saved.</string>
+    <string name="g_stop_confirm">Stop</string>
+    <string name="g_keep_recording">Keep recording</string>
+</resources>

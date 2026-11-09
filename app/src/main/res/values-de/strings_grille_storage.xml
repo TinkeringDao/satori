@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte von Einstellungen > Modelle und Speicher. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_storage_title">Modelle und Speicher</string>
+    <string name="g_storage_row_desc">Welche Modelle auf dem Telefon sind, wie viel Platz sie belegen und was sie nutzt.</string>
+
+    <string name="g_storage_summary">Die Modelle auf diesem Telefon belegen %1$s. Frei auf dem Telefon: %2$s.</string>
+    <string name="g_storage_summary_none">Kein Modell ist auf diesem Telefon.</string>
+
+    <string name="g_storage_unused">Ungenutztes entfernen</string>
+    <plurals name="g_storage_unused_desc">
+        <item quantity="one">%1$d Modell, %2$s</item>
+        <item quantity="other">%1$d Modelle, %2$s</item>
+    </plurals>
+    <string name="g_storage_all_used">Jedes Modell auf diesem Telefon wird von einer Einstellung genutzt.</string>
+    <string name="g_storage_unused_waiting">Mehr lässt sich entfernen, sobald das Laufende endet: eine Aufnahme, ein Abschließen oder „Neu transkribieren“.</string>
+
+    <string name="g_storage_on_phone">Auf diesem Telefon</string>
+
+    <string name="g_storage_for_speech">Spracherkennung</string>
+    <string name="g_storage_for_malayalam">Malayalam</string>
+    <string name="g_storage_for_better_en">Besseres Transkript, Englisch</string>
+    <string name="g_storage_for_better_en_de">Besseres Transkript, Englisch und Deutsch</string>
+    <string name="g_storage_for_ai_notes">KI-Notizen</string>
+    <string name="g_storage_for_finishing">KI nach der Aufnahme</string>
+    <string name="g_storage_model_size">%1$s · %2$s</string>
+
+    <string name="g_storage_use_recording">Für jede Aufnahme nötig</string>
+    <string name="g_storage_use_malayalam">Genutzt: Ein-/Aus-Taste oder „Aufnehmen als“ nehmen auf Malayalam auf</string>
+    <string name="g_storage_use_language_key">Genutzt: Aufnahmen können auf Malayalam wechseln</string>
+    <string name="g_storage_use_better">Genutzt: Besseres Transkript nach dem Stoppen</string>
+    <string name="g_storage_use_ai_notes">Genutzt: KI-Notizen</string>
+    <string name="g_storage_use_finishing">Genutzt: KI nach der Aufnahme</string>
+    <string name="g_storage_use_none">Von keiner Einstellung genutzt</string>
+    <string name="g_storage_paused">Download pausiert</string>
+    <string name="g_storage_in_use_now">Gerade in Gebrauch; lässt sich entfernen, sobald das endet.</string>
+
+    <string name="g_storage_remove">Entfernen</string>
+    <string name="g_storage_remove_cd">%1$s entfernen</string>
+
+    <plurals name="g_storage_unused_title">
+        <item quantity="one">%1$d Modell entfernen?</item>
+        <item quantity="other">%1$d Modelle entfernen?</item>
+    </plurals>
+    <string name="g_storage_unused_body">%1$s\n\nGibt %2$s frei. Jedes lässt sich unter „Erweitert“ erneut herunterladen.</string>
+    <string name="g_storage_remove_title">%1$s entfernen?</string>
+    <string name="g_storage_remove_body">%1$s Gibt %2$s frei.</string>
+    <string name="g_storage_cost_none">Nichts nutzt es. Es lässt sich unter „Erweitert“ erneut herunterladen.</string>
+    <string name="g_storage_cost_better">Besseres Transkript nach dem Stoppen geht aus.</string>
+    <string name="g_storage_cost_malayalam">Bis es wieder da ist, nehmen die Ein-/Aus-Taste und „Aufnehmen als“ auf Englisch oder Deutsch auf.</string>
+    <string name="g_storage_cost_language_key">Bis es wieder da ist, wechselt keine Aufnahme auf Malayalam, und „Neu transkribieren“ bietet kein Malayalam.</string>
+    <string name="g_storage_cost_notes_by">Die Notizen schreibt dann das Modell „%1$s“.</string>
+    <string name="g_storage_cost_no_notes">Bis wieder ein Modell da ist, entstehen zu neuen Aufnahmen keine Notizen.</string>
+    <string name="g_storage_cost_finishing">Die Notizen nach dem Stoppen schreibt dann das unter „Erweitert“ gewählte KI-Modell.</string>
+    <string name="g_storage_cost_paused">Was der Download hinterlassen hat, wird gelöscht; er beginnt dann von vorn.</string>
+
+    <string name="g_storage_removed">Entfernt. %1$s frei.</string>
+    <string name="g_storage_removed_better_off">Entfernt. Besseres Transkript nach dem Stoppen ist aus.</string>
+    <string name="g_storage_removed_notes_by">Entfernt. Die Notizen schreibt jetzt das Modell „%1$s“.</string>
+    <string name="g_storage_removed_no_notes">Entfernt. Zu neuen Aufnahmen entstehen keine Notizen, bis wieder ein Modell da ist.</string>
+    <string name="g_storage_not_removed">Nicht entfernt: Es ist gerade in Gebrauch. Erneut versuchen, sobald das endet.</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Sprache einer Aufnahme: die Zeile „Sprache“ in „Aufnehmen als“ (Startseite, während der
+     Aufnahme, Ein-/Aus-Taste) und in „Art ändern“ auf der Seite einer Aufnahme. Neutraler
+     Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_language_title">Sprache</string>
+    <string name="g_language_en_de">Englisch oder Deutsch</string>
+    <string name="g_language_ml">Malayalam</string>
+    <!-- Anstelle der Wahl Malayalam, solange das Modell nicht auf dem Telefon ist; öffnet die
+         erweiterten Einstellungen, wo es heruntergeladen wird -->
+    <string name="g_language_get_ml">Malayalam unter „Erweitert“ herunterladen</string>
+    <!-- Was TalkBack für die Sprachtaste der Aufnahme sagt: die Sprache, dann was ein Tippen tut -->
+    <string name="g_language_key_cd">Sprache: %1$s. Auf %2$s umstellen</string>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Texte des Rekorders. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Die eine Statuszeile unter der Zeit. Wird vorbereitet: vor dem Start der Aufnahme und solange
+         das Spracherkennungsmodell noch lädt; das Mikrofon nimmt dabei schon auf. -->
+    <string name="g_rec_preparing">Wird vorbereitet</string>
+    <string name="g_rec_live">Aufnahme läuft</string>
+    <!-- Die Statuszeile einer Aufnahme auf Malayalam, statt g_rec_live. -->
+    <string name="g_rec_live_ml">Aufnahme auf Malayalam läuft</string>
+    <string name="g_rec_translate_from_into">%1$s nach %2$s</string>
+    <string name="g_rec_translate_into">Nach %1$s</string>
+    <string name="g_rec_translate_same">Schon %1$s: nichts zu übersetzen</string>
+    <string name="g_rec_language_en">Englisch</string>
+    <string name="g_rec_language_de">Deutsch</string>
+    <!-- Nach dem Stoppen, weit unter einer Sekunde: die letzten Worte werden gespeichert. -->
+    <string name="g_rec_saving">Wird gespeichert</string>
+    <!-- Über dem Sperrbildschirm beendet ein Tippen die Aufnahme nicht; das sagt, wie es geht. -->
+    <string name="g_rec_hold_to_stop">Zum Beenden gedrückt halten</string>
+    <!-- Über dem Sperrbildschirm öffnet ein Tippen auf den Chip „Aufnehmen als“ ihn nicht; das sagt, wie es geht. -->
+    <string name="g_rec_hold_to_change">Zum Ändern gedrückt halten</string>
+
+    <!-- Während der Aufnahme ist die Bezeichnung oben ein Chip, der „Aufnehmen als“ öffnet. Hinweis,
+         sobald die Aufnahme umgestellt ist; %1$s ist der Name der Kategorie, etwa „Besprechung“. -->
+    <string name="g_rec_recording_as">Wird als %1$s aufgenommen</string>
+    <!-- Die Umstellung ließ sich nicht speichern; nichts hat sich geändert. -->
+    <string name="g_rec_switch_failed">Die Aufnahme ließ sich nicht umstellen und läuft wie bisher weiter.</string>
+    <!-- „Aufnehmen als“ hat die Aufnahme auf Malayalam umgestellt; während der Aufnahme entstehen keine Notizen. -->
+    <string name="g_rec_recording_in_ml">Aufnahme auf Malayalam. Notizen folgen nach dem Stoppen.</string>
+    <string name="g_rec_recording_in_en_de">Aufnahme auf Englisch oder Deutsch</string>
+    <!-- %1$s und %2$s sind Namen von Sprachen (g_language_ml, g_language_en_de). -->
+    <string name="g_rec_language_refused">Das Spracherkennungsmodell für %1$s ließ sich nicht laden. Die Aufnahme läuft auf %2$s weiter.</string>
+
+    <!-- Die Schritte beim Abschließen einer Aufnahme im Hintergrund, wie Startseite, Aufnahmeseite
+         und Benachrichtigung sie nennen. -->
+    <string name="g_rec_finishing">Wird abgeschlossen</string>
+    <string name="g_rec_naming">Name wird geschrieben</string>
+    <string name="g_rec_todos">Aufgaben werden gesucht</string>
+    <!-- Die KI verknüpft die Themen der Aufnahme mit der Gedankenkarte; gemeint sind ihre
+         Themen, nicht die Liste der Ideen. -->
+    <string name="g_rec_mapping">Themen verknüpfen</string>
+    <!-- Was ein Screenreader für die Zeit sagt; %1$s ist die Länge, etwa 3:27. -->
+    <string name="g_rec_timer_cd">Länge %1$s</string>
+
+    <!-- Transkript: Hinweis während der Aufnahme, solange es nichts zu lesen gibt. -->
+    <string name="g_transcript_listening">Hört zu</string>
+    <!-- Die kleine Pille über einem hochgescrollten Transkript: zurück zur neuesten Zeile, die dann wieder mitläuft. -->
+    <string name="g_transcript_latest">Neueste</string>
+    <!-- Was ein Screenreader für diese Pille sagt. -->
+    <string name="g_transcript_latest_cd">Zurück zur neuesten Zeile</string>
+
+    <!-- Notizen: ein Satz, und wenn die KI keine schreiben kann, ein Weg, das zu beheben -->
+    <string name="g_rec_notes_live">Notizen erscheinen hier während des Gesprächs.</string>
+    <string name="g_rec_notes_after">Notizen entstehen nach dem Stoppen.</string>
+    <string name="g_rec_notes_after_ml">Diese Aufnahme ist auf Malayalam. Die Notizen entstehen nach dem Stoppen.</string>
+    <string name="g_rec_notes_writing">Notizen werden geschrieben</string>
+    <string name="g_rec_tab_translation">Übersetzung</string>
+    <string name="g_rec_translation_live">Fertige Sätze werden hier übersetzt, jeweils ein paar auf einmal.</string>
+    <!-- Solange die KI eine ältere Aufnahme abschließt, entsteht für diese keine Live-Notiz. -->
+    <string name="g_rec_notes_waiting">Notizen beginnen, sobald die letzte Aufnahme fertig ist.</string>
+    <string name="g_rec_notes_off">KI-Notizen sind aus, daher entstehen für diese Aufnahme keine.</string>
+    <string name="g_rec_notes_missing">Kein KI-Modell installiert, daher entstehen keine Notizen.</string>
+    <string name="g_rec_notes_failed">Das KI-Modell ließ sich nicht verwenden, daher entstehen keine Notizen.</string>
+    <!-- Solange der erste Start das KI-Modell herunterlädt, statt g_rec_notes_missing -->
+    <string name="g_rec_notes_downloading">Das KI-Modell wird noch heruntergeladen. Die Notizen folgen, sobald es da ist.</string>
+
+    <!-- Unter der Aufnahmetaste, nur wenn die KI keine Notizen schreiben kann -->
+    <string name="g_rec_ai_off">KI-Notizen sind aus</string>
+    <string name="g_rec_ai_missing">Kein KI-Modell installiert</string>
+    <string name="g_rec_ai_failed">KI-Notizen nicht verfügbar</string>
+    <!-- Statt g_rec_ai_missing, solange der erste Start das KI-Modell herunterlädt; ohne Aktion -->
+    <string name="g_rec_ai_downloading">KI-Modell: Download läuft</string>
+    <string name="g_rec_action_turn_on">Einschalten</string>
+    <string name="g_rec_action_get_model">KI-Modell holen</string>
+
+    <!-- Wege weiter nach einem Fehler -->
+    <string name="g_rec_action_settings">Einstellungen öffnen</string>
+    <string name="g_rec_action_retry">Erneut versuchen</string>
+    <string name="g_rec_error_no_model">Das Modell für die Spracherkennung fehlt. In den Einstellungen erneut herunterladen.</string>
+    <string name="g_rec_error_damaged">Das Modell für die Spracherkennung ist beschädigt oder unvollständig. In den Einstellungen erneut herunterladen.</string>
+    <string name="g_rec_error_model">Das Modell für die Spracherkennung ließ sich nicht laden.</string>
+    <string name="g_rec_error_service">Android hat den Start der Aufnahme nicht zugelassen. Zum erneuten Versuch auf Aufnehmen tippen.</string>
+    <string name="g_rec_error_stopped">Die Aufnahme wurde wegen eines Fehlers beendet. Das bisher Gesagte ist gespeichert.</string>
+
+    <!-- Dialoge -->
+    <string name="g_stop_title">Aufnahme stoppen?</string>
+    <string name="g_stop_body">Alles bisher Gesagte wird gespeichert.</string>
+    <string name="g_stop_confirm">Stoppen</string>
+    <string name="g_keep_recording">Weiter aufnehmen</string>
+</resources>

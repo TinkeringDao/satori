@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Bildschirme der Gedankenkarte. Ein Thema kehrt über Aufnahmen hinweg wieder ("Heizung"),
+     ein Unterthema ist, was Aufnahmen darunter sagten ("Kesselreparatur"). Neutraler
+     Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_map_title">Gedankenkarte</string>
+    <string name="g_map_details_hint">Themen und Punkte dieser Aufnahme</string>
+    <string name="g_map_show_list">Als Liste zeigen</string>
+    <string name="g_map_show_map">Als Karte zeigen</string>
+    <string name="g_map_crumb_action">Dorthin zurück</string>
+
+    <!-- Die Mitte der obersten Ebene: die Person, deren Gedanken es sind -->
+    <string name="g_map_you">Ich</string>
+    <plurals name="g_map_you_cd">
+        <item quantity="one">Ich, %d Aufnahme</item>
+        <item quantity="other">Ich, %d Aufnahmen</item>
+    </plurals>
+
+    <string name="g_map_core">Kern</string>
+    <string name="g_map_recent">Zuletzt</string>
+    <string name="g_map_all">Alle</string>
+    <string name="g_map_search_hint">Themen suchen</string>
+    <string name="g_map_empty">Die Karte wächst mit jeder Aufnahme. Jede Aufnahme fügt ihre Themen hinzu.</string>
+    <string name="g_map_empty_recent">Nichts aus den letzten 7 Tagen.</string>
+    <string name="g_map_no_match">Kein Thema passt.</string>
+    <plurals name="g_map_matches_in_all">
+        <item quantity="one">%d Treffer unter Alle zeigen</item>
+        <item quantity="other">%d Treffer unter Alle zeigen</item>
+    </plurals>
+
+    <plurals name="g_map_older">
+        <item quantity="one">%d ältere Aufnahme einordnen</item>
+        <item quantity="other">%d ältere Aufnahmen einordnen</item>
+    </plurals>
+    <string name="g_map_older_running">Ältere Aufnahmen werden eingeordnet</string>
+    <string name="g_map_older_starting">Wird gestartet</string>
+    <string name="g_map_older_linking">Aufnahme %1$d von %2$d wird gelesen</string>
+    <string name="g_map_older_learning">Zusammenfassung %1$d von %2$d wird geschrieben</string>
+    <string name="g_map_older_stopping">Wird beendet</string>
+    <plurals name="g_map_older_done">
+        <item quantity="one">%d Aufnahme eingeordnet.</item>
+        <item quantity="other">%d Aufnahmen eingeordnet.</item>
+    </plurals>
+    <plurals name="g_map_older_without">
+        <item quantity="one">%d ohne Themen.</item>
+        <item quantity="other">%d ohne Themen.</item>
+    </plurals>
+    <string name="g_map_older_already">Die Karte wird bereits aktualisiert.</string>
+    <plurals name="g_map_older_stopped">
+        <item quantity="one">Die KI hat nach %d eingeordneten Aufnahme aufgehört. Den Rest später erneut versuchen.</item>
+        <item quantity="other">Die KI hat nach %d eingeordneten Aufnahmen aufgehört. Den Rest später erneut versuchen.</item>
+    </plurals>
+    <string name="g_map_stop_title">Einordnen beenden?</string>
+    <string name="g_map_stop_body">Was schon eingeordnet ist, bleibt. Der Rest lässt sich später einordnen.</string>
+    <string name="g_map_stop_confirm">Beenden</string>
+    <string name="g_map_stop_keep">Weiter einordnen</string>
+    <string name="g_map_stopped_recording">Einordnen wegen der neuen Aufnahme beendet. Was schon eingeordnet ist, bleibt.</string>
+    <string name="g_map_ai_waits">Einordnen und Zusammenfassen geht wieder, sobald die Aufnahme fertig ist.</string>
+
+    <plurals name="g_map_recordings">
+        <item quantity="one">%d Aufnahme</item>
+        <item quantity="other">%d Aufnahmen</item>
+    </plurals>
+    <string name="g_map_pinned">Angeheftet</string>
+
+    <!-- Seite eines Themas -->
+    <string name="g_map_pin">Im Kern behalten</string>
+    <string name="g_map_pin_hint">Ein angeheftetes Thema bleibt im Kern.</string>
+    <string name="g_map_summary">Zusammenfassung</string>
+    <string name="g_map_summary_none">Noch keine Zusammenfassung.</string>
+    <string name="g_map_summary_stale">Vor den neuesten Aufnahmen geschrieben.</string>
+    <string name="g_map_summary_written">Geschrieben %1$s</string>
+    <string name="g_map_update">Aktualisieren</string>
+    <string name="g_map_updating">Zusammenfassung wird aktualisiert</string>
+    <string name="g_map_update_stopped_recording">Aktualisieren wegen der neuen Aufnahme beendet.</string>
+    <string name="g_map_summary_needs_ai">Zusammenfassungen entstehen, wenn KI-Notizen an sind und ein Modell installiert ist.</string>
+    <string name="g_map_topics">Unterthemen</string>
+    <string name="g_map_recordings_heading">Aufnahmen</string>
+    <string name="g_map_in_theme">In %1$s</string>
+
+    <!-- Karte einer Aufnahme -->
+    <string name="g_map_open_recording">Aufnahme öffnen</string>
+    <string name="g_map_notes">Notizen</string>
+    <string name="g_map_not_mapped">Diese Aufnahme ist noch nicht in der Karte.</string>
+    <string name="g_map_map_this">Diese Aufnahme einordnen</string>
+    <string name="g_map_mapping_this">Aufnahme wird eingeordnet</string>
+    <string name="g_map_too_short">In dieser Aufnahme wurde zu wenig gesagt, um sie einzuordnen.</string>
+    <plurals name="g_map_recording_mapped">
+        <item quantity="one">In %d Thema eingeordnet.</item>
+        <item quantity="other">In %d Themen eingeordnet.</item>
+    </plurals>
+    <string name="g_map_nothing_found">Die KI hat in dieser Aufnahme kein Thema gefunden.</string>
+
+    <!-- Fehler: jeder sagt, was als Nächstes zu tun ist -->
+    <string name="g_map_error_load">Die Gedankenkarte ließ sich nicht laden. Zurückgehen und erneut öffnen.</string>
+    <string name="g_map_error_pin">Das Anheften wurde nicht gespeichert. Erneut versuchen.</string>
+    <string name="g_map_error_no_model">Die KI ist aus oder hat kein Modell. KI-Notizen in den Einstellungen einschalten.</string>
+    <string name="g_map_error_model">Die KI konnte nicht arbeiten. Später erneut versuchen.</string>
+    <string name="g_map_error_summary">Die Zusammenfassung der KI war nicht verwendbar. Zum erneuten Versuch auf Aktualisieren tippen.</string>
+    <string name="g_map_error_topics">Die Themen der KI waren nicht verwendbar. Erneut versuchen.</string>
+    <string name="g_map_error_save">Die Gedankenkarte ließ sich nicht speichern. Erneut versuchen.</string>
+    <string name="g_map_missing">Dieser Teil der Karte ist weg: Seine Aufnahmen wurden gelöscht oder neu eingeordnet. Zurück zur Karte gehen.</string>
+
+    <!-- Was TalkBack zu jedem Knoten der Karte sagt -->
+    <string name="g_map_cd_theme">Thema %1$s, %2$s</string>
+    <string name="g_map_cd_theme_pinned">Angeheftetes Thema %1$s, %2$s</string>
+    <string name="g_map_cd_topic">Unterthema %1$s, %2$s</string>
+    <string name="g_map_cd_recording">Aufnahme %1$s, %2$s</string>
+    <string name="g_map_cd_point">Punkt: %1$s</string>
+    <string name="g_map_cd_counts">%1$s, zuletzt %2$s</string>
+    <string name="g_map_cd_centre">%1$s, in der Mitte</string>
+</resources>

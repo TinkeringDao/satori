@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A recording being finished in the background, as home, the recording's page and the
+     notification word it (ui/screens/FinishingStatusText.kt); the steps themselves read the
+     g_rec_* and g_speech_finishing_* strings. German in values-de/strings_grille_finishing.xml. -->
+<resources>
+    <!-- In the queue behind the recording being finished -->
+    <string name="g_finish_waiting">Waiting to be finished</string>
+    <!-- Deferred until the recording being made ends (a Translate recording, or no room for the model) -->
+    <string name="g_finish_waits_recording">Waits until the recording ends</string>
+    <!-- Held until the AI model it needs is on the phone (the first run downloads it after the first recording) -->
+    <string name="g_finish_waits_model">Waits for the AI model</string>
+</resources>

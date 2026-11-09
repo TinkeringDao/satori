@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The language a recording is made in: the language row of "Record as" (on home, while
+     recording, and the power key's), and of "Change type" on a recording's page. German in
+     values-de/strings_grille_language.xml. -->
+<resources>
+    <!-- Above the choice of language -->
+    <string name="g_language_title">Language</string>
+    <!-- The categories' languages; the speech model tells which of the two is spoken -->
+    <string name="g_language_en_de">English or German</string>
+    <!-- The language's name, the same in German -->
+    <string name="g_language_ml">Malayalam</string>
+    <!-- Malayalam's own name in its own script, shown next to g_language_ml in the choice -->
+    <string name="g_language_ml_own" translatable="false">മലയാളം</string>
+    <!-- Two names side by side: the choice of Malayalam, its name and its own name (g_language_ml_own);
+         the page's line under "Change type" of a Malayalam recording, its category and the language
+         ("Meeting · Malayalam") -->
+    <string name="g_language_pair" translatable="false">%1$s · %2$s</string>
+    <!-- In place of the Malayalam choice while its speech model isn't on the phone; a tap opens
+         Advanced settings, where it downloads -->
+    <string name="g_language_get_ml">Download Malayalam in Advanced settings</string>
+
+    <!-- The recorder's language key, at the end of its top bar (on the cover after the Record as
+         chip): the language the recording is made in, which a tap switches to the other. English
+         or German until the transcript shows which, then the one it shows; Malayalam as its letter
+         ma (U+0D2E), never "ML". The same in German. -->
+    <string name="g_language_key_en_de" translatable="false">EN/DE</string>
+    <string name="g_language_key_en" translatable="false">EN</string>
+    <string name="g_language_key_de" translatable="false">DE</string>
+    <string name="g_language_key_ml" translatable="false">മ</string>
+    <!-- What TalkBack says for the key: the language in full (g_language_en_de, g_rec_language_en,
+         g_rec_language_de or g_language_ml), then what a tap does, with the other language
+         (g_language_ml or g_language_en_de) -->
+    <string name="g_language_key_cd">Language: %1$s. Switch to %2$s</string>
+</resources>

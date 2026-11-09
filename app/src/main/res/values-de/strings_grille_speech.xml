@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Spracherkennungsmodelle: ihre Zeilen in den erweiterten Einstellungen, das bessere
+     Transkript nach dem Stoppen, die zu erkennenden Wörter, der Mikrofoneingang und die Wahl des
+     Modells für „Neu transkribieren“ auf der Detailseite. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Erweitert, unter „Mikrofon“: der Eingang für Sprache, eine Zeile und eine Auswahl aus drei.
+         Der übliche Eingang ist voreingestellt und empfohlen. -->
+    <string name="g_settings_mic_input">Mikrofoneingang</string>
+    <string name="g_settings_mic_input_desc">Wie die Stimme aufgenommen wird. Gilt ab der nächsten Aufnahme.</string>
+    <string name="g_settings_mic_input_help">Gilt ab der nächsten Aufnahme.</string>
+    <string name="g_settings_mic_recognition">Für Spracherkennung</string>
+    <string name="g_settings_mic_recognition_desc">Auf diesem Telefon viel leiser: viele Wörter gehen verloren.</string>
+    <string name="g_settings_mic_usual">Üblicher Eingang des Telefons</string>
+    <string name="g_settings_mic_usual_desc">Empfohlen: funktioniert auf diesem Telefon am besten</string>
+    <string name="g_settings_mic_calls">Mit der Geräuschunterdrückung des Telefons</string>
+    <string name="g_settings_mic_calls_desc">Wie bei Anrufen: kann an lauten Orten helfen, kann an leisen Wörter kosten</string>
+
+    <!-- Erweitert, unter „Spracherkennung“: wofür die Modelle sind -->
+    <string name="g_speech_help">Parakeet v3 transkribiert während der Aufnahme, Malayalam (AI4Bharat) die Aufnahmen auf Malayalam. Die anderen erstellen nach dem Stoppen oder mit „Neu transkribieren“ ein besseres Transkript.</string>
+    <string name="g_speech_busy">Es wird immer nur ein Spracherkennungsmodell heruntergeladen. Zum Starten eines anderen das laufende pausieren.</string>
+    <string name="g_speech_v3_desc">Schreibt das Transkript während der Aufnahme, auf Englisch oder Deutsch. Zum Aufnehmen nötig. Etwa %1$s.</string>
+    <string name="g_speech_v2_desc">Weniger Fehler bei englischen Aufnahmen, nach dem Stoppen. Schnell. Etwa %1$s.</string>
+    <string name="g_speech_cohere_desc">Die wenigsten Fehler auf Englisch und Deutsch, nach dem Stoppen. Langsam und braucht viel freien Arbeitsspeicher. Etwa %1$s.</string>
+    <string name="g_speech_ml_desc">Für Aufnahmen auf Malayalam: während der Aufnahme, nach dem Stoppen noch einmal und mit „Neu transkribieren“. Schreibt englische Wörter in Malayalam-Schrift. Etwa %1$s.</string>
+    <string name="g_speech_delete_title">Dieses Spracherkennungsmodell löschen?</string>
+    <string name="g_speech_delete_body">Transkripte, die es erstellt hat, bleiben. Es lässt sich erneut herunterladen.</string>
+    <string name="g_speech_delete_ml_body">Transkripte, die es erstellt hat, bleiben. Bis es wieder da ist, nehmen die Ein-/Aus-Taste und „Aufnehmen als“ auf Englisch oder Deutsch auf.</string>
+
+    <!-- Erweitert: das bessere Transkript nach dem Stoppen -->
+    <string name="g_speech_after_stop">Besseres Transkript nach dem Stoppen</string>
+    <string name="g_speech_after_stop_desc">Transkribiert Aufnahmen nach dem Stoppen neu, mit weniger Fehlern. Die Notizen warten darauf.</string>
+    <string name="g_speech_after_stop_off_desc">Das Transkript aus der Aufnahme bleibt. Die Notizen kommen am schnellsten.</string>
+    <string name="g_speech_after_stop_v2_desc">Weniger Fehler auf Englisch. Die Notizen kommen etwas später.</string>
+    <string name="g_speech_after_stop_cohere_desc">Die wenigsten Fehler, auf Englisch und Deutsch. Die Notizen kommen am spätesten, und es braucht viel freien Arbeitsspeicher.</string>
+    <plurals name="g_speech_after_stop_help">
+        <item quantity="one">Nach dem Stoppen transkribiert dieses Modell die Aufnahme aus ihrem Audio neu, und die Notizen entstehen aus diesem Transkript. Nur für Aufnahmen in einer Sprache, die das Modell kennt. „Überspringen“ bricht das ab. Aufnahmen ohne behaltenes Audio und solche, für die das Modell länger als etwa %1$d Minute bräuchte, behalten das während der Aufnahme entstandene Transkript; „Neu transkribieren“ funktioniert bei jeder Länge.</item>
+        <item quantity="other">Nach dem Stoppen transkribiert dieses Modell die Aufnahme aus ihrem Audio neu, und die Notizen entstehen aus diesem Transkript. Nur für Aufnahmen in einer Sprache, die das Modell kennt. „Überspringen“ bricht das ab. Aufnahmen ohne behaltenes Audio und solche, für die das Modell länger als etwa %1$d Minuten bräuchte, behalten das während der Aufnahme entstandene Transkript; „Neu transkribieren“ funktioniert bei jeder Länge.</item>
+    </plurals>
+    <string name="g_speech_after_stop_off">Aus</string>
+    <string name="g_speech_after_stop_v2">Parakeet v2, englische Aufnahmen</string>
+    <string name="g_speech_after_stop_cohere">Cohere Transcribe, Englisch und Deutsch</string>
+
+    <!-- Erweitert: zu erkennende Wörter -->
+    <string name="g_speech_words">Zu erkennende Wörter</string>
+    <string name="g_speech_words_desc">Namen und Begriffe, die das Transkript richtig schreiben soll.</string>
+    <string name="g_speech_words_none">Keine</string>
+    <plurals name="g_speech_words_count">
+        <item quantity="one">%d Wort</item>
+        <item quantity="other">%d Wörter</item>
+    </plurals>
+    <string name="g_speech_words_help">Namen und Begriffe, einer pro Zeile, so geschrieben, wie sie erscheinen sollen. Parakeet v3 achtet ab der nächsten Aufnahme darauf, auch bei „Neu transkribieren“. Die anderen Spracherkennungsmodelle tun das nicht, ein besseres Transkript nach dem Stoppen nutzt die Wörter also nicht.</string>
+    <string name="g_speech_words_save">Speichern</string>
+    <string name="g_speech_words_vocabulary_downloading">Eine kleine Datei für die Wörter wird heruntergeladen (115\u00A0KB).</string>
+    <string name="g_speech_words_vocabulary_missing">Die Wörter brauchen eine kleine Datei (115\u00A0KB).</string>
+    <string name="g_speech_words_vocabulary_failed">Die kleine Datei für die Wörter ließ sich nicht herunterladen.</string>
+    <string name="g_speech_words_needs_v3">Dafür muss Parakeet v3 auf diesem Telefon sein.</string>
+    <string name="g_speech_words_not_saved">Die Wörter ließen sich nicht speichern; vielleicht ist der Speicher voll.</string>
+
+    <!-- Status einer Aufnahme beim Abschließen (Startseite, Aufnahmeseite, Benachrichtigung),
+         während das bessere Modell sie nach dem Stoppen transkribiert. Überspringen steht auf der
+         Aufnahmeseite neben diesem Status. -->
+    <string name="g_speech_finishing_transcript">Besseres Transkript entsteht</string>
+    <string name="g_speech_finishing_transcript_percent">Besseres Transkript entsteht, %1$d\u00A0%%</string>
+    <string name="g_speech_finishing_skip">Überspringen</string>
+    <string name="g_speech_finishing_skipping">Dieses Transkript bleibt</string>
+
+    <!-- Details: Neu transkribieren, die Wahl des Modells -->
+    <string name="g_speech_choose_title">Neu transkribieren</string>
+    <string name="g_speech_minutes">Etwa %1$d Min.</string>
+    <string name="g_speech_under_minute">Unter einer Minute.</string>
+    <string name="g_speech_made_transcript">Hat dieses Transkript erstellt.</string>
+    <string name="g_speech_then_ml">Danach auf Malayalam.</string>
+    <string name="g_speech_then_en_de">Danach auf Englisch oder Deutsch.</string>
+    <string name="g_speech_not_for_ml">Nur für Sprache, die kein Malayalam war.</string>
+    <string name="g_speech_text_again">Name, Notizen, Aufgaben und Ideen entstehen neu. Bearbeitete, erledigte oder behaltene Aufgaben bleiben.</string>
+    <string name="g_speech_ai_busy">Läuft nicht, solange das KI-Modell geladen ist.</string>
+    <string name="g_speech_low_memory">Braucht mehr freien Arbeitsspeicher, als gerade frei ist.</string>
+    <string name="g_speech_none_fits">Kein Spracherkennungsmodell auf diesem Telefon kennt die Sprache dieser Aufnahme.</string>
+    <string name="g_speech_transcribed_with">Transkribiert mit %1$s</string>
+</resources>
