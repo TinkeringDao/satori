@@ -1,0 +1,44 @@
+name: Bug Report
+description: Report a reproducible defect in transcription, translation, local LLM notes, or cover-screen UI
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do **not** include personal transcripts, private audio files, device serial numbers, or personal identifiers in bug reports. Numeric `SatoriNotes` / `SatoriFirstRun` / `AudioMetrics` log lines are safe to share.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened vs. what you expected to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: display
+    attributes:
+      label: Display Context
+      options:
+        - Inner foldable screen (1080x2640)
+        - External cover screen (1080x1272, folded)
+        - Lock screen / Quick Key (power double-press)
+        - Background service / notification
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: Exact steps to reproduce the issue.
+      placeholder: |
+        1. Select category ...
+        2. Start recording ...
+        3. Stop recording ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Diagnostic Logs
+      description: Output from `adb logcat -s SatoriNotes SatoriFirstRun SatoriQuickKey AudioMetrics` (if applicable).
+      render: shell
