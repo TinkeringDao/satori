@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository (with LFS and submodules)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           lfs: true
           submodules: true
