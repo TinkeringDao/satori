@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für die in Aufnahmen gefundenen Ideen: die Seite Ideen, das Blatt einer Idee,
+     die Zeile auf dem Start, "Zu den Ideen verschieben" und der Hinweis zur einmaligen
+     Verschiebung. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Seite Ideen -->
+    <string name="g_ideas_title">Ideen</string>
+    <string name="g_ideas_empty">Noch keine Ideen. In Aufnahmen genannte Ideen erscheinen hier.</string>
+    <!-- Überschrift der Ideen, deren Aufnahme gelöscht wurde -->
+    <string name="g_ideas_no_recording">Ohne Aufnahme</string>
+    <string name="g_ideas_error_load">Die Ideen ließen sich nicht laden. Die App neu starten und erneut versuchen.</string>
+    <string name="g_ideas_error_change">Die Änderung an der Idee wurde nicht gespeichert. Erneut versuchen.</string>
+
+    <!-- Blatt einer Idee -->
+    <string name="g_idea_make_todo">Als Aufgabe übernehmen</string>
+    <string name="g_idea_open_recording">Aufnahme öffnen</string>
+    <string name="g_idea_delete">Löschen</string>
+    <string name="g_idea_deleted">Idee gelöscht</string>
+
+    <!-- Start: die Zeile unter den Aufgaben, "4 Ideen" oder "4 Ideen, 2 neu" -->
+    <plurals name="g_ideas_row">
+        <item quantity="one">%d Idee</item>
+        <item quantity="other">%d Ideen</item>
+    </plurals>
+    <plurals name="g_ideas_new">
+        <item quantity="one">%d neu</item>
+        <item quantity="other">%d neu</item>
+    </plurals>
+
+    <!-- Im Blatt einer Aufgabe, die eine Idee ist -->
+    <string name="g_todo_move_to_ideas">Zu den Ideen verschieben</string>
+    <!-- Was ein Screenreader für Zu den Ideen verschieben neben einer vorgeschlagenen Aufgabe sagt; %1$s ist ihr Text -->
+    <string name="g_todo_move_to_ideas_cd">Zu den Ideen verschieben: %1$s</string>
+
+    <!-- Einmaliger Hinweis auf dem Start nach der Verschiebung -->
+    <plurals name="g_ideas_moved">
+        <item quantity="one">%d Aufgabe zu den Ideen verschoben</item>
+        <item quantity="other">%d Aufgaben zu den Ideen verschoben</item>
+    </plurals>
+</resources>

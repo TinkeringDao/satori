@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The mind map's screens: the top level, a theme's and a topic's page, a recording's own map,
+     and their list form. English source; German in values-de/strings_grille_mindmap.xml. The
+     prompts are in strings_grille_mindmap_ai.xml. A theme is a thought that comes back across
+     recordings ("Heating"); a topic is what recordings said under it ("Boiler repair"). -->
+<resources>
+    <!-- The home header's icon, the screen's title and the row of a recording's menu -->
+    <string name="g_map_title">Mind map</string>
+    <!-- Under the row of a recording's menu -->
+    <string name="g_map_details_hint">Its topics and their points</string>
+    <string name="g_map_show_list">Show as list</string>
+    <string name="g_map_show_map">Show as map</string>
+    <!-- What a crumb of the breadcrumb row does, for TalkBack -->
+    <string name="g_map_crumb_action">Go back to it</string>
+
+    <!-- The centre of the top level: the person whose thoughts these are -->
+    <string name="g_map_you">You</string>
+    <plurals name="g_map_you_cd">
+        <item quantity="one">You, %d recording</item>
+        <item quantity="other">You, %d recordings</item>
+    </plurals>
+
+    <!-- The chips of the top level -->
+    <string name="g_map_core">Core</string>
+    <string name="g_map_recent">Recent</string>
+    <string name="g_map_all">All</string>
+    <string name="g_map_search_hint">Search themes</string>
+    <string name="g_map_empty">Your map grows as you record. Each recording adds its topics.</string>
+    <string name="g_map_empty_recent">Nothing recorded in the last 7 days.</string>
+    <string name="g_map_no_match">No theme matches.</string>
+    <!-- Under "No theme matches" when themes outside the chosen chip do; switches to All -->
+    <plurals name="g_map_matches_in_all">
+        <item quantity="one">Show %d match in All</item>
+        <item quantity="other">Show %d matches in All</item>
+    </plurals>
+
+    <!-- Mapping the recordings made before the map, or while the AI was off -->
+    <plurals name="g_map_older">
+        <item quantity="one">Map %d older recording</item>
+        <item quantity="other">Map %d older recordings</item>
+    </plurals>
+    <string name="g_map_older_running">Mapping older recordings</string>
+    <string name="g_map_older_starting">Starting</string>
+    <string name="g_map_older_linking">Reading recording %1$d of %2$d</string>
+    <string name="g_map_older_learning">Writing summary %1$d of %2$d</string>
+    <string name="g_map_older_stopping">Stopping</string>
+    <plurals name="g_map_older_done">
+        <item quantity="one">%d recording mapped.</item>
+        <item quantity="other">%d recordings mapped.</item>
+    </plurals>
+    <!-- Follows g_map_older_done when some recordings gave no topic -->
+    <plurals name="g_map_older_without">
+        <item quantity="one">%d had no topics.</item>
+        <item quantity="other">%d had no topics.</item>
+    </plurals>
+    <string name="g_map_older_already">The map is already being updated.</string>
+    <plurals name="g_map_older_stopped">
+        <item quantity="one">The AI stopped after mapping %d recording. Try again later for the rest.</item>
+        <item quantity="other">The AI stopped after mapping %d recordings. Try again later for the rest.</item>
+    </plurals>
+    <string name="g_map_stop_title">Stop mapping?</string>
+    <string name="g_map_stop_body">What is mapped so far stays. The rest can be mapped later.</string>
+    <string name="g_map_stop_confirm">Stop</string>
+    <string name="g_map_stop_keep">Keep mapping</string>
+    <!-- A recording that started (the quick key, say) stopped "Map N older recordings" or "Map this
+         recording" between two recordings or summaries. Shown on the same view, the next time it
+         opens. -->
+    <string name="g_map_stopped_recording">Mapping stopped for the new recording. What is mapped stays.</string>
+    <!-- In place of the AI's actions while a recording is being made or finished -->
+    <string name="g_map_ai_waits">The AI can map and write summaries once the recording is finished.</string>
+
+    <!-- A theme or topic in a list: how many recordings speak of it -->
+    <plurals name="g_map_recordings">
+        <item quantity="one">%d recording</item>
+        <item quantity="other">%d recordings</item>
+    </plurals>
+    <string name="g_map_pinned">Pinned</string>
+
+    <!-- A theme's page -->
+    <string name="g_map_pin">Keep in Core</string>
+    <string name="g_map_pin_hint">A pinned theme stays in Core.</string>
+    <string name="g_map_summary">Summary</string>
+    <string name="g_map_summary_none">No summary yet.</string>
+    <string name="g_map_summary_stale">Written before the latest recordings.</string>
+    <!-- %1$s is when, such as "Today, 09:30" -->
+    <string name="g_map_summary_written">Written %1$s</string>
+    <string name="g_map_update">Update</string>
+    <string name="g_map_updating">Updating the summary</string>
+    <!-- A recording that started stopped Update before the summary was written -->
+    <string name="g_map_update_stopped_recording">Update stopped for the new recording.</string>
+    <string name="g_map_summary_needs_ai">Summaries are written while AI notes are on and a model is installed.</string>
+    <string name="g_map_topics">Topics</string>
+    <string name="g_map_recordings_heading">Recordings</string>
+    <!-- Under a topic: the theme it belongs to -->
+    <string name="g_map_in_theme">In %1$s</string>
+
+    <!-- A recording's own map -->
+    <string name="g_map_open_recording">Open recording</string>
+    <string name="g_map_notes">Notes</string>
+    <string name="g_map_not_mapped">This recording isn\'t in the map yet.</string>
+    <string name="g_map_map_this">Map this recording</string>
+    <string name="g_map_mapping_this">Mapping the recording</string>
+    <string name="g_map_too_short">Too little was said in this recording to map it.</string>
+    <plurals name="g_map_recording_mapped">
+        <item quantity="one">Mapped to %d theme.</item>
+        <item quantity="other">Mapped to %d themes.</item>
+    </plurals>
+    <string name="g_map_nothing_found">The AI found no topic in this recording.</string>
+
+    <!-- Errors: each says what to do next -->
+    <string name="g_map_error_load">The mind map couldn\'t be loaded. Go back and open it again.</string>
+    <string name="g_map_error_pin">The pin wasn\'t saved. Try again.</string>
+    <string name="g_map_error_no_model">The AI is off or has no model. Turn on AI notes in Settings.</string>
+    <string name="g_map_error_model">The AI couldn\'t run. Try again later.</string>
+    <string name="g_map_error_summary">The AI\'s summary couldn\'t be used. Tap Update to try again.</string>
+    <string name="g_map_error_topics">The AI\'s topics couldn\'t be used. Try again.</string>
+    <string name="g_map_error_save">The mind map couldn\'t be saved. Try again.</string>
+    <string name="g_map_missing">This part of the map is gone: its recordings were deleted or mapped again. Go back to the map.</string>
+
+    <!-- What TalkBack says for each node of the map. %1$s is its name; %2$s says how many
+         recordings and when, from g_map_cd_counts, or for a recording its date -->
+    <string name="g_map_cd_theme">Theme %1$s, %2$s</string>
+    <string name="g_map_cd_theme_pinned">Pinned theme %1$s, %2$s</string>
+    <string name="g_map_cd_topic">Topic %1$s, %2$s</string>
+    <string name="g_map_cd_recording">Recording %1$s, %2$s</string>
+    <string name="g_map_cd_point">Point: %1$s</string>
+    <!-- %1$s is the number of recordings (g_map_recordings), %2$s when the newest was made -->
+    <string name="g_map_cd_counts">%1$s, last %2$s</string>
+    <!-- The node in the centre, which the page below is about -->
+    <string name="g_map_cd_centre">%1$s, in the centre</string>
+</resources>

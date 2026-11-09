@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für die Grille-Oberfläche. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Allgemein -->
+    <string name="g_back">Zurück</string>
+    <string name="g_dismiss">Schließen</string>
+    <string name="g_ok">OK</string>
+    <string name="g_cancel">Abbrechen</string>
+    <string name="g_search">Suchen</string>
+    <string name="g_settings">Einstellungen</string>
+    <string name="g_record">Aufnehmen</string>
+    <string name="g_stop">Stopp</string>
+    <string name="g_unit_seconds">%d s</string>
+    <string name="g_unit_minutes">%d Min.</string>
+    <!-- Ersetzt close_sheet aus androidx.compose.ui: TalkBack liest es für den abgedunkelten
+         Bereich hinter jedem Blatt, und die Bibliothek übersetzt es mit "Tabelle schließen".
+         Englisch bleibt beim Text der Bibliothek ("Close sheet"). Die Bibliothek markiert den
+         Text als privat (daher tools:override); Standardtext und Nutzung liegen in der
+         Bibliothek, die Lint hier nicht sieht (daher die beiden Ausnahmen). -->
+    <string name="close_sheet" tools:override="true" tools:ignore="ExtraTranslation,UnusedResources">Blatt schließen</string>
+
+    <!-- Aufnahmemodi -->
+    <string name="g_mode_note">Sprachnotiz</string>
+    <string name="g_mode_note_desc">Kurze Notizen und Aufgaben</string>
+    <string name="g_mode_meeting">Besprechung</string>
+    <string name="g_mode_meeting_desc">Entscheidungen, Fakten und Aufgaben</string>
+    <string name="g_mode_long">Lange Besprechung</string>
+    <string name="g_mode_long_desc">Notizen und Aufgaben für lange Termine</string>
+    <string name="g_mode_translate">Übersetzen</string>
+    <string name="g_mode_translate_desc">Live-Übersetzung beim Sprechen</string>
+
+    <!-- Aufnahme -->
+    <string name="g_tab_transcript">Transkript</string>
+    <string name="g_tab_insights">Notizen</string>
+    <string name="g_insights_live_empty">Notizen erscheinen hier während des Gesprächs.</string>
+    <string name="g_insights_after">Notizen entstehen nach dem Stoppen.</string>
+    <string name="g_insights_off">KI-Notizen sind aus. In den Einstellungen einschalten.</string>
+    <string name="g_insights_missing">Noch kein KI-Modell installiert.</string>
+    <string name="g_insights_install">Modell installieren</string>
+    <string name="g_insights_install_busy">Zum Installieren die Aufnahme stoppen.</string>
+    <string name="g_source_show">Gesagtes anzeigen</string>
+    <string name="g_source_hide">Gesagtes ausblenden</string>
+    <string name="g_source_missing">Der Quelltext ist nicht mehr verfügbar.</string>
+    <string name="g_batch_part">Teil %1$d von %2$d wird gelesen</string>
+    <string name="g_batch_merge">Zusammenfassung wird geschrieben</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The audio kept of recordings: the setting, playback on the details page, Share audio and
+     Transcribe again. German in values-de/strings_grille_audio.xml. -->
+<resources>
+    <!-- Settings -->
+    <string name="g_audio_keep">Keep audio of recordings</string>
+    <string name="g_audio_keep_desc">Lets recordings be played and transcribed again. About 2\u00A0MB a minute; off keeps only the text.</string>
+
+    <!-- Playback on the details page -->
+    <string name="g_audio_play">Play</string>
+    <string name="g_audio_pause">Pause</string>
+    <!-- TalkBack for the playback position, e.g. "0:42 of 3:32" -->
+    <string name="g_audio_position_cd">%1$s of %2$s</string>
+    <string name="g_audio_seek">Playback position</string>
+    <!-- TalkBack action of a transcript line, and what a tap on it does -->
+    <string name="g_audio_play_line">Play from here</string>
+    <!-- Under the player, after the size (e.g. "4.2 MB · Compressed"), for audio stored as AAC -->
+    <string name="g_audio_compressed">Compressed</string>
+
+    <!-- Details menu -->
+    <string name="g_audio_share">Share audio</string>
+    <string name="g_audio_share_hint">The recording as a WAV file</string>
+    <!-- In place of g_audio_share_hint for compressed audio -->
+    <string name="g_audio_share_hint_compressed">The recording as an M4A file</string>
+    <string name="g_audio_share_title">Share audio</string>
+    <string name="g_audio_transcribe">Transcribe again</string>
+    <string name="g_audio_transcribe_hint">From the audio, with a speech model on this phone</string>
+    <!-- Kept audio is left alone by the settings that compress or delete older audio -->
+    <string name="g_audio_keep_this">Keep this audio</string>
+    <string name="g_audio_keep_this_desc">Not compressed or deleted with older audio</string>
+    <string name="g_audio_keep_stop">Stop keeping this audio</string>
+    <string name="g_audio_kept">This audio is kept</string>
+    <string name="g_audio_unkept">This audio is no longer kept</string>
+    <!-- The menu row, the title of the sheet that asks first, and its text -->
+    <string name="g_audio_delete_this">Delete audio</string>
+    <string name="g_audio_delete_this_body">Delete the audio of this recording? The transcript, notes and to-dos stay.</string>
+    <string name="g_audio_deleted">The audio was deleted</string>
+
+    <!-- Transcribe again; the sheet that picks the model is in strings_grille_speech.xml. Its text
+         names no time: each model's row under it says about how long that model takes. -->
+    <string name="g_audio_transcribe_body">A new transcript is made from the audio and replaces this one, lines corrected by hand too. Notes, name and to-dos stay.</string>
+    <!-- The same where a model also offered makes a transcript in another language than this one,
+         after which the name, notes, to-dos and ideas are made again: that model's line says so -->
+    <string name="g_audio_transcribe_body_text_again">A new transcript is made from the audio and replaces this one, lines corrected by hand too. Notes, name and to-dos stay, except where the text under a model says they are made again.</string>
+    <string name="g_audio_transcribe_running">Transcribing again</string>
+    <!-- How much of the audio has been read, e.g. "42%" -->
+    <string name="g_audio_transcribe_percent">%1$d%%</string>
+    <string name="g_audio_transcribe_stopping">Stopping</string>
+    <string name="g_audio_transcribed">The transcript was replaced</string>
+    <!-- A recording that started (the quick key, say) stopped Transcribe again; the transcript
+         stays as it was. Shown on the recording's page, the next time it opens. -->
+    <string name="g_audio_transcribe_stopped_recording">Transcribe again stopped for the new recording</string>
+    <string name="g_audio_stop_title">Stop transcribing?</string>
+    <string name="g_audio_stop_body">The transcript stays as it is.</string>
+    <string name="g_audio_stop_confirm">Stop</string>
+    <string name="g_audio_stop_keep">Keep transcribing</string>
+
+    <!-- Problems -->
+    <string name="g_audio_error_play">The audio couldn\'t be played. Try again.</string>
+    <string name="g_audio_error_transcribe">The audio couldn\'t be transcribed. The transcript is unchanged. Try again.</string>
+    <string name="g_audio_error_no_speech">No speech was found in the audio. The transcript is unchanged.</string>
+    <string name="g_audio_error_keep">The choice to keep the audio wasn\'t saved. Try again.</string>
+    <string name="g_audio_error_delete">The audio couldn\'t be deleted. Try again.</string>
+</resources>

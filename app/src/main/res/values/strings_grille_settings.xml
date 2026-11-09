@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strings for the Grille Settings, Advanced and Licences screens. German in
+     values-de/strings_grille_settings.xml. Sizes are written once (g_settings_size_) and used by
+     the model descriptions here and by the onboarding steps. -->
+<resources>
+    <!-- Settings. Under each row one or two short lines in plain words: what it changes, and what
+         it costs where it costs something (battery, memory, storage, accuracy, time). A sheet of
+         choices has a line under each choice (_desc) of what picking it means. -->
+    <string name="g_settings_ai_notes">AI notes</string>
+    <string name="g_settings_ai_notes_desc">Writes notes, a name and to-dos for each recording. Turning it off saves battery and memory.</string>
+    <!-- Above the pill "Get the AI model" (g_settings_ai_get_model), so it doesn't say it again -->
+    <string name="g_settings_ai_notes_missing">The AI model is not on this phone yet.</string>
+    <!-- The same while only Gemma 4 E2B is on the phone, which works after Stop only -->
+    <string name="g_settings_ai_notes_missing_e2b">A model for live notes isn\'t on this phone yet; Gemma 4 E2B needs one.</string>
+    <string name="g_settings_ai_get_model">Get the AI model</string>
+    <!-- While no AI model for live notes is on the phone but one downloads or waits to (the first run's) -->
+    <string name="g_settings_ai_notes_coming">The AI model is on its way. Notes follow when it is in.</string>
+    <!-- The last line of the AI model's download screen opened from Settings, in place of
+         g_onb_llm_later, which sends the owner to Settings -->
+    <string name="g_settings_llm_works_without">Transcription works without it.</string>
+    <string name="g_settings_notes_language">Notes language</string>
+    <string name="g_settings_notes_language_desc">The language the AI writes the notes in.</string>
+    <string name="g_settings_notes_language_auto">Auto</string>
+    <!-- Under Auto in the sheet. True of every recording, without naming one language that gets
+         English notes (the owner, 2026-10-15): NotesLanguageChoice.OTHER_LANGUAGES_IN_ENGLISH. -->
+    <string name="g_settings_notes_language_auto_desc">English or German, as spoken; English otherwise</string>
+    <!-- The same while that rule is off: other languages then follow the phone's language -->
+    <string name="g_settings_notes_language_auto_desc_spoken">English or German, whichever was spoken</string>
+    <string name="g_settings_notes_language_en_desc">Notes in English</string>
+    <string name="g_settings_notes_language_de_desc">Notes in German</string>
+    <!-- Under the title of the sheet: what the choice covers -->
+    <string name="g_settings_notes_language_help">For each recording\'s notes, name and to-dos.</string>
+    <string name="g_settings_change">Change</string>
+    <string name="g_settings_categories">Categories</string>
+    <!-- Meeting and Idea are starter categories (g_category_meeting, g_category_idea) -->
+    <string name="g_settings_categories_desc">What a recording can be filed as, such as Meeting or Idea. Each sets how its notes are written.</string>
+    <string name="g_settings_reminders_off">Reminders are off</string>
+    <string name="g_settings_reminders_off_desc">Turn on notifications to be reminded of your to-dos.</string>
+    <string name="g_settings_reminders_turn_on">Turn on</string>
+    <string name="g_settings_theme">Theme</string>
+    <!-- The razr's screens light no black pixels, so the dark theme costs less battery -->
+    <string name="g_settings_theme_desc">Light or dark. Dark uses less battery.</string>
+    <string name="g_settings_theme_system">System</string>
+    <string name="g_settings_theme_system_desc">Light or dark, as the phone is set</string>
+    <string name="g_settings_theme_light">Light</string>
+    <string name="g_settings_theme_light_desc">Dark text on white, easiest to read in sunlight</string>
+    <string name="g_settings_theme_dark">Dark</string>
+    <string name="g_settings_theme_dark_desc">Light text on black, uses less battery</string>
+    <string name="g_settings_advanced">Advanced</string>
+    <!-- "Pauses": the section g_settings_section_vad, how speech is split into lines -->
+    <string name="g_settings_advanced_desc">Models, notes, translation, microphone and pauses</string>
+
+    <!-- Recording: how starting and stopping feel, and the screen while the microphone is on -->
+    <string name="g_settings_section_recording">Recording</string>
+    <string name="g_settings_vibrate">Vibrate on start and stop</string>
+    <string name="g_settings_vibrate_desc">A long buzz when the microphone goes on, two short ones when it goes off, three if it couldn\'t start. Also with the screen off.</string>
+    <!-- Pill under the vibrate switch: plays the buzz of a start -->
+    <string name="g_settings_vibrate_try">Try it</string>
+    <string name="g_settings_keep_screen_on">Keep the screen on while recording</string>
+    <string name="g_settings_keep_screen_on_desc">Uses more battery while recording. While the phone is locked the screen times out as usual. The power key still turns it off, and the recording goes on.</string>
+
+    <!-- About -->
+    <string name="g_settings_section_about">About</string>
+    <string name="g_settings_version">Version %1$s</string>
+    <string name="g_settings_privacy_body">Everything stays on this phone. There is no account, and once the models are downloaded the app needs no network.</string>
+    <string name="g_settings_licences">Licences</string>
+    <string name="g_settings_licences_desc">The libraries, AI models and fonts the app is built with</string>
+
+    <!-- Licences screen -->
+    <string name="g_settings_licences_intro">The app is built with these libraries, AI models and fonts. Tap one to show or hide its licence.</string>
+    <string name="g_settings_licences_show">Show licence</string>
+    <string name="g_settings_licences_hide">Hide licence</string>
+    <string name="g_settings_licences_url_licence">Licence</string>
+    <string name="g_settings_licences_url_model">Model card</string>
+    <string name="g_settings_licences_url_source">Source code</string>
+    <!-- What TalkBack says a tap on an address does: it opens in the browser -->
+    <string name="g_settings_licences_open">Open in the browser</string>
+
+    <!-- Advanced: sections -->
+    <string name="g_settings_section_models">Models</string>
+    <string name="g_settings_section_notes">Notes</string>
+    <string name="g_settings_section_translation">Translation</string>
+    <!-- Voice detection: where speech pauses, so a line ends -->
+    <string name="g_settings_section_vad">Pauses and lines</string>
+
+    <!-- Advanced: the download sizes of the two AI models the registry knows only roughly; every
+         other size comes from the registry's bytes (modelSizeLabel), as on the first run -->
+    <string name="g_settings_size_iq4" translatable="false">650\u00A0MB</string>
+    <string name="g_settings_size_qwen" translatable="false">870\u00A0MB</string>
+
+    <!-- Advanced: speech recognition -->
+    <string name="g_settings_speech">Speech recognition</string>
+    <string name="g_settings_speech_missing">Not set up</string>
+    <string name="g_settings_speech_again">Download again</string>
+    <string name="g_settings_speech_again_cd">Download speech recognition again</string>
+    <string name="g_settings_speech_again_title">Download speech recognition again?</string>
+    <!-- Offered only while the check of Parakeet v3's files says they are damaged or missing -->
+    <string name="g_settings_speech_again_body">Use this if recording stops working. It needs an internet connection.</string>
+    <!-- The tag of Parakeet v3 in place of g_settings_model_on_phone while that is so -->
+    <string name="g_settings_speech_damaged">Damaged</string>
+    <string name="g_settings_speech_again_confirm">Download</string>
+
+    <!-- Advanced: AI model -->
+    <string name="g_settings_ai_model">AI model</string>
+    <string name="g_settings_ai_model_help">The model picked here writes the notes while recording. Gemma 4 E2B can\'t be picked: it works after Stop, with the switch below.</string>
+    <!-- Instead of g_settings_ai_model_help while no AI model is on the phone -->
+    <string name="g_settings_ai_model_none">Download one to get notes.</string>
+    <string name="g_settings_ai_model_busy">One model downloads at a time. Pause it to start another.</string>
+    <string name="g_settings_model_q8">Standard</string>
+    <string name="g_settings_model_q8_desc">Gemma 3 1B. More accurate; uses more memory and battery. About %1$s.</string>
+    <string name="g_settings_model_iq4">Efficient</string>
+    <string name="g_settings_model_iq4_desc">Gemma 3 1B. Easier on memory and battery. About %1$s.</string>
+    <string name="g_settings_model_qwen" translatable="false">Qwen 3.5 0.8B</string>
+    <string name="g_settings_model_qwen_desc">A model from another maker, to try. Its notes can read differently. About %1$s.</string>
+    <!-- Gemma 4 E2B: too big to run next to speech recognition, so it only writes after Stop. -->
+    <string name="g_settings_model_e2b" translatable="false">Gemma 4 E2B</string>
+    <string name="g_settings_model_e2b_desc">Writes the notes when you stop, not while you record. Better, but slower. About %1$s.</string>
+    <!-- The switch under the AI models, shown only while Gemma 4 E2B is on the phone. Off, the
+         model chosen above does the work after Stop too. -->
+    <string name="g_settings_finishing_model">AI for finished recordings</string>
+    <string name="g_settings_finishing_model_desc">Gemma 4 E2B writes the notes, name and to-dos after Stop: better, but slower. Off: the model chosen above does it. When memory is short, that model does it anyway, or the work waits until a recording ends.</string>
+    <string name="g_settings_model_experimental">Experimental</string>
+    <string name="g_settings_model_recommended">Recommended for this phone</string>
+    <string name="g_settings_model_on_phone">On this phone</string>
+    <string name="g_settings_model_paused">Paused</string>
+    <string name="g_settings_model_downloading">Downloading</string>
+    <string name="g_settings_model_downloading_percent">Downloading %1$d%%</string>
+    <string name="g_settings_model_download">Download</string>
+    <string name="g_settings_model_download_cd">Download %1$s</string>
+    <string name="g_settings_model_pause">Pause</string>
+    <string name="g_settings_model_pause_cd">Pause the download of %1$s</string>
+    <string name="g_settings_model_resume">Resume</string>
+    <string name="g_settings_model_resume_cd">Resume the download of %1$s</string>
+    <string name="g_settings_model_retry">Try again</string>
+    <string name="g_settings_model_delete">Delete</string>
+    <string name="g_settings_model_delete_cd">Delete %1$s</string>
+    <string name="g_settings_model_delete_title">Delete this model?</string>
+    <string name="g_settings_model_delete_body">Notes you already have stay. You can download the model again.</string>
+    <!-- The only model on the phone that writes live notes: without it AI notes can't run -->
+    <string name="g_settings_model_delete_last_body">Notes you already have stay. Until a model is back, new recordings get no notes.</string>
+
+    <!-- Advanced: notes and translation, set for each kind of recording -->
+    <string name="g_settings_notes_help">How and when the AI writes notes, for each kind of recording.</string>
+    <string name="g_settings_interval">Write notes every</string>
+    <string name="g_settings_interval_desc">More often: the notes follow what is said sooner, but use more battery.</string>
+    <string name="g_settings_interval_translate">Translate every</string>
+    <string name="g_settings_interval_translate_desc">More often: the translation follows sooner, but uses more battery.</string>
+    <string name="g_settings_strategy">When notes are written</string>
+    <!-- The two choices are g_settings_timing_live and g_settings_timing_after -->
+    <string name="g_settings_strategy_desc">While recording: notes appear as you speak. After recording: written after Stop, so the phone does less while recording.</string>
+    <string name="g_settings_strategy_translate">When to translate</string>
+    <string name="g_settings_strategy_translate_desc">While recording: translated as you speak. After recording: all of it after Stop, so the phone does less while recording.</string>
+    <string name="g_settings_timing_live">While recording</string>
+    <string name="g_settings_timing_after">After recording</string>
+    <string name="g_settings_translate_into">Translate into</string>
+    <string name="g_settings_translate_into_desc">The language the translations are written in. Translate reads English or German speech.</string>
+
+    <!-- Advanced: the heading above the microphone input row (g_settings_mic_input, in
+         strings_grille_speech.xml) -->
+    <string name="g_settings_section_mic">Microphone</string>
+
+    <!-- Advanced: voice detection, named by what it does: where a line ends -->
+    <string name="g_settings_vad_desc">How speech is split into lines while recording; Transcribe again uses its own values. Changes apply from the next recording.</string>
+    <string name="g_settings_vad_silence">Pause length</string>
+    <string name="g_settings_vad_silence_desc">A pause this long ends a line. Longer: fewer words cut off, but each line shows later.</string>
+    <string name="g_settings_vad_speech">Longest phrase</string>
+    <string name="g_settings_vad_speech_desc">Speech is split after this long without a pause. Longer: fewer sentences split, but long ones show later.</string>
+    <string name="g_settings_vad_threshold">Detection threshold</string>
+    <string name="g_settings_vad_threshold_desc">Lower picks up quieter speech, and more background noise too.</string>
+    <string name="g_settings_vad_more">More sensitive</string>
+    <string name="g_settings_vad_less">Less sensitive</string>
+    <!-- Under the ends of Pause length and Longest phrase, as the threshold's are under its own -->
+    <string name="g_settings_vad_shorter">Shorter</string>
+    <string name="g_settings_vad_longer">Longer</string>
+    <!-- Shown only while one of the three is changed -->
+    <string name="g_settings_vad_reset">Reset to the usual values</string>
+    <string name="g_settings_unit_s">s</string>
+    <string name="g_settings_unit_percent" translatable="false" formatted="false">%</string>
+    <string name="g_settings_seconds_spoken">%1$s seconds</string>
+    <string name="g_settings_percent_spoken">%1$s percent</string>
+</resources>

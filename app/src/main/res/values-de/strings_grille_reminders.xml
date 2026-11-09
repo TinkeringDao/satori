@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Erinnerungen an Aufgaben (service/reminders). Neutraler Infinitiv-Stil, ohne du/Sie.
+     Eine Erinnerung erscheint vollständig, mit dem Text der Aufgabe, auch auf dem
+     Sperrbildschirm und dem Außendisplay. -->
+<resources>
+    <!-- Benachrichtigungskanal in den Systemeinstellungen -->
+    <string name="g_reminders_channel_name">Erinnerungen</string>
+    <string name="g_reminders_channel_description">Erinnert zur festgelegten Zeit an Aufgaben</string>
+
+    <!-- Titel ohne Fälligkeit -->
+    <string name="g_reminder_title">Erinnerung</string>
+    <!-- %1$s: Uhrzeit ("15:00") bei Fälligkeit heute, sonst Datum mit oder ohne Uhrzeit -->
+    <string name="g_reminder_title_due">Fällig: %1$s</string>
+    <!-- Termin; %1$s wie bei g_reminder_title_due -->
+    <string name="g_reminder_title_starts">Beginn: %1$s</string>
+
+    <!-- Aktionen; %1$d: Minuten bis zur nächsten Erinnerung -->
+    <string name="g_reminder_action_done">Erledigt</string>
+    <string name="g_reminder_action_snooze">In %1$d Min. erinnern</string>
+</resources>

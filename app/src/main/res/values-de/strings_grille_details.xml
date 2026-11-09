@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Details einer Aufnahme (Grille-Oberfläche). Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Obere Leiste und Kopfbereich -->
+    <string name="g_details_more">Weitere Optionen</string>
+    <string name="g_details_rename_action">Umbenennen</string>
+    <string name="g_details_length_cd">Dauer %1$s</string>
+    <string name="g_details_loading">Wird geladen</string>
+
+    <!-- Tabs. Der erste ist g_tab_transcript, der zweite g_tab_insights; eine Übersetzungs-
+         Aufnahme nennt ihren zweiten nach dem Inhalt. -->
+    <string name="g_details_tab_translation">Übersetzung</string>
+
+    <!-- Eine Aufnahme ohne Inhalt. Auch die Transkriptzeile ihrer Markdown-Datei. -->
+    <string name="g_details_empty">Es wurde nichts aufgenommen.</string>
+
+    <!-- Zeilen haben keine Bearbeiten-Schaltfläche: langes Drücken (oder die TalkBack-Aktion) öffnet das Blatt -->
+    <string name="g_details_edit">Bearbeiten</string>
+
+    <!-- Notizen -->
+    <string name="g_details_overall">Zusammenfassung</string>
+    <string name="g_details_action_items">Nächste Schritte</string>
+    <string name="g_details_notes_empty">Noch keine Notizen.</string>
+    <string name="g_details_translation_empty">Noch keine Übersetzung.</string>
+    <string name="g_details_write_notes">Notizen schreiben</string>
+    <string name="g_details_notes_too_short">Für Notizen ist zu wenig Text vorhanden.</string>
+    <string name="g_details_notes_off">KI-Notizen sind ausgeschaltet.</string>
+    <string name="g_details_open_settings">Einstellungen öffnen</string>
+    <string name="g_details_notes_no_model">Das KI-Modell ist noch nicht auf diesem Telefon.</string>
+    <string name="g_details_get_model">KI-Modell holen</string>
+
+    <!-- Menü -->
+    <string name="g_details_share_md">Als Markdown teilen</string>
+    <string name="g_details_share_md_hint">Notizen und Transkript als Textdatei</string>
+    <string name="g_details_share_md_hint_translation">Übersetzung und Transkript als Textdatei</string>
+    <string name="g_details_save_md">In Downloads speichern</string>
+    <string name="g_details_copy_transcript">Transkript kopieren</string>
+    <string name="g_details_copy_notes">Notizen kopieren</string>
+    <string name="g_details_copy_translation">Übersetzung kopieren</string>
+    <string name="g_details_rewrite">Notizen neu schreiben</string>
+    <string name="g_details_rewrite_hint">Die KI schreibt sie erneut auf diesem Telefon</string>
+    <string name="g_details_find_again">Aufgaben und Ideen neu suchen</string>
+    <!-- Nimmt die Aufnahme als andere Kategorie auf, im Blatt von „Aufnehmen als“, und schreibt ihre
+         Notizen in deren Modus neu. Darunter die Kategorie, die sie jetzt hat. Auch der Titel des Blatts. -->
+    <string name="g_details_change_type">Art ändern</string>
+    <!-- Unter dem Titel des Blatts, wenn eine Art im Blatt andere Notizen schreibt (Besprechung für eine
+         Sprachnotiz etwa) und die KI sie neu schreiben kann; eine Art mit gleichen Notizen (Sprachnotiz,
+         Idee, Aufgabe) ordnet die Aufnahme nur ein -->
+    <string name="g_details_change_type_body">Die Notizen werden neu geschrieben, wenn die neue Art andere Notizen schreibt. Name und Aufgaben bleiben.</string>
+    <!-- Der Hinweis, sobald die Art gespeichert ist; %1$s ist der Name der Kategorie, etwa „In Besprechung geändert“ -->
+    <string name="g_details_type_changed">In %1$s geändert</string>
+    <!-- Unter der Zeile „Sprache“ des Blatts „Art ändern“: das Transkript bleibt das des Modells der
+         Sprache, in der aufgenommen wurde; „Neu transkribieren“ erstellt es neu. -->
+    <string name="g_details_language_body">Das Transkript bleibt, wie es ist. „Neu transkribieren“ erstellt es in der gewählten Sprache neu.</string>
+    <!-- Unter den Zeilen der KI-Arbeit, während die KI im Hintergrund eine Aufnahme abschließt -->
+    <string name="g_details_ai_busy">Verfügbar, sobald der Abschluss fertig ist</string>
+    <!-- Statt g_details_ai_busy, während andere Arbeit die KI belegt: die der Gedankenkarte oder einer anderen Aufnahme -->
+    <string name="g_details_ai_in_use">Verfügbar, sobald die KI frei ist</string>
+    <string name="g_details_delete">Löschen</string>
+
+    <!-- Die Aufgaben und Ideen der Aufnahme, die ersten Zeilen des Notizen-Tabs. Überschrift und
+         Texte der Aufgaben stammen von der Startseite (strings_grille_home.xml). -->
+    <string name="g_details_ideas">Ideen</string>
+    <!-- Was ein Tippen auf eine Idee tut, für TalkBack: Es öffnet die Ideen-Seite -->
+    <string name="g_details_idea_open">In den Ideen zeigen</string>
+    <!-- Während "Aufgaben und Ideen neu suchen" läuft -->
+    <string name="g_details_finding">Aufgaben und Ideen werden gesucht</string>
+    <!-- Der Hinweis danach, z. B. „2 neue Aufgaben und 1 neue Idee“ -->
+    <plurals name="g_details_found_todos">
+        <item quantity="one">%d neue Aufgabe</item>
+        <item quantity="other">%d neue Aufgaben</item>
+    </plurals>
+    <plurals name="g_details_found_ideas">
+        <item quantity="one">%d neue Idee</item>
+        <item quantity="other">%d neue Ideen</item>
+    </plurals>
+    <string name="g_details_found_both">%1$s und %2$s</string>
+    <string name="g_details_found_none">Keine neuen Aufgaben oder Ideen</string>
+    <!-- Wer die Seite während der Suche verlässt, beendet sie; vorher wird gefragt. Bestätigen ist g_details_stop_confirm. -->
+    <string name="g_details_find_stop_title">Suche nach Aufgaben und Ideen beenden?</string>
+    <string name="g_details_find_stop_body">Neues wird nicht gespeichert. Bereits Gefundenes bleibt.</string>
+    <string name="g_details_find_stop_keep">Weiter suchen</string>
+    <string name="g_details_find_stopped_recording">Suche nach Aufgaben und Ideen wegen der neuen Aufnahme beendet</string>
+
+    <!-- Teilen-Blatt und Hinweise -->
+    <string name="g_details_share_title">Transkript teilen</string>
+    <string name="g_details_saved">In Downloads gespeichert</string>
+    <string name="g_details_copied">Kopiert</string>
+
+    <!-- Umbenennen -->
+    <string name="g_details_rename_title">Aufnahme umbenennen</string>
+
+    <!-- Bearbeiten -->
+    <string name="g_details_save">Speichern</string>
+    <string name="g_details_edit_segment_title">Text bearbeiten</string>
+    <string name="g_details_edit_insight_title">Notiz bearbeiten</string>
+    <string name="g_details_edit_translation_title">Übersetzung bearbeiten</string>
+    <string name="g_details_field_title">Titel</string>
+    <string name="g_details_field_summary">Text</string>
+    <string name="g_details_field_tasks">Nächste Schritte, einer pro Zeile</string>
+
+    <!-- Löschen -->
+    <string name="g_details_delete_title">Diese Aufnahme löschen?</string>
+    <string name="g_details_delete_body">Transkript und Notizen werden aus Satori gelöscht. Das lässt sich nicht rückgängig machen.</string>
+    <string name="g_details_delete_body_translation">Transkript und Übersetzung werden aus Satori gelöscht. Das lässt sich nicht rückgängig machen.</string>
+    <plurals name="g_details_delete_todos">
+        <item quantity="one">Die Aufgabe aus dieser Aufnahme bleibt auf der Liste.</item>
+        <item quantity="other">Die %d Aufgaben aus dieser Aufnahme bleiben auf der Liste.</item>
+    </plurals>
+
+    <!-- Notizen neu schreiben -->
+    <string name="g_details_rewrite_title">Notizen neu schreiben?</string>
+    <string name="g_details_rewrite_body">Die aktuellen Notizen werden ersetzt. Das kann einige Minuten dauern.</string>
+    <string name="g_details_rewrite_confirm">Neu schreiben</string>
+    <string name="g_details_rewrite_running">Notizen werden geschrieben</string>
+    <string name="g_details_rewrite_starting">Wird vorbereitet</string>
+    <string name="g_details_rewrite_stopping">Wird beendet</string>
+    <string name="g_details_stop_title">Schreiben der Notizen beenden?</string>
+    <string name="g_details_stop_body">Die aktuellen Notizen bleiben unverändert.</string>
+    <string name="g_details_stop_body_none">Die Aufnahme bleibt ohne Notizen.</string>
+    <string name="g_details_stop_confirm">Beenden</string>
+    <string name="g_details_stop_keep">Weiter schreiben</string>
+    <string name="g_details_rewrite_stopped_recording">Schreiben der Notizen wegen der neuen Aufnahme beendet</string>
+
+    <!-- Probleme -->
+    <string name="g_details_back_to_list">Zurück zur Liste</string>
+    <string name="g_details_error_missing">Diese Aufnahme gibt es nicht mehr.</string>
+    <string name="g_details_error_load">Diese Aufnahme ließ sich nicht öffnen. Zurückgehen und erneut öffnen.</string>
+    <string name="g_details_error_rename">Der neue Name wurde nicht gespeichert. Erneut versuchen.</string>
+    <string name="g_details_error_delete">Die Aufnahme wurde nicht gelöscht. Erneut versuchen.</string>
+    <string name="g_details_error_segment">Die Textänderung wurde nicht gespeichert. Erneut versuchen.</string>
+    <string name="g_details_error_insight">Die Änderung an der Notiz wurde nicht gespeichert. Erneut versuchen.</string>
+    <string name="g_details_error_no_model">Kein KI-Modell installiert. In den Einstellungen ein Modell installieren und erneut versuchen.</string>
+    <string name="g_details_error_model">Das KI-Modell ließ sich nicht laden. Erneut versuchen oder in den Einstellungen ein anderes Modell wählen.</string>
+    <string name="g_details_error_rewrite">Die Notizen ließen sich nicht neu schreiben. Die aktuellen Notizen sind unverändert. Erneut versuchen.</string>
+    <string name="g_details_error_write">Die Notizen ließen sich nicht schreiben. Erneut versuchen.</string>
+    <string name="g_details_error_ai_busy">Die KI ist gerade beschäftigt. Gleich erneut versuchen.</string>
+    <string name="g_details_error_find">Die Suche nach Aufgaben und Ideen ist fehlgeschlagen. Bereits Gefundenes bleibt. Erneut versuchen.</string>
+    <string name="g_details_error_change_type">Die Art wurde nicht geändert. Erneut versuchen.</string>
+    <string name="g_details_error_change_language">Die Sprache wurde nicht geändert. Erneut versuchen.</string>
+    <string name="g_details_error_save">Die Datei wurde nicht in Downloads gespeichert. Erneut versuchen.</string>
+    <string name="g_details_error_share">Die Datei zum Teilen ließ sich nicht erstellen. Erneut versuchen.</string>
+    <string name="g_details_error_clipboard">Der Text ließ sich nicht kopieren. Stattdessen teilen.</string>
+
+    <!-- Markdown-Export: Beschriftungen in der Datei. Abschnittstitel nutzen die Tab-Namen. -->
+    <string name="g_export_recorded">Aufgenommen</string>
+    <string name="g_export_length">Dauer</string>
+</resources>

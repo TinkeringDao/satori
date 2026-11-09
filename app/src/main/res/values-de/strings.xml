@@ -1,0 +1,20 @@
+﻿<resources>
+    <!-- App Info -->
+    <string name="app_name">Satori</string>
+
+    <!-- Recording Notification -->
+    <string name="notification_channel_recording_name">Aufnahme</string>
+    <string name="notification_channel_recording_description">Wird angezeigt, solange das Mikrofon an ist</string>
+    <string name="notification_recording_title">Aufnahme aktiv</string>
+    <string name="notification_action_stop">Stoppen</string>
+
+    <!-- LLM Processing Notification -->
+    <string name="notification_channel_llm_processing_name">Aufnahmen abschließen</string>
+    <string name="notification_channel_llm_processing_description">Wird angezeigt, während nach dem Stoppen Notizen, Namen und Aufgaben entstehen</string>
+    <string name="notification_llm_processing_title">Transkription wird analysiert</string>
+    <string name="notification_llm_processing_text">KI verarbeitet die Aufnahme…</string>
+
+    <!-- Time Formats -->
+    <string name="time_today">Heute, %s</string>
+    <string name="time_yesterday">Gestern, %s</string>
+</resources>

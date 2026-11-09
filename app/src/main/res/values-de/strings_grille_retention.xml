@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Regeln für älteres Audio in den Einstellungen, unter „Audio der Aufnahmen behalten“: wann
+     es komprimiert und wann es gelöscht wird, und wie viel Audio das Telefon behält. Neutraler
+     Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_audio_compress">Audio älterer Aufnahmen komprimieren</string>
+    <string name="g_audio_compress_desc">Etwa achtmal kleiner; lässt sich weiter abspielen und neu transkribieren</string>
+    <string name="g_audio_delete_older">Audio älterer Aufnahmen löschen</string>
+    <string name="g_audio_delete_older_desc">Transkripte, Notizen und Aufgaben bleiben</string>
+
+    <!-- Die Auswahl bei beiden, und was ihre Zeilen zeigen -->
+    <string name="g_audio_never">Nie</string>
+    <plurals name="g_audio_after_days">
+        <item quantity="one">Nach %d Tag</item>
+        <item quantity="other">Nach %d Tagen</item>
+    </plurals>
+
+    <!-- Unter jeder Möglichkeit: was sie für das Audio bedeutet -->
+    <string name="g_audio_compress_never_desc">Audio behält seine volle Größe, etwa 2\u00A0MB pro Minute</string>
+    <plurals name="g_audio_compress_after_desc">
+        <item quantity="one">Audio, das älter als %d Tag ist, schrumpft auf etwa 0,25\u00A0MB pro Minute</item>
+        <item quantity="other">Audio, das älter als %d Tage ist, schrumpft auf etwa 0,25\u00A0MB pro Minute</item>
+    </plurals>
+    <string name="g_audio_delete_never_desc">Audio bleibt, bis seine Aufnahme gelöscht wird</string>
+    <plurals name="g_audio_delete_after_desc">
+        <item quantity="one">Audio, das älter als %d Tag ist, wird gelöscht und lässt sich nicht mehr abspielen oder neu transkribieren. Der Text bleibt</item>
+        <item quantity="other">Audio, das älter als %d Tage ist, wird gelöscht und lässt sich nicht mehr abspielen oder neu transkribieren. Der Text bleibt</item>
+    </plurals>
+    <string name="g_audio_rules_kept">Audio, das auf der Seite einer Aufnahme mit „Dieses Audio behalten“ behalten wird, bleibt, wie es ist.</string>
+
+    <!-- Gefragt, wenn das gewählte Alter schon auf Aufnahmen zutrifft -->
+    <plurals name="g_audio_delete_now_title">
+        <item quantity="one">Audio von %d Aufnahme löschen?</item>
+        <item quantity="other">Audio von %d Aufnahmen löschen?</item>
+    </plurals>
+    <!-- Nach dem Alter gezählt, z. B. 30 -->
+    <plurals name="g_audio_delete_now_body">
+        <item quantity="one">Audio, das älter als %1$d Tag ist, wird gelöscht. Transkripte, Notizen und Aufgaben bleiben, das Audio lässt sich aber nicht mehr abspielen oder neu transkribieren.</item>
+        <item quantity="other">Audio, das älter als %1$d Tage ist, wird gelöscht. Transkripte, Notizen und Aufgaben bleiben, das Audio lässt sich aber nicht mehr abspielen oder neu transkribieren.</item>
+    </plurals>
+    <string name="g_audio_delete_now_confirm">Löschen</string>
+
+    <!-- Unter den beiden Regeln, z. B. „Audio auf diesem Telefon: 1,2 GB in 40 Aufnahmen“ -->
+    <plurals name="g_audio_storage">
+        <item quantity="one">Audio auf diesem Telefon: %1$s in %2$d Aufnahme</item>
+        <item quantity="other">Audio auf diesem Telefon: %1$s in %2$d Aufnahmen</item>
+    </plurals>
+</resources>

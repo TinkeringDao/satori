@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- Debug builds only: screens drawn with made-up state for screenshots, and demo data
+             for emulators. Exported so adb can start it; it shows no real data. Its own task,
+             kept out of Recents, so an adb start never lands in Satori's task: the launcher and
+             the quick key bring up Satori's own screens, never a debug one. -->
+        <activity
+            android:name="com.satori.ui.debug.DebugToolsActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:taskAffinity="com.satori.debugtools"
+            android:theme="@style/Theme.Satori" />
+    </application>
+
+</manifest>

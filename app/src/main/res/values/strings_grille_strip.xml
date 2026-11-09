@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grille strings for home's status strip (g_strip_) and its one-time offers (g_nudge_). A held
+     download says the words of Getting ready's state of the same name (g_fr_err_*, g_fr_time_*);
+     Malayalam's row reads g_fr_part_malayalam. Reused: g_todo_notify_allow and g_todo_notify_later.
+     German in values-de/strings_grille_strip.xml. -->
+<resources>
+    <!-- What downloads after the setup -->
+    <string name="g_strip_ai_model">AI model</string>
+    <string name="g_strip_bigger_model">Bigger AI model</string>
+    <string name="g_strip_paused_recording">Paused while recording</string>
+    <!-- Malayalam was given up after it failed; Try again is beside it -->
+    <string name="g_strip_malayalam_failed">Malayalam could not be downloaded.</string>
+
+    <!-- The first notes, once -->
+    <string name="g_strip_first_notes">Your first notes are ready</string>
+    <string name="g_strip_open">Open</string>
+
+    <!-- One-time offers. %1$s in the bigger model's text is its size, e.g. "3.3 GB". -->
+    <string name="g_nudge_ping">Get a ping when notes are ready?</string>
+    <!-- Above g_nudge_ping, when notes were ready while Satori was out of sight and notifications
+         aren't allowed: why the ping is offered now -->
+    <string name="g_nudge_ping_missed">Your notes were ready, but no ping came. Satori isn\'t allowed to show notifications.</string>
+    <string name="g_nudge_e2b_title">Better notes are available</string>
+    <string name="g_nudge_e2b_body">A bigger AI model. %1$s. Finishing takes longer.</string>
+    <string name="g_nudge_get_it">Get it</string>
+</resources>

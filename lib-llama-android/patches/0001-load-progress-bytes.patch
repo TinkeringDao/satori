@@ -1,0 +1,54 @@
+Satori's patch to the pinned llama.cpp (b9574), applied by lib-llama-android/src/main/cpp/CMakeLists.txt.
+
+The loader's progress callback gets size_done / size_data before each tensor, and size_data is not
+the file's length: it counts a duplicated tensor twice (Gemma 4 E2B's tied output always, Gemma 3
+1B's when it is repacked) and leaves out the header and unused tensors. A debug build's paced
+weight copy (debug.satori.llm.copypace) needs each tensor's bytes, so this exposes size_data.
+
+--- a/include/llama.h
++++ b/include/llama.h
+@@ -534,6 +534,11 @@
+     LLAMA_API bool llama_supports_gpu_offload(void);
+     LLAMA_API bool llama_supports_rpc        (void);
+ 
++    // Satori (lib-llama-android/patches): the bytes the progress of the model load under way is
++    // counted in, the loader's size_data (every tensor it loads, a duplicated one twice), so that
++    // a progress callback can tell the bytes of each tensor; 0 before the first load.
++    LLAMA_API size_t llama_satori_load_progress_bytes(void);
++
+     // NOTE: After creating a llama_context, it is recommended to query the actual values using these functions
+     //       In some cases the requested values via llama_context_params may differ from the actual values used by the context
+     //       ref: https://github.com/ggml-org/llama.cpp/pull/17046#discussion_r2503085732
+--- a/src/llama-model-loader.cpp
++++ b/src/llama-model-loader.cpp
+@@ -7,12 +7,22 @@
+ 
+ #include <algorithm>
+ #include <array>
++#include <atomic>
+ #include <cinttypes>
+ #include <cstdint>
+ #include <cstring>
+ #include <future>
+ #include <regex>
+ 
++// Satori (lib-llama-android/patches/0001-load-progress-bytes.patch): the bytes the progress of the
++// model load under way is counted in (size_data: every tensor loaded, a duplicated one twice), so
++// that a progress callback can tell how many bytes each tensor was.
++static std::atomic<size_t> g_satori_load_progress_bytes{0};
++
++size_t llama_satori_load_progress_bytes(void) {
++    return g_satori_load_progress_bytes.load();
++}
++
+ static const size_t kiB = 1024;
+ static const size_t MiB = 1024*kiB;
+ static const size_t GiB = 1024*MiB;
+@@ -1417,6 +1427,7 @@
+         return true;
+     }
+     GGML_ASSERT(size_data != 0 && "call init_mappings() first");
++    g_satori_load_progress_bytes.store(size_data);
+ 
+     std::vector<no_init<uint8_t>> read_buf;
+     std::vector<std::future<std::pair<ggml_tensor *, bool>>> validation_result;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte der Schnelltaste (Ein-/Aus-Taste zweimal drücken, Motorola My Key).
+     Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Name der unsichtbaren Activity, die My Key startet. -->
+    <string name="g_quickkey_activity_label">Schnellaufnahme</string>
+
+    <!-- Einstellungen: die Zeile "Ein-/Aus-Taste" und ihr Blatt mit demselben Titel. -->
+    <!-- %1$s ist der Name der Kategorie, z. B. "Sprachnotiz". Erst wenn die Taste Satori erreicht. -->
+    <string name="g_quickkey_record_as">Zweimal drücken startet eine Aufnahme als %1$s</string>
+    <!-- Dasselbe für eine Taste, die auf Malayalam aufnimmt; %2$s ist der Name der Sprache, etwa „… eine Aufnahme als Besprechung auf Malayalam“. -->
+    <string name="g_quickkey_record_as_in">Zweimal drücken startet eine Aufnahme als %1$s auf %2$s</string>
+    <string name="g_quickkey_row_not_set_up">Noch nicht eingerichtet</string>
+    <string name="g_quickkey_row_other_app">Öffnet gerade eine andere App</string>
+    <string name="g_quickkey_row_unknown">Als %1$s aufnehmen</string>
+    <string name="g_quickkey_row_unknown_in">Als %1$s auf %2$s aufnehmen</string>
+    <string name="g_quickkey_title">Ein-/Aus-Taste</string>
+    <string name="g_quickkey_explain">Zweimal die Ein-/Aus-Taste drücken, um eine Aufnahme zu starten.</string>
+    <string name="g_quickkey_category">Aufnehmen als</string>
+    <string name="g_quickkey_language_desc">Die Sprache, in der die Ein-/Aus-Taste aufnimmt.</string>
+    <string name="g_quickkey_stop">Zum Stoppen erneut drücken</string>
+    <string name="g_quickkey_stop_desc">An: Ein zweites Drücken beendet die Aufnahme. Aus: Drücken zeigt sie nur an.</string>
+    <string name="g_quickkey_copied">Kopiert</string>
+    <string name="g_quickkey_done">Fertig</string>
+</resources>

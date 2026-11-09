@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Quick key texts: a power-key double-press through Motorola My Key (docs/QUICK_KEY.md).
+     German in values-de/strings_grille_quickkey.xml. -->
+<resources>
+    <!-- Name of the invisible activity My Key starts. Shown only where Android lists activities. -->
+    <string name="g_quickkey_activity_label">Quick record</string>
+
+    <!-- Settings: the "Power key" row (title g_quickkey_title, line g_quickkey_record_as) and its
+         sheet, which has the same title. -->
+    <!-- What the key does, under the row's title, once it reaches Satori (QuickKeyBinding.SET_UP):
+         %1$s is the category name, e.g. "Voice note". No word about a setup. -->
+    <string name="g_quickkey_record_as">Two presses start a recording as %1$s</string>
+    <!-- The same for a key set to record in Malayalam; %2$s is the language's name (g_language_ml),
+         e.g. "Two presses start a recording as Meeting, in Malayalam". -->
+    <string name="g_quickkey_record_as_in">Two presses start a recording as %1$s, in %2$s</string>
+    <!-- The row's line while the phone's settings say the key is not set up for Satori -->
+    <string name="g_quickkey_row_not_set_up">Not set up yet</string>
+    <!-- The row's line while they say the key starts another app (Satori's old install, too) -->
+    <string name="g_quickkey_row_other_app">Opens another app now</string>
+    <!-- The row's line while nothing tells whether the key reaches Satori: what it records as -->
+    <string name="g_quickkey_row_unknown">Record as %1$s</string>
+    <string name="g_quickkey_row_unknown_in">Record as %1$s, in %2$s</string>
+    <string name="g_quickkey_title">Power key</string>
+    <!-- What the key does once it is bound. Release builds say nothing of binding it: Satori can't,
+         and it takes a computer (the setup's strings are the debug build's only, in
+         src/debug/res/values/strings_grille_quickkey_setup.xml). -->
+    <string name="g_quickkey_explain">Press the power key twice to start a recording.</string>
+    <string name="g_quickkey_category">Record as</string>
+    <!-- Under the language row of the sheet -->
+    <string name="g_quickkey_language_desc">The language the power key records in.</string>
+    <string name="g_quickkey_stop">Press again to stop</string>
+    <string name="g_quickkey_stop_desc">On: a second press stops the recording. Off: a press only shows it.</string>
+    <!-- After the debug build's Copy commands, shown only before Android 13, which confirms a copy
+         itself. Kept here, without the setup's words, as Settings refers to it in both builds. -->
+    <string name="g_quickkey_copied">Copied</string>
+    <string name="g_quickkey_done">Done</string>
+</resources>

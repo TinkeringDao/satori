@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings > Models and storage: every model on the phone, what it takes and what uses it, and
+     the cleanup. German in values-de/strings_grille_storage.xml. Sizes come from modelSizeLabel. -->
+<resources>
+    <!-- The row in Settings and the screen's title -->
+    <string name="g_storage_title">Models and storage</string>
+    <string name="g_storage_row_desc">Which models are on the phone, what they take, and what uses them.</string>
+
+    <!-- At the top: %1$s what the models take together, %2$s the free space, e.g. "4.1 GB", "52 GB" -->
+    <string name="g_storage_summary">Models on this phone take %1$s. Free on the phone: %2$s.</string>
+    <string name="g_storage_summary_none">No model is on this phone.</string>
+
+    <!-- Remove what isn't used: the row, its line, and what waits for a recording or a finishing -->
+    <string name="g_storage_unused">Remove what isn\'t used</string>
+    <plurals name="g_storage_unused_desc">
+        <item quantity="one">%1$d model, %2$s</item>
+        <item quantity="other">%1$d models, %2$s</item>
+    </plurals>
+    <string name="g_storage_all_used">Every model on this phone is used by a setting.</string>
+    <string name="g_storage_unused_waiting">More can go once what runs now ends: a recording, a finishing or a Transcribe again.</string>
+
+    <!-- The heading over the models -->
+    <string name="g_storage_on_phone">On this phone</string>
+
+    <!-- What each model is for, the row's title -->
+    <string name="g_storage_for_speech">Speech recognition</string>
+    <string name="g_storage_for_malayalam">Malayalam</string>
+    <string name="g_storage_for_better_en">Better transcript, English</string>
+    <string name="g_storage_for_better_en_de">Better transcript, English and German</string>
+    <string name="g_storage_for_ai_notes">AI notes</string>
+    <string name="g_storage_for_finishing">AI for finished recordings</string>
+    <!-- The model's name and what it takes, e.g. "Parakeet v3 · 670 MB" -->
+    <string name="g_storage_model_size">%1$s · %2$s</string>
+
+    <!-- Whether a setting uses it -->
+    <string name="g_storage_use_recording">Needed for every recording</string>
+    <string name="g_storage_use_malayalam">Used: the power key or Record as records in Malayalam</string>
+    <string name="g_storage_use_language_key">Used: a recording can switch to Malayalam</string>
+    <string name="g_storage_use_better">Used: Better transcript after Stop</string>
+    <string name="g_storage_use_ai_notes">Used: AI notes</string>
+    <string name="g_storage_use_finishing">Used: AI for finished recordings</string>
+    <string name="g_storage_use_none">Not used by any setting</string>
+    <string name="g_storage_paused">Download paused</string>
+    <string name="g_storage_in_use_now">In use now; it can be removed once that ends.</string>
+
+    <!-- The pill under a model, and what TalkBack says for it, e.g. "Remove Cohere Transcribe" -->
+    <string name="g_storage_remove">Remove</string>
+    <string name="g_storage_remove_cd">Remove %1$s</string>
+
+    <!-- The questions: all that isn't used, or one model -->
+    <plurals name="g_storage_unused_title">
+        <item quantity="one">Remove %1$d model?</item>
+        <item quantity="other">Remove %1$d models?</item>
+    </plurals>
+    <!-- %1$s the models' names, one per line; %2$s what they free together -->
+    <string name="g_storage_unused_body">%1$s\n\nFrees %2$s. Each can be downloaded again in Advanced settings.</string>
+    <string name="g_storage_remove_title">Remove %1$s?</string>
+    <!-- %1$s what removing it costs (the lines below), %2$s what it frees -->
+    <string name="g_storage_remove_body">%1$s Frees %2$s.</string>
+    <string name="g_storage_cost_none">Nothing uses it. It can be downloaded again in Advanced settings.</string>
+    <string name="g_storage_cost_better">Better transcript after Stop goes off.</string>
+    <string name="g_storage_cost_malayalam">Until it is back, the power key and Record as record in English or German.</string>
+    <string name="g_storage_cost_language_key">Until it is back, no recording can switch to Malayalam, and Transcribe again has no Malayalam.</string>
+    <!-- %1$s the model's name, e.g. "Efficient" -->
+    <string name="g_storage_cost_notes_by">Notes are then written by the %1$s model.</string>
+    <string name="g_storage_cost_no_notes">Until a model is back, new recordings get no notes.</string>
+    <string name="g_storage_cost_finishing">Notes after Stop are then written by the AI model chosen in Advanced settings.</string>
+    <string name="g_storage_cost_paused">What the download left goes; it starts again from the beginning.</string>
+
+    <!-- After a removal -->
+    <string name="g_storage_removed">Removed. %1$s freed.</string>
+    <string name="g_storage_removed_better_off">Removed. Better transcript after Stop is off.</string>
+    <string name="g_storage_removed_notes_by">Removed. Notes are now written by the %1$s model.</string>
+    <string name="g_storage_removed_no_notes">Removed. New recordings get no notes until a model is back.</string>
+    <string name="g_storage_not_removed">Not removed: it is in use now. Try again once that ends.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification text. English source; German in values-de/strings_grille_notifications.xml. -->
+<resources>
+    <!-- Recording notification after Stop is tapped, until the last words are saved and the
+         recording is handed to finishing: under a second as a rule, 15 s at most. -->
+    <string name="g_notif_stopping">Stopping the recording</string>
+
+    <!-- Title of the AI's notification while recordings are finished in the background, one
+         after the other. Its text is the step under way, in the recorder's words (g_rec_*). -->
+    <plurals name="g_notif_finishing">
+        <item quantity="one">Finishing a recording</item>
+        <item quantity="other">Finishing %d recordings</item>
+    </plurals>
+
+    <!-- Once a recording's notes are written while Satori is out of sight, and only if notifications
+         are allowed (Satori doesn't ask for that here). Never a name or anything said: the
+         notification also reaches the lock screen and the cover screen. -->
+    <string name="g_notif_notes_ready">Your notes are ready</string>
+    <!-- Its channel in Android's notification settings -->
+    <string name="g_notif_channel_notes_ready">Notes ready</string>
+    <string name="g_notif_channel_notes_ready_desc">A ping once the notes of a recording are written.</string>
+</resources>

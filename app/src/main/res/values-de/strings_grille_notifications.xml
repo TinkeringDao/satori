@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Benachrichtigungstexte. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Aufnahme-Benachrichtigung nach dem Tippen auf Stopp, bis die Aufnahme gestoppt ist. Wie
+         die Taste (Stopp) und die Frage beim Zurück (Aufnahme stoppen?) mit "stoppen". -->
+    <string name="g_notif_stopping">Aufnahme wird gestoppt</string>
+
+    <!-- Titel der KI-Benachrichtigung, während Aufnahmen im Hintergrund abgeschlossen werden. Wie
+         g_rec_finishing (Wird abgeschlossen) mit "abschließen". -->
+    <plurals name="g_notif_finishing">
+        <item quantity="one">Aufnahme wird abgeschlossen</item>
+        <item quantity="other">%d Aufnahmen werden abgeschlossen</item>
+    </plurals>
+
+    <!-- Sobald die Notizen einer Aufnahme fertig sind, während Satori nicht zu sehen ist, und nur
+         mit erlaubten Benachrichtigungen. Nie ein Name oder Gesagtes. -->
+    <string name="g_notif_notes_ready">Die Notizen sind fertig</string>
+    <!-- Der Kanal in den Benachrichtigungseinstellungen von Android -->
+    <string name="g_notif_channel_notes_ready">Notizen fertig</string>
+    <string name="g_notif_channel_notes_ready_desc">Ein Hinweis, sobald die Notizen einer Aufnahme fertig sind.</string>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Der erste Start (g_fr_): Vorbereiten, Wird vorbereitet und Bereit, und der Hinweis der ersten
+     Aufnahme. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Vorbereiten -->
+    <string name="g_fr_intro">Einfach reden. Satori schreibt die Notizen und findet die Aufgaben. Alles auf diesem Telefon.</string>
+    <!-- Die Zeilen dessen, was heruntergeladen wird, jede neben ihrer Größe -->
+    <string name="g_fr_part_speech">Spracherkennung</string>
+    <string name="g_fr_part_malayalam">Malayalam</string>
+    <string name="g_fr_part_notes">KI-Notizen</string>
+    <string name="g_fr_part_notes_when">Nach der ersten Aufnahme</string>
+    <string name="g_fr_wifi_only">Nur über WLAN.</string>
+    <string name="g_fr_mobile_now">Gerade sind mobile Daten aktiv.</string>
+    <string name="g_fr_wait_wifi">Auf WLAN warten</string>
+    <!-- %1$s ist die Größe des Downloads, z. B. „808 MB“ -->
+    <string name="g_fr_download">%1$s herunterladen</string>
+    <string name="g_fr_space_title">Nicht genug Speicher</string>
+    <!-- %1$s ist der nötige, %2$s der freie Speicher -->
+    <string name="g_fr_space_body">Benötigt: %1$s. Frei: %2$s.</string>
+    <string name="g_fr_space_action">Speicher öffnen</string>
+
+    <!-- Wird vorbereitet -->
+    <string name="g_fr_getting_ready">Wird vorbereitet</string>
+    <string name="g_fr_time_left">Noch etwa %1$d Min.</string>
+    <string name="g_fr_time_under">Noch unter 1 Min.</string>
+    <string name="g_fr_checking">Dateien werden geprüft</string>
+    <string name="g_fr_pause">Pausieren</string>
+    <string name="g_fr_resume">Fortsetzen</string>
+    <string name="g_fr_paused">Pausiert</string>
+    <string name="g_fr_leave">Die App lässt sich verlassen. Satori macht weiter.</string>
+    <!-- TalkBack für den Fortschritt: %1$s ist der Teil, der lädt, %2$d der Prozentwert -->
+    <string name="g_fr_progress_cd">%1$s, %2$d Prozent</string>
+
+    <!-- Das Mikrofon, während des Wartens erfragt. Android benennt die erste Option selbst. -->
+    <string name="g_fr_mic_why">Zum Aufnehmen braucht Satori das Mikrofon.</string>
+    <string name="g_fr_mic_how">Dann die erste Option wählen.</string>
+    <string name="g_fr_mic_action">Mikrofon erlauben</string>
+    <string name="g_fr_mic_ok">Mikrofon erlaubt.</string>
+    <string name="g_fr_mic_refused">Ohne Mikrofon kann Satori nicht aufnehmen.</string>
+    <string name="g_fr_mic_settings">Dann unter Berechtigungen das Mikrofon erlauben.</string>
+    <string name="g_fr_record_waits">Aufnehmen geht, sobald der Download fertig ist.</string>
+    <string name="g_fr_record">Aufnehmen</string>
+
+    <!-- Was den Download aufhält: ein Titel und ein Satz -->
+    <string name="g_fr_err_conn_title">Keine Verbindung</string>
+    <string name="g_fr_err_conn_body">Satori macht von selbst weiter, sobald sie wieder da ist.</string>
+    <string name="g_fr_try_now">Jetzt versuchen</string>
+    <string name="g_fr_err_wifi_title">Warten auf WLAN</string>
+    <!-- %1$s ist, was noch herunterzuladen ist, z. B. „428 MB“ -->
+    <string name="g_fr_err_wifi_body">Noch %1$s. Satori macht weiter, sobald WLAN da ist.</string>
+    <string name="g_fr_use_mobile">Mobile Daten nutzen</string>
+    <!-- Das Telefon ist online, aber Satoris Verbindungen scheitern: eine Firewall oder eine Dateneinstellung -->
+    <string name="g_fr_err_blocked_title">Kein Internet für Satori</string>
+    <string name="g_fr_err_blocked_body">Möglicherweise blockiert eine Firewall oder Datenbeschränkung den Zugriff.</string>
+    <string name="g_fr_err_server_title">Der Download-Server antwortet nicht</string>
+    <string name="g_fr_err_server_body">Satori versucht es in einigen Minuten erneut.</string>
+    <string name="g_fr_err_damaged_title">Datei kam beschädigt an</string>
+    <string name="g_fr_err_damaged_body">Satori lädt sie erneut herunter.</string>
+
+    <!-- Bereit -->
+    <string name="g_fr_ready_title">Bereit zum Aufnehmen</string>
+    <string name="g_fr_ready_body">Einfach losreden. Eine Minute oder länger ergibt gute Notizen.</string>
+    <string name="g_fr_ready_look">Erst umsehen</string>
+
+    <!-- Nur die erste Aufnahme, unter dem Status bis zum 20. Wort oder 90 s -->
+    <string name="g_fr_coach">Eine Minute reden. Die Notizen folgen nach dem Stoppen.</string>
+</resources>

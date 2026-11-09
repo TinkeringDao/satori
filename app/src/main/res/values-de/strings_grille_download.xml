@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Benachrichtigung des Download-Dienstes (g_dl_), auf Englisch in values/strings_grille_download.xml. -->
+<resources>
+    <string name="g_dl_channel">Downloads</string>
+    <string name="g_dl_channel_desc">Zeigt Modell-Downloads</string>
+
+    <string name="g_dl_speech">Spracherkennung</string>
+    <string name="g_dl_malayalam">Malayalam</string>
+    <string name="g_dl_after_stop">Besseres Transkript nach dem Stoppen</string>
+    <string name="g_dl_ai_model">KI-Modell</string>
+    <string name="g_dl_bigger_model">Größeres KI-Modell</string>
+
+    <string name="g_dl_percent">%1$d %% heruntergeladen</string>
+    <string name="g_dl_checking">Dateien werden geprüft</string>
+    <string name="g_dl_paused_recording">Pausiert während der Aufnahme</string>
+    <string name="g_dl_no_connection">Keine Verbindung</string>
+    <string name="g_dl_waiting_wifi">Warten auf WLAN</string>
+    <string name="g_dl_server">Der Download-Server antwortet nicht</string>
+    <string name="g_dl_space">Nicht genug Speicher</string>
+</resources>

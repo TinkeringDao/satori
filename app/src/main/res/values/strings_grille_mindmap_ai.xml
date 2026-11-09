@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The prompts of the mind map (MapRecordingUseCase and RefreshThemeSummariesUseCase in the
+     domain module). English source; German in values-de/strings_grille_mindmap_ai.xml.
+
+     AndroidResourceProvider (data module) loads them by name with getIdentifier, so they carry
+     tools:ignore="UnusedResources" like the prompts in strings_grille_ai.xml. A missing or
+     renamed string still builds, but the app then falls back to a short English copy.
+
+     Neither prompt has placeholders: what the model reads comes as the text of the call. For the
+     topics that is the recording's notes, or its transcript when it has none; for a summary, the
+     theme on the first line, then one line per recording, newest first, with its date and points.
+     Both answers are held to a JSON schema, so the keys (topics, label, points, summary) stay
+     English in every language: the app reads them back, and llama.cpp limits the answer to them.
+     The app keeps a topic only if every word of its label that says something (not "the", "of",
+     "der", ...) occurs in the recording's transcript or notes, plural and case endings aside,
+     which is why the prompt asks for words from the text. Use \n for line breaks: aapt2 turns
+     literal ones into spaces. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Finds up to 3 topics of one recording, each with up to 3 points. -->
+    <string name="prompt_mind_topics" tools:ignore="UnusedResources">You find the topics of a voice recording for a mind map.\nThe text below is the notes of the recording, or what was said in it.\nEach separate subject of the text is a topic of its own: a note about a leaking shed roof and a car service has two. Give up to 3 topics, the most important first. For each topic give:\nlabel: the topic in 1 to 4 words, only words that occur in the text, such as \"Garden shed\" or \"Rent\".\npoints: up to 3 short notes in English on what the text says about it: facts, decisions, plans or open questions, at most 20 words each. Write them as the person\'s own notes, never \"the speaker\" or \"the recording\".\nUse only what the text says. Not a topic: small talk, greetings, the recording itself.\nAnswer with JSON only, for example:\n{\"topics\": [{\"label\": \"Garden shed\", \"points\": [\"The roof of the shed leaks.\", \"New boards cost about 80 euros.\"]}, {\"label\": \"Car service\", \"points\": [\"Book the service before the holidays.\"]}]}\nWith no topic, answer {\"topics\": []}</string>
+
+    <!-- Writes what the recordings of one theme say about it, for the theme's reading pane. -->
+    <string name="prompt_mind_summary" tools:ignore="UnusedResources">You keep the notes on one theme of a person\'s voice recordings.\nThe first line of the text names the theme. Each line after it is one recording, newest first: its date, then what was said about the theme in it.\nWrite 2 to 4 plain sentences in English on what is known about the theme and what was decided, as the person\'s own notes. Say what is still open only when the lines say it is. Never report on the recordings: no \"the speaker\", \"the user\", \"the recording\", \"mentions\" or \"discusses\".\nUse only what the lines say. Keep times as they were said, and work out no dates. When recordings disagree, the newest one counts. No lists, no headings.\nAnswer with JSON only, for example:\n{\"summary\": \"The roof of the garden shed leaks. New boards cost about 80 euros, and the repair is planned for spring.\"}</string>
+</resources>

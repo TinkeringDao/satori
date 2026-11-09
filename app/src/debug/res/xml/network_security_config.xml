@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug builds only, in place of the main network_security_config.xml: the same policy, HTTPS with
+    system CAs only, and plain HTTP to one address, 10.0.2.2, the emulator's view of the computer it
+    runs on, where the first run's test server answers (DebugToolsActivity firstrun-source,
+    ~/satori-audit/tools/throttle_server.py). The hook refuses to run on a phone. Release builds use
+    the main file, which permits no cleartext at all.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust system CAs only: no user-installed certificates -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+</network-security-config>

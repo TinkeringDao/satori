@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für Einstellungen, Erweitert und Lizenzen. Neutraler Infinitiv-Stil, ohne du/Sie.
+     Größen und Einheiten ohne Übersetzung stehen nur in values/. -->
+<resources>
+    <!-- Einstellungen. Unter jeder Zeile ein bis zwei kurze Zeilen in einfachen Worten: was sie
+         ändert und was es kostet (Akku, Arbeitsspeicher, Speicherplatz, Genauigkeit, Zeit). In einer
+         Auswahl steht unter jeder Möglichkeit (_desc), was sie bedeutet. -->
+    <string name="g_settings_ai_notes">KI-Notizen</string>
+    <string name="g_settings_ai_notes_desc">Schreibt Notizen, einen Namen und Aufgaben zu jeder Aufnahme. Ausschalten spart Akku und Arbeitsspeicher.</string>
+    <string name="g_settings_ai_notes_missing">Das KI-Modell ist noch nicht auf diesem Telefon.</string>
+    <string name="g_settings_ai_notes_missing_e2b">Noch kein Modell für Live-Notizen auf diesem Telefon; Gemma 4 E2B braucht eines.</string>
+    <string name="g_settings_ai_get_model">KI-Modell holen</string>
+    <string name="g_settings_ai_notes_coming">Das KI-Modell ist unterwegs. Notizen folgen, sobald es da ist.</string>
+    <string name="g_settings_llm_works_without">Die Transkription funktioniert auch ohne.</string>
+    <string name="g_settings_notes_language">Sprache der Notizen</string>
+    <string name="g_settings_notes_language_desc">Die Sprache, in der die KI die Notizen schreibt.</string>
+    <!-- „Automatisch“, nicht „Auto“: allein liest sich das als das Fahrzeug. -->
+    <string name="g_settings_notes_language_auto">Automatisch</string>
+    <string name="g_settings_notes_language_auto_desc">Englisch oder Deutsch, wie gesprochen; sonst Englisch</string>
+    <string name="g_settings_notes_language_auto_desc_spoken">Englisch oder Deutsch, je nachdem, was gesprochen wurde</string>
+    <string name="g_settings_notes_language_en_desc">Notizen auf Englisch</string>
+    <string name="g_settings_notes_language_de_desc">Notizen auf Deutsch</string>
+    <string name="g_settings_notes_language_help">Für Notizen, Namen und Aufgaben jeder Aufnahme.</string>
+    <string name="g_settings_change">Ändern</string>
+    <string name="g_settings_categories">Kategorien</string>
+    <string name="g_settings_categories_desc">Als was eine Aufnahme abgelegt wird, etwa Besprechung oder Idee. Jede legt fest, wie ihre Notizen entstehen.</string>
+    <string name="g_settings_reminders_off">Erinnerungen sind aus</string>
+    <string name="g_settings_reminders_off_desc">Benachrichtigungen einschalten, um an Aufgaben erinnert zu werden.</string>
+    <string name="g_settings_reminders_turn_on">Einschalten</string>
+    <string name="g_settings_theme">Design</string>
+    <string name="g_settings_theme_desc">Hell oder dunkel. Dunkel braucht weniger Akku.</string>
+    <string name="g_settings_theme_system">System</string>
+    <string name="g_settings_theme_system_desc">Hell oder dunkel, wie am Telefon eingestellt</string>
+    <string name="g_settings_theme_light">Hell</string>
+    <string name="g_settings_theme_light_desc">Dunkle Schrift auf Weiß, in der Sonne am besten lesbar</string>
+    <string name="g_settings_theme_dark">Dunkel</string>
+    <string name="g_settings_theme_dark_desc">Helle Schrift auf Schwarz, braucht weniger Akku</string>
+    <string name="g_settings_advanced">Erweitert</string>
+    <!-- "Sprechpausen", nicht "Spracherfassung": das läse sich wie "Spracherkennung", das Modell. -->
+    <string name="g_settings_advanced_desc">Modelle, Notizen, Übersetzung, Mikrofon und Sprechpausen</string>
+
+    <!-- Aufnahme: wie sich Start und Ende anfühlen, und der Bildschirm bei eingeschaltetem Mikrofon -->
+    <string name="g_settings_section_recording">Aufnahme</string>
+    <string name="g_settings_vibrate">Beim Starten und Beenden vibrieren</string>
+    <string name="g_settings_vibrate_desc">Ein langes Vibrieren, wenn das Mikrofon angeht, zwei kurze, wenn es ausgeht, drei, wenn es nicht starten konnte. Auch bei ausgeschaltetem Bildschirm.</string>
+    <string name="g_settings_vibrate_try">Ausprobieren</string>
+    <string name="g_settings_keep_screen_on">Bildschirm während der Aufnahme anlassen</string>
+    <string name="g_settings_keep_screen_on_desc">Braucht während der Aufnahme mehr Akku. Bei gesperrtem Telefon geht der Bildschirm wie gewohnt aus. Die Ein-/Aus-Taste schaltet ihn trotzdem aus, die Aufnahme läuft weiter.</string>
+
+    <!-- Info -->
+    <string name="g_settings_section_about">Info</string>
+    <string name="g_settings_version">Version %1$s</string>
+    <string name="g_settings_privacy_body">Alles bleibt auf diesem Telefon. Es gibt kein Konto, und nach dem Herunterladen der Modelle braucht die App kein Netzwerk.</string>
+    <string name="g_settings_licences">Lizenzen</string>
+    <string name="g_settings_licences_desc">Die Bibliotheken, KI-Modelle und Schriftarten, mit denen die App gebaut ist</string>
+
+    <!-- Lizenzen -->
+    <string name="g_settings_licences_intro">Die App nutzt diese Bibliotheken, KI-Modelle und Schriftarten. Zum Ein- oder Ausblenden der Lizenz einen Eintrag antippen.</string>
+    <string name="g_settings_licences_show">Lizenz anzeigen</string>
+    <string name="g_settings_licences_hide">Lizenz ausblenden</string>
+    <string name="g_settings_licences_url_licence">Lizenz</string>
+    <string name="g_settings_licences_url_model">Modellkarte</string>
+    <string name="g_settings_licences_url_source">Quellcode</string>
+    <string name="g_settings_licences_open">Im Browser öffnen</string>
+
+    <!-- Erweitert: Bereiche -->
+    <string name="g_settings_section_models">Modelle</string>
+    <string name="g_settings_section_notes">Notizen</string>
+    <string name="g_settings_section_translation">Übersetzung</string>
+    <string name="g_settings_section_vad">Sprechpausen</string>
+
+    <!-- Erweitert: Spracherkennung -->
+    <string name="g_settings_speech">Spracherkennung</string>
+    <string name="g_settings_speech_missing">Nicht eingerichtet</string>
+    <string name="g_settings_speech_again">Erneut herunterladen</string>
+    <string name="g_settings_speech_again_cd">Spracherkennung erneut herunterladen</string>
+    <string name="g_settings_speech_again_title">Spracherkennung erneut herunterladen?</string>
+    <string name="g_settings_speech_again_body">Hilft, wenn die Aufnahme nicht mehr funktioniert. Dafür ist eine Internetverbindung nötig.</string>
+    <string name="g_settings_speech_damaged">Beschädigt</string>
+    <string name="g_settings_speech_again_confirm">Herunterladen</string>
+
+    <!-- Erweitert: KI-Modell -->
+    <string name="g_settings_ai_model">KI-Modell</string>
+    <string name="g_settings_ai_model_help">Das hier gewählte Modell schreibt die Notizen während der Aufnahme. Gemma 4 E2B ist nicht wählbar: Es arbeitet nach dem Stoppen, mit dem Schalter darunter.</string>
+    <string name="g_settings_ai_model_none">Eines herunterladen, um Notizen zu bekommen.</string>
+    <string name="g_settings_ai_model_busy">Es wird immer nur ein Modell heruntergeladen. Zum Starten eines anderen das laufende pausieren.</string>
+    <string name="g_settings_model_q8">Standard</string>
+    <string name="g_settings_model_q8_desc">Gemma 3 1B. Genauer; braucht mehr Arbeitsspeicher und Akku. Etwa %1$s.</string>
+    <string name="g_settings_model_iq4">Effizient</string>
+    <string name="g_settings_model_iq4_desc">Gemma 3 1B. Schont Arbeitsspeicher und Akku. Etwa %1$s.</string>
+    <string name="g_settings_model_qwen_desc">Ein Modell eines anderen Herstellers, zum Ausprobieren. Seine Notizen können anders ausfallen. Etwa %1$s.</string>
+    <string name="g_settings_model_e2b_desc">Schreibt die Notizen nach dem Stoppen, nicht während der Aufnahme. Besser, aber langsamer. Etwa %1$s.</string>
+    <string name="g_settings_finishing_model">KI nach der Aufnahme</string>
+    <string name="g_settings_finishing_model_desc">Gemma 4 E2B schreibt nach dem Stoppen Notizen, Namen und Aufgaben: besser, aber langsamer. Aus: Das oben gewählte Modell übernimmt. Bei knappem Arbeitsspeicher übernimmt trotzdem dieses Modell, oder die Arbeit wartet, bis eine Aufnahme endet.</string>
+    <string name="g_settings_model_experimental">Experimentell</string>
+    <string name="g_settings_model_recommended">Für dieses Telefon empfohlen</string>
+    <string name="g_settings_model_on_phone">Auf diesem Telefon</string>
+    <string name="g_settings_model_paused">Pausiert</string>
+    <string name="g_settings_model_downloading">Wird heruntergeladen</string>
+    <string name="g_settings_model_downloading_percent">Wird heruntergeladen: %1$d\u00A0%%</string>
+    <string name="g_settings_model_download">Herunterladen</string>
+    <string name="g_settings_model_download_cd">%1$s herunterladen</string>
+    <string name="g_settings_model_pause">Pausieren</string>
+    <string name="g_settings_model_pause_cd">Download von %1$s pausieren</string>
+    <string name="g_settings_model_resume">Fortsetzen</string>
+    <string name="g_settings_model_resume_cd">Download von %1$s fortsetzen</string>
+    <string name="g_settings_model_retry">Erneut versuchen</string>
+    <string name="g_settings_model_delete">Löschen</string>
+    <string name="g_settings_model_delete_cd">%1$s löschen</string>
+    <string name="g_settings_model_delete_title">Dieses Modell löschen?</string>
+    <string name="g_settings_model_delete_body">Vorhandene Notizen bleiben. Das Modell lässt sich erneut herunterladen.</string>
+    <string name="g_settings_model_delete_last_body">Vorhandene Notizen bleiben. Bis wieder ein Modell da ist, entstehen zu neuen Aufnahmen keine Notizen.</string>
+
+    <!-- Erweitert: Notizen und Übersetzung, für jede Art von Aufnahme -->
+    <string name="g_settings_notes_help">Wie und wann die KI Notizen schreibt, für jede Art von Aufnahme.</string>
+    <string name="g_settings_interval">Notizen alle</string>
+    <string name="g_settings_interval_desc">Öfter: Die Notizen folgen dem Gesagten schneller, brauchen aber mehr Akku.</string>
+    <string name="g_settings_interval_translate">Übersetzen alle</string>
+    <string name="g_settings_interval_translate_desc">Öfter: Die Übersetzung folgt schneller, braucht aber mehr Akku.</string>
+    <string name="g_settings_strategy">Wann Notizen entstehen</string>
+    <string name="g_settings_strategy_desc">Während der Aufnahme: Notizen erscheinen beim Sprechen. Nach der Aufnahme: Notizen entstehen erst nach dem Stoppen, und das Telefon hat beim Aufnehmen weniger zu tun.</string>
+    <string name="g_settings_strategy_translate">Wann übersetzt wird</string>
+    <string name="g_settings_strategy_translate_desc">Während der Aufnahme: Übersetzung beim Sprechen. Nach der Aufnahme: alles nach dem Stoppen, und das Telefon hat beim Aufnehmen weniger zu tun.</string>
+    <string name="g_settings_timing_live">Während der Aufnahme</string>
+    <string name="g_settings_timing_after">Nach der Aufnahme</string>
+    <string name="g_settings_translate_into">Übersetzen in</string>
+    <string name="g_settings_translate_into_desc">Die Sprache, in der die Übersetzungen entstehen. „Übersetzen“ versteht Englisch und Deutsch.</string>
+
+    <!-- Erweitert: der Mikrofoneingang für Sprache -->
+    <string name="g_settings_section_mic">Mikrofon</string>
+
+    <!-- Erweitert: Sprechpausen -->
+    <string name="g_settings_vad_desc">Wie Sprache während der Aufnahme in Zeilen aufgeteilt wird; „Neu transkribieren“ nutzt eigene Werte. Änderungen gelten ab der nächsten Aufnahme.</string>
+    <string name="g_settings_vad_silence">Pausenlänge</string>
+    <string name="g_settings_vad_silence_desc">Eine so lange Pause beendet eine Zeile. Länger: weniger abgeschnittene Wörter, aber jede Zeile erscheint später.</string>
+    <string name="g_settings_vad_speech">Längster Abschnitt</string>
+    <string name="g_settings_vad_speech_desc">Nach so langer Rede ohne Pause wird geteilt. Länger: weniger geteilte Sätze, aber lange erscheinen später.</string>
+    <string name="g_settings_vad_threshold">Erkennungsschwelle</string>
+    <string name="g_settings_vad_threshold_desc">Niedriger erfasst leisere Sprache, aber auch mehr Hintergrundgeräusche.</string>
+    <string name="g_settings_vad_more">Empfindlicher</string>
+    <string name="g_settings_vad_less">Weniger empfindlich</string>
+    <string name="g_settings_vad_shorter">Kürzer</string>
+    <string name="g_settings_vad_longer">Länger</string>
+    <string name="g_settings_vad_reset">Auf die üblichen Werte zurücksetzen</string>
+    <string name="g_settings_unit_s">s</string>
+    <string name="g_settings_seconds_spoken">%1$s Sekunden</string>
+    <string name="g_settings_percent_spoken">%1$s Prozent</string>
+</resources>

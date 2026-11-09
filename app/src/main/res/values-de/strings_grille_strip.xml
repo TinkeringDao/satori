@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die Statuszeile des Startbildschirms (g_strip_) und ihre einmaligen Angebote (g_nudge_).
+     Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Was nach dem Einrichten heruntergeladen wird -->
+    <string name="g_strip_ai_model">KI-Modell</string>
+    <string name="g_strip_bigger_model">Größeres KI-Modell</string>
+    <string name="g_strip_paused_recording">Pausiert während der Aufnahme</string>
+    <!-- Malayalam wurde nach Fehlern aufgegeben; daneben steht Erneut versuchen -->
+    <string name="g_strip_malayalam_failed">Malayalam ließ sich nicht herunterladen.</string>
+
+    <!-- Die ersten Notizen, einmal -->
+    <string name="g_strip_first_notes">Die ersten Notizen sind fertig</string>
+    <string name="g_strip_open">Öffnen</string>
+
+    <!-- Einmalige Angebote. %1$s im Text des größeren Modells ist seine Größe, z. B. „3,3 GB“. -->
+    <string name="g_nudge_ping">Einen Hinweis erhalten, sobald Notizen fertig sind?</string>
+    <!-- Über g_nudge_ping, wenn Notizen fertig waren, während Satori nicht zu sehen war und keine
+         Benachrichtigungen erlaubt sind: warum der Hinweis jetzt angeboten wird -->
+    <string name="g_nudge_ping_missed">Die Notizen waren fertig, aber es kam kein Hinweis. Satori darf keine Benachrichtigungen anzeigen.</string>
+    <string name="g_nudge_e2b_title">Bessere Notizen sind möglich</string>
+    <string name="g_nudge_e2b_body">Ein größeres KI-Modell. %1$s. Das Abschließen dauert länger.</string>
+    <string name="g_nudge_get_it">Holen</string>
+</resources>

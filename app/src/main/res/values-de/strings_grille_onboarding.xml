@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für Onboarding (g_onb_) und Suche (g_search_). Neutraler Infinitiv- oder
+     unpersönlicher Stil, ohne du/Sie. Namen, Einheiten und Lizenztitel stehen nur in values/. -->
+<resources>
+    <!-- Onboarding: Rahmen -->
+    <string name="g_onb_step">Schritt %1$d von %2$d</string>
+    <string name="g_onb_continue">Weiter</string>
+
+    <!-- Onboarding: was ein Download braucht. %1$s ist die Größe, z. B. "670 MB". -->
+    <string name="g_onb_download_note">Etwa %1$s. Der Download erfolgt einmal und braucht jetzt eine Internetverbindung, danach funktioniert alles offline.</string>
+
+    <!-- Onboarding: KI-Modell -->
+    <string name="g_onb_llm_title">KI-Notizen</string>
+    <string name="g_onb_llm_body">Ein kleines KI-Modell schreibt Notizen und Aufgaben zu den Aufnahmen, direkt auf diesem Telefon.</string>
+    <string name="g_onb_llm_later">Die Transkription funktioniert auch ohne. Das Modell lässt sich später in den Einstellungen herunterladen.</string>
+    <string name="g_onb_llm_downloading">KI-Modell wird heruntergeladen</string>
+    <string name="g_onb_llm_ready_title">KI-Modell bereit</string>
+    <string name="g_onb_llm_ready_body">Notizen und Aufgaben entstehen jetzt auf diesem Telefon.</string>
+
+    <!-- Onboarding: Aktionen -->
+    <string name="g_onb_download">Herunterladen</string>
+    <string name="g_onb_not_now">Nicht jetzt</string>
+    <string name="g_onb_retry">Erneut versuchen</string>
+
+    <!-- Onboarding: Fortschritt und Fehler -->
+    <!-- Geschütztes Leerzeichen vor dem Prozentzeichen, wie im Deutschen üblich. -->
+    <string name="g_onb_percent">%1$d\u00A0%%</string>
+    <string name="g_onb_resuming">Wird ab %1$d\u00A0MB fortgesetzt</string>
+    <!-- Ein fehlgeschlagener Download nennt die Ursache. %1$s im Speichertext ist die Größe. -->
+    <string name="g_onb_failed_title">Download fehlgeschlagen</string>
+    <string name="g_onb_failed_body">Der Download wurde vor dem Ende abgebrochen. Erneut versuchen.</string>
+    <string name="g_onb_failed_connection_title">Keine Internetverbindung</string>
+    <string name="g_onb_failed_connection_body">Das Modell wird einmal heruntergeladen. Mit dem WLAN oder mobilen Daten verbinden und erneut versuchen.</string>
+    <string name="g_onb_failed_storage_title">Nicht genug Speicher</string>
+    <string name="g_onb_failed_storage_body">Es braucht etwa %1$s. Speicherplatz auf diesem Telefon freigeben und erneut versuchen.</string>
+    <string name="g_onb_failed_server_title">Der Download-Server antwortet nicht</string>
+    <string name="g_onb_failed_server_body">Das Problem liegt beim Server. In einigen Minuten erneut versuchen.</string>
+
+    <!-- Suche -->
+    <string name="g_search_hint">Aufnahmen durchsuchen</string>
+    <string name="g_search_clear">Suche löschen</string>
+    <string name="g_search_prompt">Gesprochenes, Notizen, Namen und Orte durchsuchen.</string>
+    <string name="g_search_none">Keine Aufnahme passt zu dieser Suche.</string>
+</resources>

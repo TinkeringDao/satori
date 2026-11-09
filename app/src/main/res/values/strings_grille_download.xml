@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grille strings for the download service's notification (g_dl_), service/DownloadNotificationText.kt:
+     what downloads, in the words the first run and Settings use for it, and how it goes, also
+     while it is held. German in values-de/strings_grille_download.xml. -->
+<resources>
+    <!-- The notification channel, as Android's notification settings list it -->
+    <string name="g_dl_channel">Downloads</string>
+    <string name="g_dl_channel_desc">Shows model downloads</string>
+
+    <!-- What downloads -->
+    <string name="g_dl_speech">Speech recognition</string>
+    <string name="g_dl_malayalam">Malayalam</string>
+    <string name="g_dl_after_stop">Better transcript after Stop</string>
+    <string name="g_dl_ai_model">AI model</string>
+    <string name="g_dl_bigger_model">Bigger AI model</string>
+
+    <!-- How it goes. %1$d is the percent. -->
+    <string name="g_dl_percent">%1$d%% downloaded</string>
+    <string name="g_dl_checking">Checking the files</string>
+    <string name="g_dl_paused_recording">Paused while recording</string>
+    <string name="g_dl_no_connection">No connection</string>
+    <string name="g_dl_waiting_wifi">Waiting for Wi-Fi</string>
+    <string name="g_dl_server">The server isn\'t answering</string>
+    <string name="g_dl_space">Not enough space</string>
+</resources>

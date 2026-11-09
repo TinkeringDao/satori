@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Der Ort einer Aufnahme: die Einstellung, die Zeile unter dem Datum auf der Detailseite und ihr
+     Blatt, die Markdown-Datei und Kopien, die Suche. Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <!-- Einstellungen, Abschnitt Aufnahme -->
+    <string name="g_place_save">Ort speichern</string>
+    <string name="g_place_save_desc">Speichert, wo jede Aufnahme beginnt, per GPS bestimmt; nichts verlässt das Telefon. Braucht bei jedem Start etwas Akku.</string>
+    <!-- Statt g_place_save_desc, nachdem Androids Frage mit „Nicht zulassen“ beantwortet wurde -->
+    <string name="g_place_denied">Standortzugriff nicht erlaubt, daher wird kein Ort gespeichert. Zum Einschalten in den Android-Einstellungen erlauben.</string>
+    <!-- Statt g_place_save_desc, solange nur „Ungefähr“ erlaubt ist -->
+    <string name="g_place_approximate">Nur der ungefähre Standort ist erlaubt, der Ort kann daher einige Kilometer abweichen. Den genauen Standort in den Android-Einstellungen erlauben.</string>
+    <!-- Statt g_place_save_desc, solange der Standort des Telefons aus ist -->
+    <string name="g_place_location_off">An, aber der Standort ist auf diesem Telefon aus, daher wird kein Ort gespeichert. In den Android-Einstellungen einschalten.</string>
+    <string name="g_place_open_android_settings">Android-Einstellungen öffnen</string>
+    <!-- Aufnahme-Benachrichtigung, wenn das Mikrofon aus ist und der Ort der Aufnahme noch
+         bestimmt wird (höchstens eine halbe Minute). Wie g_notif_stopping ("wird gestoppt"). -->
+    <string name="g_place_notif_saving">Ort wird gespeichert</string>
+
+    <!-- Detailseite: der Ort unter dem Datum. Mehr als 3 km von der Ortsmitte, z. B. „Bei Köln“. -->
+    <string name="g_place_near">Bei %1$s</string>
+    <!-- TalkBack-Aktion des Orts unter dem Datum, die sein Blatt öffnet -->
+    <string name="g_place_show">Ort anzeigen</string>
+
+    <!-- Das Blatt des Orts -->
+    <string name="g_place_coordinates">Koordinaten</string>
+    <string name="g_place_accuracy">Genauigkeit</string>
+    <!-- Wie weit die Position abweichen kann, z. B. „Etwa 12 m“, „Etwa 2,5 km“ -->
+    <string name="g_place_accuracy_m">Etwa %1$d\u00A0m</string>
+    <string name="g_place_accuracy_km">Etwa %1$s\u00A0km</string>
+    <!-- Unter den Koordinaten eines Orts mit Namen; die Lizenz steht unter Lizenzen -->
+    <string name="g_place_names_credit">Ortsnamen von GeoNames</string>
+    <string name="g_place_open_maps">In Karten öffnen</string>
+    <string name="g_place_remove">Ort entfernen</string>
+    <string name="g_place_remove_title">Ort entfernen?</string>
+    <string name="g_place_remove_body">Die Aufnahme sagt dann nicht mehr, wo sie entstand. Das lässt sich nicht rückgängig machen.</string>
+    <string name="g_place_remove_confirm">Entfernen</string>
+    <string name="g_place_error_remove">Der Ort wurde nicht entfernt. Erneut versuchen.</string>
+    <string name="g_place_error_maps">Keine App auf diesem Telefon zeigt Orte auf einer Karte. Eine installieren und erneut versuchen.</string>
+
+    <!-- Die Markdown-Datei („- Ort: Bei Köln“), eine Kopie („Ort: Bei Köln“) und ein über den Ort
+         gefundenes Suchergebnis („Ort: Köln“) -->
+    <string name="g_place_label">Ort</string>
+</resources>

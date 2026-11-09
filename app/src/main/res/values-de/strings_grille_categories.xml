@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deutsche Texte für die Kategorien (g_cat_). Neutraler Infinitiv-Stil, ohne du/Sie. -->
+<resources>
+    <string name="g_cat_title">Kategorien</string>
+    <string name="g_cat_add">Kategorie hinzufügen</string>
+    <string name="g_cat_new_title">Neue Kategorie</string>
+    <string name="g_cat_edit_title">Kategorie bearbeiten</string>
+    <string name="g_cat_name">Name</string>
+    <!-- Die Arten selbst sind die Aufnahmemodi, benannt durch g_mode_* in strings_grille.xml. -->
+    <string name="g_cat_type">Art</string>
+    <string name="g_cat_create">Hinzufügen</string>
+    <string name="g_cat_save">Speichern</string>
+
+    <!-- Warum ein Name nicht geht. %d ist die größte Länge. -->
+    <string name="g_cat_name_empty">Der Kategorie einen Namen geben.</string>
+    <plurals name="g_cat_name_long">
+        <item quantity="one">Höchstens %d Zeichen verwenden.</item>
+        <item quantity="other">Höchstens %d Zeichen verwenden.</item>
+    </plurals>
+    <string name="g_cat_name_taken">Eine andere Kategorie hat diesen Namen.</string>
+
+    <string name="g_cat_delete">Kategorie löschen</string>
+    <string name="g_cat_delete_title">Diese Kategorie löschen?</string>
+    <string name="g_cat_delete_body">Aufnahmen dieser Kategorie behalten ihre Notizen und Aufgaben.</string>
+    <string name="g_cat_delete_confirm">Löschen</string>
+    <string name="g_cat_last">Das ist die einzige Kategorie, sie bleibt also.</string>
+</resources>

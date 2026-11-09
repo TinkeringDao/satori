@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grille strings for the first run (g_fr_): Get ready, Getting ready and Ready, and the first
+     recording's coach line. Which state says which is ui/screens/FirstRunCopy.kt; the limits on
+     their length and words are FirstRunStringsTest's. Reused from elsewhere: g_onb_step,
+     g_onb_percent, g_onb_megabytes, g_onb_resuming, g_onb_retry and g_rec_action_settings.
+     German in values-de/strings_grille_firstrun.xml. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Get ready -->
+    <string name="g_fr_intro">Talk. Satori writes the notes and finds the to-dos. All on this phone.</string>
+    <!-- The rows of what downloads, each beside its size -->
+    <string name="g_fr_part_speech">Speech recognition</string>
+    <string name="g_fr_part_malayalam">Malayalam</string>
+    <string name="g_fr_part_notes">AI notes</string>
+    <string name="g_fr_part_notes_when">After your first recording</string>
+    <string name="g_fr_wifi_only">On Wi-Fi only.</string>
+    <string name="g_fr_mobile_now">You are on mobile data.</string>
+    <string name="g_fr_wait_wifi">Wait for Wi-Fi</string>
+    <!-- %1$s is the size of the download, e.g. "808 MB" -->
+    <string name="g_fr_download">Download %1$s</string>
+    <string name="g_fr_space_title">Not enough space</string>
+    <!-- %1$s is the space needed, %2$s the free space, e.g. "1.1 GB" and "600 MB" -->
+    <string name="g_fr_space_body">Needs %1$s. Free: %2$s.</string>
+    <string name="g_fr_space_action">Open storage settings</string>
+
+    <!-- Getting ready -->
+    <string name="g_fr_getting_ready">Getting ready</string>
+    <string name="g_fr_time_left">About %1$d min left</string>
+    <string name="g_fr_time_under">Under 1 min left</string>
+    <string name="g_fr_checking">Checking the files</string>
+    <string name="g_fr_pause">Pause</string>
+    <string name="g_fr_resume">Continue</string>
+    <string name="g_fr_paused">Paused</string>
+    <string name="g_fr_leave">You can leave. Satori keeps going.</string>
+    <!-- TalkBack for the progress: %1$s is the part downloading, %2$d the percent, in tens.
+         "percent" and "Prozent" stay the same for every number, so it is no plural. -->
+    <string name="g_fr_progress_cd" tools:ignore="PluralsCandidate">%1$s, %2$d percent</string>
+
+    <!-- The microphone, asked during the wait. "While using the app" is Android's own label. -->
+    <string name="g_fr_mic_why">To record, Satori needs the microphone.</string>
+    <string name="g_fr_mic_how">Then choose “While using the app”.</string>
+    <string name="g_fr_mic_action">Allow microphone</string>
+    <string name="g_fr_mic_ok">Microphone allowed.</string>
+    <string name="g_fr_mic_refused">Satori can\'t record without the microphone.</string>
+    <!-- Over "Open settings", as g_fr_mic_how is over "Allow microphone": what to do on the page it opens -->
+    <string name="g_fr_mic_settings">Then allow the microphone under Permissions.</string>
+    <string name="g_fr_record_waits">Record works when the download is done.</string>
+    <string name="g_fr_record">Record</string>
+
+    <!-- What keeps the download from going on: a title and one sentence -->
+    <string name="g_fr_err_conn_title">No connection</string>
+    <string name="g_fr_err_conn_body">Satori goes on by itself when it is back.</string>
+    <string name="g_fr_try_now">Try now</string>
+    <string name="g_fr_err_wifi_title">Waiting for Wi-Fi</string>
+    <!-- %1$s is what is still to download, e.g. "428 MB" -->
+    <string name="g_fr_err_wifi_body">%1$s left. Satori goes on when Wi-Fi is back.</string>
+    <string name="g_fr_use_mobile">Use mobile data</string>
+    <!-- The phone is online, but Satori's connections fail: a firewall or a data setting -->
+    <string name="g_fr_err_blocked_title">No internet for Satori</string>
+    <string name="g_fr_err_blocked_body">A firewall or data setting may be blocking it.</string>
+    <string name="g_fr_err_server_title">The server isn\'t answering</string>
+    <string name="g_fr_err_server_body">Satori tries again in a few minutes.</string>
+    <string name="g_fr_err_damaged_title">A file arrived damaged</string>
+    <string name="g_fr_err_damaged_body">Satori fetches it again.</string>
+
+    <!-- Ready -->
+    <string name="g_fr_ready_title">Ready to record</string>
+    <string name="g_fr_ready_body">Say anything. A minute or more makes good notes.</string>
+    <string name="g_fr_ready_look">Look around first</string>
+
+    <!-- The first recording only, under the recorder's status until the 20th word or 90 s -->
+    <string name="g_fr_coach">Talk for a minute. Notes follow when you stop.</string>
+</resources>

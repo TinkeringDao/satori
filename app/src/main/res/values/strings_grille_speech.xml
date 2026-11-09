@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The speech models: their rows in Advanced settings, the better transcript after Stop, the
+     words to recognize, the microphone input, and the choice of model for Transcribe again on the
+     details page. German in values-de/strings_grille_speech.xml. -->
+<resources>
+    <!-- Advanced, under "Microphone": the input speech is captured from, a row and a sheet of the
+         inputs offered, each with a line of what picking it means. The general one (MIC), the
+         default and recommended, then the one for calls (VOICE_COMMUNICATION). Android's input for
+         speech recognition (VOICE_RECOGNITION) records speech on the razr about 20 dB lower; it is
+         offered only if MicSource.OFFERS_SPEECH_RECOGNITION_INPUT says so. -->
+    <string name="g_settings_mic_input">Microphone input</string>
+    <!-- Under the name of the input chosen, in the row -->
+    <string name="g_settings_mic_input_desc">How the voice is picked up. Applies from the next recording.</string>
+    <!-- Under the title of the sheet -->
+    <string name="g_settings_mic_input_help">Applies from the next recording.</string>
+    <string name="g_settings_mic_recognition">For speech recognition</string>
+    <string name="g_settings_mic_recognition_desc">Much quieter on this phone: most words can be lost.</string>
+    <string name="g_settings_mic_usual">The phone\'s usual input</string>
+    <string name="g_settings_mic_usual_desc">Recommended: works best on this phone</string>
+    <string name="g_settings_mic_calls">With the phone\'s noise reduction</string>
+    <string name="g_settings_mic_calls_desc">As in calls: can help in loud places, can cost words in quiet ones</string>
+
+    <!-- Advanced, under "Speech recognition": what the models are for -->
+    <string name="g_speech_help">Parakeet v3 transcribes while you record, Malayalam (AI4Bharat) the recordings in Malayalam. The others make a better transcript after Stop or with Transcribe again.</string>
+    <string name="g_speech_busy">One speech model downloads at a time. Pause it to start another.</string>
+    <string name="g_speech_v3" translatable="false">Parakeet v3</string>
+    <string name="g_speech_v3_desc">Writes the transcript while recording, in English or German. Needed to record. About %1$s.</string>
+    <string name="g_speech_v2" translatable="false">Parakeet v2</string>
+    <string name="g_speech_v2_desc">Fewer errors in English recordings, after Stop. Quick. About %1$s.</string>
+    <string name="g_speech_cohere" translatable="false">Cohere Transcribe</string>
+    <string name="g_speech_cohere_desc">The fewest errors in English and German, after Stop. Slow, and needs much free memory. About %1$s.</string>
+    <!-- AI4Bharat's IndicConformer, for the recordings made in Malayalam; the language's name is
+         the same in German -->
+    <string name="g_speech_ml" translatable="false">Malayalam (AI4Bharat)</string>
+    <string name="g_speech_ml_desc">For recordings in Malayalam: while recording, again after Stop, and with Transcribe again. Writes English words in Malayalam letters. About %1$s.</string>
+    <string name="g_speech_delete_title">Delete this speech model?</string>
+    <string name="g_speech_delete_body">Transcripts it made stay. You can download it again.</string>
+    <!-- The Malayalam model: what records in Malayalam records in English or German until it is
+         back (RecordingLanguage.usableWith). Nothing about the notes. -->
+    <string name="g_speech_delete_ml_body">Transcripts it made stay. Until it is back, the power key and Record as record in English or German.</string>
+
+    <!-- Advanced: the better transcript after Stop -->
+    <string name="g_speech_after_stop">Better transcript after Stop</string>
+    <!-- Under the row; the notes are written from the new transcript once it is done -->
+    <string name="g_speech_after_stop_desc">Transcribes recordings again after Stop, for fewer errors. The notes wait for it.</string>
+    <!-- Under each choice of the sheet: Off, Parakeet v2, Cohere Transcribe -->
+    <string name="g_speech_after_stop_off_desc">The transcript made while recording stays. The notes come soonest.</string>
+    <string name="g_speech_after_stop_v2_desc">Fewer errors in English. The notes come a little later.</string>
+    <string name="g_speech_after_stop_cohere_desc">The fewest errors, in English and German. The notes come latest, and it needs much free memory.</string>
+    <!-- %1$d: the longest the model may take after Stop, in whole minutes rounded down
+         (afterStopLimitMinutes, from TranscribeAfterStopUseCase.MAX_ESTIMATED_MS). Skip is on the
+         recording's page, beside the status of its finishing. -->
+    <plurals name="g_speech_after_stop_help">
+        <item quantity="one">After Stop, this model transcribes the recording again from its audio, and the notes are written from that transcript. Only for recordings in a language the model knows. Skip stops that. A recording whose audio isn\'t kept, or one that would take the model more than about %1$d minute, keeps the transcript made while recording; Transcribe again works on any length.</item>
+        <item quantity="other">After Stop, this model transcribes the recording again from its audio, and the notes are written from that transcript. Only for recordings in a language the model knows. Skip stops that. A recording whose audio isn\'t kept, or one that would take the model more than about %1$d minutes, keeps the transcript made while recording; Transcribe again works on any length.</item>
+    </plurals>
+    <string name="g_speech_after_stop_off">Off</string>
+    <string name="g_speech_after_stop_v2">Parakeet v2, English recordings</string>
+    <string name="g_speech_after_stop_cohere">Cohere Transcribe, English and German</string>
+
+    <!-- Advanced: words to recognize -->
+    <string name="g_speech_words">Words to recognize</string>
+    <!-- Under the row while nothing else is to be said about the words -->
+    <string name="g_speech_words_desc">Names and terms the transcript should spell right.</string>
+    <string name="g_speech_words_none">None</string>
+    <plurals name="g_speech_words_count">
+        <item quantity="one">%d word</item>
+        <item quantity="other">%d words</item>
+    </plurals>
+    <string name="g_speech_words_help">Names and terms, one per line, written as they should appear. Parakeet v3 listens for them from the next recording, also in Transcribe again. The other speech models do not, so a better transcript after Stop does not use them.</string>
+    <string name="g_speech_words_save">Save</string>
+    <string name="g_speech_words_vocabulary_downloading">Downloading a small file the words need (115\u00A0KB).</string>
+    <string name="g_speech_words_vocabulary_missing">The words need a small file (115\u00A0KB).</string>
+    <string name="g_speech_words_vocabulary_failed">The small file the words need couldn\'t be downloaded.</string>
+    <string name="g_speech_words_needs_v3">Parakeet v3 has to be on this phone.</string>
+    <string name="g_speech_words_not_saved">The words couldn\'t be saved; the phone may be full.</string>
+
+    <!-- The status of a recording being finished (home, its page, the notification) while the
+         better model transcribes it after Stop -->
+    <string name="g_speech_finishing_transcript">Making a better transcript</string>
+    <!-- The same with how much of the audio it has read, e.g. "Making a better transcript, 42%" -->
+    <string name="g_speech_finishing_transcript_percent">Making a better transcript, %1$d%%</string>
+    <!-- On the recording's page, beside the status of its finishing: ends the better transcript,
+         and the notes come from the one there is -->
+    <string name="g_speech_finishing_skip">Skip</string>
+    <!-- The status line once Skip was pressed, while the model stops -->
+    <string name="g_speech_finishing_skipping">Keeping this transcript</string>
+
+    <!-- Details: Transcribe again, the choice of speech model -->
+    <string name="g_speech_choose_title">Transcribe again</string>
+    <!-- About how long it takes, rounded up to whole minutes, e.g. "About 3 min." -->
+    <string name="g_speech_minutes">About %1$d min.</string>
+    <string name="g_speech_under_minute">Under a minute.</string>
+    <string name="g_speech_made_transcript">Made this transcript.</string>
+    <!-- After the Malayalam model's time, for a recording not in Malayalam: choosing it makes the recording Malayalam. -->
+    <string name="g_speech_then_ml">Then in Malayalam.</string>
+    <!-- After another model's time, for a recording in Malayalam now: its transcript makes it English or German again. -->
+    <string name="g_speech_then_en_de">Then in English or German.</string>
+    <!-- After g_speech_then_en_de: the way back for a recording made in Malayalam by mistake -->
+    <string name="g_speech_not_for_ml">Only for speech that wasn\'t Malayalam.</string>
+    <!-- Last on the line of a model whose transcript is in another language than the one there is
+         now, where the page can do it: the name, notes, to-dos and ideas are made from the new
+         transcript, and the to-dos the owner changed stay. -->
+    <string name="g_speech_text_again">Name, notes, to-dos and ideas are made again. To-dos edited, marked done or kept stay.</string>
+    <string name="g_speech_ai_busy">Can\'t run while the AI model is loaded.</string>
+    <string name="g_speech_low_memory">Needs more free memory than there is now.</string>
+    <string name="g_speech_none_fits">No speech model on this phone knows the language of this recording.</string>
+    <!-- One line above a transcript another model than Parakeet v3 made, e.g. "Transcribed with Cohere Transcribe" -->
+    <string name="g_speech_transcribed_with">Transcribed with %1$s</string>
+</resources>
