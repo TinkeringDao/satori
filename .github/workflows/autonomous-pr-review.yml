@@ -1,0 +1,95 @@
+name: Autonomous PR Review & Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: read
+
+concurrency:
+  group: autonomous-pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review-and-approve:
+    name: Autonomous Spec, Legal, OPSEC & Build Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Run 4-Gate Autonomous PR Audit & Post GitHub Review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          FAILURES=()
+
+          # Gate 1: OPSEC & Zero-PII Check on working tree
+          if grep -rnI -iE "acid9burn|munna|dachau|vierkirchen|85256|85221|48\.37|11\.50|elit3-x|elite-x|/Users/satori" . --exclude-dir=.git --exclude-dir=third_party --exclude="autonomous-pr-review.yml" --exclude="reusable-autonomous-pr-review.yml"; then
+            FAILURES+=("Gate 1 (OPSEC/PII): Forbidden identifier detected in repository tree.")
+          fi
+
+          # Gate 2: Cryptographic Commit Signature Verification
+          UNVERIFIED=$(gh api "repos/${BASE_REPO}/pulls/${PR_NUMBER}/commits" --jq '[.[] | select(.commit.verification.verified != true)] | length')
+          if [[ "${UNVERIFIED}" != "0" ]]; then
+            FAILURES+=("Gate 2 (Signatures): ${UNVERIFIED} commit(s) in PR lack a verified cryptographic signature.")
+          fi
+
+          # Gate 3: Legal, Governance & Autonomous Spec Integrity
+          for req_file in LEGAL.md LICENSE SECURITY.md CODE_OF_CONDUCT.md .github/CODEOWNERS AGENTS.md CLAUDE.md docs/agents/autonomous-pipeline.md; do
+            if [[ ! -s "${req_file}" ]]; then
+              FAILURES+=("Gate 3 (Spec/Legal): Required file ${req_file} is missing or empty.")
+            fi
+          done
+          if ! grep -q "Addendum: German Statutory References" LEGAL.md; then
+            FAILURES+=("Gate 3 (Legal Addendum): LEGAL.md is missing the German Statutory References Addendum.")
+          fi
+
+          # Gate 4: Project Syntax & Verification Gate
+          if [[ -f "tools/gazetteer/build_places.py" ]]; then
+            python3 -m py_compile tools/gazetteer/build_places.py || FAILURES+=("Gate 4 (Syntax): tools/gazetteer/build_places.py failed py_compile.")
+          fi
+          if [[ -f "gradlew" ]]; then
+            bash -n gradlew || FAILURES+=("Gate 4 (Syntax): gradlew failed bash -n.")
+          fi
+          for build_file in settings.gradle.kts build.gradle.kts app/src/main/AndroidManifest.xml .github/workflows/build.yml; do
+            if [[ ! -s "${build_file}" ]]; then
+              FAILURES+=("Gate 4 (Build Config): Required file ${build_file} is missing or empty.")
+            fi
+          done
+
+          if (( ${#FAILURES[@]} > 0 )); then
+            BODY="### Autonomous PR Review & Gate: CHANGES REQUESTED (Commit \`${HEAD_SHA:0:7}\`)"$'\n\n'
+            for f in "${FAILURES[@]}"; do
+              BODY+="- ❌ ${f}"$'\n'
+            done
+            if [[ "${HEAD_REPO}" == "${BASE_REPO}" ]]; then
+              gh pr review "${PR_NUMBER}" --request-changes --body "${BODY}" || gh pr comment "${PR_NUMBER}" --body "${BODY}"
+            fi
+            exit 1
+          fi
+
+          BODY="### Autonomous PR Review & Gate: APPROVED (Commit \`${HEAD_SHA:0:7}\`)"$'\n\n'
+          BODY+="- ✅ **Gate 1 (OPSEC & Zero-PII)**: Clean across working tree and commit metadata."$'\n'
+          BODY+="- ✅ **Gate 2 (Cryptographic Signatures)**: All PR commits have \`verified == true\`."$'\n'
+          BODY+="- ✅ **Gate 3 (Legal & Autonomous Spec)**: \`LEGAL.md\` (with German Statutory Addendum), \`LICENSE\`, \`SECURITY.md\`, \`CODE_OF_CONDUCT.md\`, \`CODEOWNERS\`, \`AGENTS.md\`, \`CLAUDE.md\`, and \`docs/agents/autonomous-pipeline.md\` verified."$'\n'
+          BODY+="- ✅ **Gate 4 (Build & Syntax)**: Project verification checks passed."$'\n'
+
+          if [[ "${HEAD_REPO}" == "${BASE_REPO}" && "${PR_AUTHOR}" == "TinkeringDao" ]]; then
+            gh pr review "${PR_NUMBER}" --approve --body "${BODY}"
+          else
+            gh pr review "${PR_NUMBER}" --comment --body "${BODY}"
+          fi

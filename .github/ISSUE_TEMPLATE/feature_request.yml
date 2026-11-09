@@ -1,0 +1,24 @@
+name: Feature Request
+description: Propose an improvement to on-device speech models, cover-screen ergonomics, or note synthesis
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What workflow friction or hardware limitation does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: How should this work within Satori's 100% offline, on-device constraints?
+    validations:
+      required: true
+  - type: textarea
+    id: memory_impact
+    attributes:
+      label: Memory & Thermal Considerations
+      description: Does this require additional RAM, storage, or background CPU/NPU time?
