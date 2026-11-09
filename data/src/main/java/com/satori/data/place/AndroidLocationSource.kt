@@ -1,6 +1,7 @@
 package com.satori.data.place
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
@@ -31,6 +32,7 @@ class AndroidLocationSource @Inject constructor(
 
     override fun elapsedRealtimeNanos(): Long = SystemClock.elapsedRealtimeNanos()
 
+    @SuppressLint("MissingPermission")
     override fun lastFix(provider: LocationProvider): LocationFix? {
         val manager = manager ?: return null
         if (!isAllowed()) return null
@@ -45,6 +47,7 @@ class AndroidLocationSource @Inject constructor(
         }
     }
 
+    @SuppressLint("MissingPermission")
     override suspend fun currentFix(provider: LocationProvider): LocationFix? {
         val manager = manager ?: return null
         if (!isAllowed()) return null
