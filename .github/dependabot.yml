@@ -10,6 +10,8 @@ updates:
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
+      - dependency-name: "com.halilibo.compose-richtext:*"
+        versions: [">= 1.0.0-alpha02"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
