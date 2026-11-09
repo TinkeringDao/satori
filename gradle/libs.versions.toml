@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.0"
+agp = "8.4.2"
 kotlin = "2.0.21"
 # SDK levels and the NDK for every module, so the modules cannot drift apart. minSdk is 31
 # because speech capture calls API 31 audio routing (setCommunicationDevice) and
