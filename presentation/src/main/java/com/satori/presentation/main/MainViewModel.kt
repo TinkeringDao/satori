@@ -1597,6 +1597,7 @@ class MainViewModel @Inject constructor(
                 is ChangeRecordingLanguageUseCase.Outcome.Changed -> {
                     recordingLanguage.value = language
                     _uiState.update { it.copy(language = language) }
+                    storeHomeLanguage(language)
                     Log.i(TAG, languageLine(sessionId, language, atMs))
                     _notices.trySend(RecorderNotice.RecordingIn(language))
                 }
@@ -1629,9 +1630,22 @@ class MainViewModel @Inject constructor(
         switchJob = switchScope.launch {
             before?.join()
             val outcome = changeRecordingLanguage.whileRecording(sessionId, instead)
-            if (outcome !is ChangeRecordingLanguageUseCase.Outcome.Changed && outcome != ChangeRecordingLanguageUseCase.Outcome.Unchanged) {
+            if (outcome is ChangeRecordingLanguageUseCase.Outcome.Changed || outcome == ChangeRecordingLanguageUseCase.Outcome.Unchanged) {
+                storeHomeLanguage(instead)
+            } else {
                 Log.e(TAG, "Recording $sessionId stays stored in $wanted after its speech model didn't load ($outcome)")
             }
+        }
+    }
+
+    /** A failure to store the home language choice must not disrupt the live recording switch. */
+    private suspend fun storeHomeLanguage(language: RecordingLanguage) {
+        try {
+            settingsRepository.setHomeLanguage(language)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to store the home language", e)
         }
     }
 

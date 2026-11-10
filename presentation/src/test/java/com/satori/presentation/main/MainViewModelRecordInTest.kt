@@ -185,6 +185,7 @@ class MainViewModelRecordInTest {
 
         assertEquals(RecorderNotice.RecordingIn(RecordingLanguage.MALAYALAM), recorder.notice())
         assertEquals(listOf("s1" to RecordingLanguage.MALAYALAM), recorder.recordings.languageWrites)
+        assertEquals(RecordingLanguage.MALAYALAM, settings.settings.value.homeLanguage)
         val stored = recorder.recordings.sessionOf("s1")
         assertEquals(RecordingLanguage.MALAYALAM, stored?.language)
         assertEquals(SpeechModelId.INDICCONFORMER_ML.id, stored?.transcriptModel)
@@ -305,6 +306,7 @@ class MainViewModelRecordInTest {
         assertEquals(SpeechModelId.PARAKEET_V3.id, recorder.recordings.sessionOf("s1")?.transcriptModel)
         assertEquals(RecordingLanguage.ENGLISH_OR_GERMAN, recorder.viewModel.uiState.value.language)
         assertEquals(RecordingLanguage.ENGLISH_OR_GERMAN, capture.language?.current)
+        assertEquals(RecordingLanguage.ENGLISH_OR_GERMAN, settings.settings.value.homeLanguage)
         assertFalse(recorder.viewModel.uiState.value.liveNotesOff)
     }
 
