@@ -4,26 +4,21 @@ This document defines the 6-stage **Fully Autonomous Development Pipeline** gove
 
 ```mermaid
 flowchart LR
-    S1["Stage 1: Context & Hindsight Recall"] --> S2["Stage 2: Branch Isolation & Signed TDD"]
+    S1["Stage 1: Repository Context & Spec Alignment"] --> S2["Stage 2: Branch Isolation & Signed TDD"]
     S2 --> S3["Stage 3: PR Creation (Summary / Evidence / Danger)"]
     S3 --> S4["Stage 4: Dual PR Review (4-Gate CI + Agentic Audit)"]
     S4 --> S5["Stage 5: Autonomous Remediation Loop"]
-    S5 --> S6["Stage 6: Bot Approval, Squash Merge & Hindsight Retain"]
+    S5 --> S6["Stage 6: Bot Approval & Squash Merge"]
 ```
 
 ---
 
-## Stage 1: Context & Hindsight Recall
+## Stage 1: Repository Context & Spec Alignment
 
 Before modifying any file or opening a branch:
 
-1. **Hindsight Memory Recall**: Query the persistent Hindsight vector/graph memory bank for prior architectural decisions, model memory pacing invariants, cover-screen layout rules, and legal baselines:
-   ```bash
-   curl -s -X POST "http://192.168.10.238:9100/v1/default/banks/${HINDSIGHT_BANK}/memories/recall" \
-     -H "Content-Type: application/json" \
-     -d '{"query": "TinkeringDao satori Android app autonomous pipeline legal baseline"}'
-   ```
-2. **Mandatory Repository Context**: Read the canonical governance and domain files:
+
+1. **Mandatory Repository Context**: Read the canonical governance and domain files:
    - [`AGENTS.md`](../../AGENTS.md) and [`CLAUDE.md`](../../CLAUDE.md) — Repository entry points and verification commands.
    - [`LEGAL.md`](../../LEGAL.md) — 8-pillar EU/US statutory interoperability baseline and the `Addendum: German Statutory References (Applicable to Residents of Germany)`.
    - [`SECURITY.md`](../../SECURITY.md) — Threat model, local-only data storage guarantees, and vulnerability disclosure policy.
@@ -92,11 +87,10 @@ Because the `Protect main branch` ruleset enforces `dismiss_stale_reviews_on_pus
 
 ---
 
-## Stage 6: Automated Approval, Squash Merge & Hindsight Retention
+## Stage 6: Automated Approval & Squash Merge
 
 1. **Automated GitHub Approval**: Once all 4 CI gates pass on the latest remediated commit and the PR author is verified as `TinkeringDao` on a same-repository branch, `github-actions[bot]` executes `gh pr review <PR_NUMBER> --approve`, satisfying `required_approving_review_count: 1` and `require_last_push_approval: true`.
 2. **Squash Merge & Branch Cleanup**: Once both `Autonomous PR Review & Gate` and `Build & Verify` succeed, the approved PR is merged into `main` and the remote feature branch is deleted:
    ```bash
    gh pr merge <PR_NUMBER> --squash --delete-branch
    ```
-3. **Hindsight Knowledge Retention**: The merged commit SHA, PR number, and architectural summary are persisted back to the Hindsight memory bank (`POST http://192.168.10.238:9100/v1/default/banks/${HINDSIGHT_BANK}/memories`) so subsequent autonomous runs inherit the updated state.

@@ -38,7 +38,7 @@ jobs:
           FAILURES=()
 
           # Gate 1: OPSEC & Zero-PII Check on working tree
-          if grep -rnI -iE "acid9burn|munna|dachau|vierkirchen|85256|85221|48\.37|11\.50|elit3-x|elite-x|/Users/satori" . --exclude-dir=.git --exclude-dir=third_party --exclude="autonomous-pr-review.yml" --exclude="reusable-autonomous-pr-review.yml"; then
+          if grep -rnI -iE "acid9burn|munna|dachau|vierkirchen|85256|85221|48\.37|11\.50|elit3-x|elite-x|/Users/satori|192\.168\.10\.|100\.91\.|:9100|hindsight_bank|hindsight_url|memories/recall|trackerintake|aoagents" . --exclude-dir=.git --exclude-dir=third_party --exclude="autonomous-pr-review.yml" --exclude="reusable-autonomous-pr-review.yml"; then
             FAILURES+=("Gate 1 (OPSEC/PII): Forbidden identifier detected in repository tree.")
           fi
 
