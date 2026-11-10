@@ -1,0 +1,129 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  security:
+    name: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Scan repository with Gitleaks
+        run: |
+          set -euo pipefail
+          GITLEAKS_VERSION="8.30.1"
+          GITLEAKS_SHA256="551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+          TMP_DIR="$(mktemp -d)"
+          trap 'rm -rf "$TMP_DIR"' EXIT
+          curl -fsSL -o "$TMP_DIR/gitleaks.tar.gz" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  $TMP_DIR/gitleaks.tar.gz" | sha256sum -c -
+          tar -xzf "$TMP_DIR/gitleaks.tar.gz" -C "$TMP_DIR" gitleaks
+          "$TMP_DIR/gitleaks" dir --no-banner --redact .
+
+      - name: Verify private-key, confidentiality, and governance hygiene
+        env:
+          OPSEC_BLOCKLIST_REGEX: ${{ secrets.OPSEC_BLOCKLIST_REGEX }}
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REPO: ${{ github.repository }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          PR_USER: ${{ github.event.pull_request.user.login }}
+        run: |
+          set -euo pipefail
+
+          # 1. Reject PEM / PKCS#8 / OpenSSH / PGP private key headers in tracked text files
+          if git grep -nI -E -e '-{5}BEGIN (RSA |DSA |EC |OPENSSH |PGP |ENCRYPTED )?PRIVATE KEY-{5}' -- \
+            ':(exclude)third_party/**' ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.pdf'; then
+            echo "ERROR: Private key header detected in tracked files." >&2
+            exit 1
+          fi
+
+          # 2. Reject non-standard automation or local tool config artifacts in Git
+          FORBIDDEN_PATHS="$(git ls-files | grep -E '(^|/)(AGENTS\.md|CLAUDE\.md|\.cursorrules|\.windsurfrules)$|^(\.claude|\.codex|\.cursor|\.superpowers|docs/agents|docs/superpowers)/|^\.github/workflows/(reusable-)?autonomous-pr-review\.yml$' || true)"
+          if [[ -n "$FORBIDDEN_PATHS" ]]; then
+            printf 'ERROR: Disallowed local tool files tracked in repository:\n%s\n' "$FORBIDDEN_PATHS" >&2
+            exit 1
+          fi
+
+          # 3. Confidentiality blocklist check (fail-closed except same-repo Dependabot PRs)
+          IS_DEPENDABOT_SAME_REPO="false"
+          if [[ "$EVENT_NAME" == "pull_request" && "$HEAD_REPO" == "$BASE_REPO" && "$PR_USER" == "dependabot[bot]" ]]; then
+            IS_DEPENDABOT_SAME_REPO="true"
+          fi
+          if [[ -z "$OPSEC_BLOCKLIST_REGEX" && "$IS_DEPENDABOT_SAME_REPO" != "true" ]]; then
+            echo "ERROR: Required secret OPSEC_BLOCKLIST_REGEX is missing or unavailable for this event." >&2
+            exit 1
+          fi
+          if [[ -n "$OPSEC_BLOCKLIST_REGEX" ]]; then
+            MATCH_LOCATIONS="$(grep -rnI -iE \
+              --exclude-dir=.git --exclude-dir=third_party \
+              --exclude='*.hex' --exclude='*.uf2' --exclude='*.bin' --exclude='*.elf' \
+              --exclude='*.so' --exclude='*.apk' --exclude='*.aab' --exclude='*.png' \
+              --exclude='*.jpg' --exclude='*.jpeg' --exclude='*.pdf' --exclude='*.zip' \
+              --exclude='*.gz' --exclude='*.tar' \
+              -e "$OPSEC_BLOCKLIST_REGEX" -- . | cut -d: -f1,2 || true)"
+            if [[ -n "$MATCH_LOCATIONS" ]]; then
+              printf 'ERROR: Restricted identifier detected at:\n%s\n' "$MATCH_LOCATIONS" >&2
+              exit 1
+            fi
+          fi
+
+          # 4. Verify required governance documents
+          for req in LEGAL.md LICENSE SECURITY.md CODE_OF_CONDUCT.md .github/CODEOWNERS; do
+            if [[ ! -s "$req" ]]; then
+              echo "ERROR: Required governance file '$req' is missing or empty." >&2
+              exit 1
+            fi
+          done
+          if ! grep -Fq "Addendum: German Statutory References" LEGAL.md; then
+            echo "ERROR: LEGAL.md is missing the German Statutory References Addendum." >&2
+            exit 1
+          fi
+
+      - name: Verify cryptographic commit signatures on pull request
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          COMMITS_JSON="$(gh api --paginate "repos/${BASE_REPO}/pulls/${PR_NUMBER}/commits")"
+          UNVERIFIED="$(printf '%s' "$COMMITS_JSON" | jq '[.[] | select(.commit.verification.verified != true)] | length')"
+          if [[ "$UNVERIFIED" != "0" ]]; then
+            echo "ERROR: ${UNVERIFIED} commit(s) in PR #${PR_NUMBER} lack a verified cryptographic signature." >&2
+            exit 1
+          fi
+          BAD_TRAILERS="$(printf '%s' "$COMMITS_JSON" | jq '[.[] | select(.commit.message | test("Co-Authored-By:.*(claude|anthropic|gpt|openai|gemini|antigravity|codex|copilot|cursor|aider)"; "i"))] | length')"
+          if [[ "$BAD_TRAILERS" != "0" ]]; then
+            echo "ERROR: ${BAD_TRAILERS} commit(s) in PR #${PR_NUMBER} contain disallowed attribution trailers." >&2
+            exit 1
+          fi
+
+      - name: Audit GitHub Actions workflows with zizmor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          pipx run zizmor==1.32.0 --min-severity medium .
+
+      - name: Review dependency changes
+        if: github.event_name == 'pull_request' && !github.event.repository.private
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
