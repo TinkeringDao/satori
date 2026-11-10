@@ -343,11 +343,17 @@ internal class HeldReaderAvailability(@Volatile var status: ReaderStatus = Reade
 /** Holds [settings] in memory. */
 internal class HeldSettings(settings: AppSettings = AppSettings()) : SettingsRepository {
     val settings = MutableStateFlow(settings)
+    val languageWrites = java.util.concurrent.CopyOnWriteArrayList<RecordingLanguage>()
 
     override fun getSettings(): Flow<AppSettings> = settings
 
     override suspend fun updateSettings(settings: AppSettings) {
         this.settings.value = settings
+    }
+
+    override suspend fun setHomeLanguage(language: RecordingLanguage) {
+        languageWrites += language
+        this.settings.value = this.settings.value.copy(homeLanguage = language)
     }
 
     override suspend fun setHomeCategoryId(id: String): Unit = unused()
