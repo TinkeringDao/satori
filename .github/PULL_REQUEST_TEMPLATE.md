@@ -1,15 +1,9 @@
 ## Summary
 
-<!-- 1-3 sentences explaining the user-visible or architectural change and why it was made. -->
+<!-- Concise technical description of the problem and change. -->
 
-## Evidence
+## Verification
 
-<!-- Test output, benchmarks, or Cover Screen (1080x1272) / Inner Screen (1080x2640) screenshots proving the change works. -->
-
-- [ ] `./gradlew testDebugUnitTest` passes
-- [ ] `./gradlew lintDebug` passes with 0 errors
-- [ ] `./gradlew assembleDebug` builds cleanly
-
-## Merge Danger
-
-<!-- Low / Medium / High — call out any Room schema migration, native JNI/CMake change, model memory footprint impact, or manifest permission change. -->
+- [ ] Build, linter, and unit tests pass locally
+- [ ] Commits are cryptographically signed
+- [ ] Contribution complies with [`CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md) and [`LEGAL.md`](../LEGAL.md)

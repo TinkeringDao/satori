@@ -35,4 +35,9 @@ secrets.properties
 
 # Build artifacts
 build_log.txt
+__pycache__/
+*.py[cod]
+
+# Upstream submodule GitHub Actions (excluded from root workflow linters)
+/third_party/*/.github/
 
