@@ -28,7 +28,7 @@ See [`docs/DEV_SETUP.md`](docs/DEV_SETUP.md) for the complete local build and mo
 2. **Memory & Thermal Discipline:**
    - Any code path that loads or unloads a native model (`llama.cpp`, `sherpa-onnx`, or the IndicTrans2 ONNX reader) must go through `ModelLoadPacing` (`data/src/main/java/com/satori/data/monitor/ModelLoadPacing.kt`) and respect the `120 MB/s` paced pre-fault rate and `MemAvailable` headroom checks (`MemoryFloor`, `AnswerFloor`, `ParseRoom`).
 3. **Privacy in Logs:**
-   - Never log transcript segments, user notes, titles, or file contents to `Log.*`. Follow the numeric-only field logging contract in [`docs/FIELD_LOG.md`](docs/FIELD_LOG.md).
+   - Never log transcript segments, user notes, titles, or file contents to `Log.*`. Production log tags (`SatoriNotes`, `SatoriFirstRun`, `SatoriNudge`, `SatoriQuickKey`) emit numeric counts, stage names, durations, and byte sizes only.
 4. **Cover Screen & Dual-Display Support:**
    - UI changes must work on both the inner main screen (`1080x2640`) and the Motorola Razr external cover screen (`1080x1272`, `displayId = 1`, accounting for the `232 px` camera band via `GrilleCameraBand`).
 5. **Regular Expressions:**

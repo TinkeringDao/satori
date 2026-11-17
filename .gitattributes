@@ -1,3 +1,13 @@
 # Git LFS tracking for large binary files
 *.so filter=lfs diff=lfs merge=lfs -text
 *.onnx filter=lfs diff=lfs merge=lfs -text
+
+# GitHub Linguist classifications
+lib-sherpa-onnx/** linguist-vendored
+third_party/** linguist-vendored
+app/src/main/assets/** linguist-vendored
+data/src/main/assets/** linguist-vendored
+domain/src/test/resources/** linguist-vendored
+gradle/wrapper/** linguist-vendored
+data/schemas/** linguist-generated
+docs/** linguist-documentation

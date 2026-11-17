@@ -185,7 +185,7 @@ adb logcat | grep -i -E "satori|SherpaOnnx|LlamaAndroid|SyncSttLlm|AndroidRuntim
   foreground`). Wait for a run's last line before the next `am start`; one sent
   while a run goes on starts that tool anew, and it refuses while the AI is held (a second reader
   download refuses too). `--es front true` keeps the screen in front for an emulator or a run
-  someone watches, and Back there cancels the run (`docs/FIELD_LOG.md`).
+  someone watches, and Back there cancels the run (`FieldLog.kt`).
 
 ## Check the cover's layouts on an emulator
 
@@ -302,7 +302,7 @@ each file's size and SHA-256 are in `ReaderModels` (`ModelConfig.kt`). Until the
 download (0.8.0's stage B2), a debug build fetches it with
 `adb shell am start -n com.satori/com.satori.ui.debug.DebugToolsActivity --es action reader-download`
 (`--es variant fp16` for the fallback, `--es mobile true` to allow mobile data), which also checks
-every file's SHA-256 against its pin (`docs/FIELD_LOG.md`, `The reader's debug tools`).
+every file's SHA-256 against its pin (`FieldLog.kt`).
 
 The phone checks V0b, V1 and V2 run as debug selftests over public text pushed into
 `files/debug/reader`, the files of `~/satori-audit/tools/reading/push/` (`make_push.py` writes them
@@ -390,7 +390,7 @@ NeMo CTC model and reads its subsampling factor and vocabulary size from the fil
 before every load the app checks that metadata (`model_type=EncDecCTCModelBPE`, `vocab_size=257`,
 `subsampling_factor=4`, `normalize_type=per_feature`, as sherpa-onnx's own tool read it on the phone
 on 2026-10-14) and that `tokens.txt` lists 257 tokens with the blank; a file that differs is refused
-with a `ModelDownloadManager` warning instead of reaching the loader (`docs/FIELD_LOG.md`).
+with a `ModelDownloadManager` warning instead of reaching the loader (`FieldLog.kt`).
 
 The words to recognize (Advanced settings) need `stt/bpe.vocab` (117,408 bytes, SHA-256
 `41d5e71b3591642eff088151efd7acd4e750124cc0054c8ba9fa3245187a4804`) from

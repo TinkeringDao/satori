@@ -18,7 +18,7 @@ Satori is an offline-first Android application (`com.satori`) that processes aud
   - `MainActivity`: Standard launcher activity; treats all incoming intent extras (`QuickKeyRequest`) as untrusted input and validates category IDs and language codes against known local values.
   - `QuickKeyActivity`: Exported trampoline activity (`com.satori.action.QUICK_KEY`) invoked by Motorola My Key on a hardware power-key double-press (`docs/QUICK_KEY.md`). It reads no payload from the incoming intent, drops repeats within 1,000 ms (`QuickKeyRepeatFilter`), and cannot exfiltrate any user data.
 - **Data Storage & Backup Exclusion:** All Room SQLite databases (`AppDatabase`), DataStore preferences, and downloaded models reside in app-private storage and are excluded from cloud backup and device-to-device transfer (`app/src/main/res/xml/data_extraction_rules.xml` and `backup_rules.xml`).
-- **Diagnostic Logs:** Production log tags (`SatoriNotes`, `SatoriFirstRun`, `SatoriNudge`, `SatoriQuickKey`) log only numeric counts, stage transitions, latencies in milliseconds, and memory sizes in megabytes (`docs/FIELD_LOG.md`), never raw transcript text or user notes.
+- **Diagnostic Logs:** Production log tags (`SatoriNotes`, `SatoriFirstRun`, `SatoriNudge`, `SatoriQuickKey`) log only numeric counts, stage transitions, latencies in milliseconds, and memory sizes in megabytes (`FieldLog.kt`), never raw transcript text or user notes.
 
 ## Reporting a Vulnerability
 
