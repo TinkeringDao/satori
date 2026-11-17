@@ -16,7 +16,7 @@ The Motorola razr 70 plus external POLED display (`1080×1272` px, `480×410 dp`
 The primary unfolded 6.9-inch `1080×2640` POLED display (`22:9` aspect ratio) hosting the full-height `Grille` interfaces.
 
 ### Grille
-Satori's high-contrast typographic UI system (`app/src/main/java/com/satori/ui/design/Grille*.kt`). Supports both a dark POLED palette (`#0A0A0A` surface, `#F2F0EC` ink, `#D94E34` recording accent) and a warm paper-and-ink light palette (`#F4F1EA` surface, `#141413` ink), paired with `Doto` and `Space Grotesk` typography, tabular numerals, hairline dividers, and a permanently docked bottom record bar (`docs/GRILLE_DESIGN.md`).
+Satori's high-contrast typographic UI system (`app/src/main/java/com/satori/ui/design/Grille*.kt`). Supports both a dark POLED palette (`#0A0A0A` surface, `#F2F0EC` ink, `#D94E34` recording accent) and a warm paper-and-ink light palette (`#F4F1EA` surface, `#141413` ink), paired with `Doto` and `Space Grotesk` typography, tabular numerals, hairline dividers, and a permanently docked bottom record bar.
 
 ### Quick Key (`QuickKeyActivity`)
 A windowless trampoline activity (`com.satori.quickkey.QuickKeyActivity`) bound to a double-press of the hardware power key via Motorola's `com.motorola.mykey` (`Settings.System.my_key_tap_app` and `Settings.Secure.double_tap_power_button_gesture = 2`). Filters accidental bounce presses within `1,000 ms` (`QuickKeyRepeatFilter`) and routes `QuickKeyRequest` to `MainActivity` to start or stop a recording (`docs/QUICK_KEY.md`).
@@ -62,7 +62,7 @@ Defined in `domain/src/main/java/com/satori/domain/model/SpeechModelId.kt`:
 ## Internal Malayalam Reading Bridge (`:feature-reader`, `:lib-reader-onnx`)
 
 ### Reading Step (`ReaderDataSource`, `LineReader`, `segment_readings`)
-An internal post-stop pipeline stage between *Lines* and *Notes* for Malayalam recordings (`MALAYALAM_FOUNDATION_DESIGN.md`). Uses AI4Bharat's **IndicTrans2 Distilled 200M INT8** (3 ONNX graphs on ONNX Runtime `1.28.2` + SentencePiece `model.SRC` and `model.TGT`, beam size 5) to write English readings of Malayalam transcript segments into Room (`segment_readings`, DB v13). The visible transcript remains in Malayalam, while downstream LLM steps (Notes, Auto-naming, To-dos & Ideas, and Mind Map) read the English `segment_readings` so 1B-class models do not have to parse Malayalam script directly.
+An internal post-stop pipeline stage between *Lines* and *Notes* for Malayalam recordings. Uses AI4Bharat's **IndicTrans2 Distilled 200M INT8** (3 ONNX graphs on ONNX Runtime `1.28.2` + SentencePiece `model.SRC` and `model.TGT`, beam size 5) to write English readings of Malayalam transcript segments into Room (`segment_readings`, DB v13). The visible transcript remains in Malayalam, while downstream LLM steps (Notes, Auto-naming, To-dos & Ideas, and Mind Map) read the English `segment_readings` so 1B-class models do not have to parse Malayalam script directly.
 
 ### Malayalam Text Pipeline (`com.satori.domain.reading`)
 Deterministic Unicode normalization, IndicNLP trivial tokenization, Malayalam-to-Devanagari offset transliteration (`0x00–0x6F`), vocabulary mapping, and Moses detokenization feeding the IndicTrans2 ONNX sessions (`domain/src/main/java/com/satori/domain/reading/`).
